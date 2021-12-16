@@ -8,8 +8,6 @@ class Comment(db.Model):
 
     # Columns
 
-    __tablename__ = "comments"
-
     id = db.Column(db.Integer, primary_key=True)
     userId = db.Column(db.Integer, db.ForeignKey("users.id"))
     videoId = db.Column(db.Integer, db.ForeignKey("videos.id"))
