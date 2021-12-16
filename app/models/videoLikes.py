@@ -1,6 +1,4 @@
 from .db import db
-import datetime
-from sqlalchemy import DateTime
 
 
 videoLikes = db.Table(

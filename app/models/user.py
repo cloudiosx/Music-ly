@@ -1,5 +1,6 @@
 from .db import db
 from .videoLikes import videoLikes
+from .commentLikes import commentLikes
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 import datetime
@@ -27,10 +28,18 @@ class User(db.Model, UserMixin):
     videos = db.relationship("Video", back_populates="user")
     comments = db.relationship("Comment", back_populates="user")
 
+    # Joins Table Relationship
+
     videoLikes = db.relationship(
         "Video",
         secondary=videoLikes,
         backref=db.backref("likesOfVideo", lazy="dynamic"),
+    )
+
+    commentLikes = db.relationship(
+        "Comment",
+        secondary=commentLikes,
+        backref=db.backref("likesOfComment", lazy="dynamic"),
     )
 
     @property
