@@ -1,4 +1,5 @@
 from .db import db
+from .videoHashtags import videoHashtags
 import datetime
 from sqlalchemy import DateTime
 
@@ -23,4 +24,11 @@ class Video(db.Model):
 
     user = db.relationship("User", back_populates="videos")
     comments = db.relationship("Comment", back_populates="video", cascade="all,delete")
-    hashtags = db.relationship("Hashtag", back_populates="video", cascade="all,delete")
+
+    # Joins Table Relationship
+
+    videoHashtags = db.relationship(
+        "Hashtag",
+        secondary=videoHashtags,
+        backref=db.backref("hashtagsOfVideo", lazy="dynamic"),
+    )

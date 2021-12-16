@@ -35,7 +35,6 @@ class User(db.Model, UserMixin):
         secondary=videoLikes,
         backref=db.backref("likesOfVideo", lazy="dynamic"),
     )
-
     commentLikes = db.relationship(
         "Comment",
         secondary=commentLikes,
