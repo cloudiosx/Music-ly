@@ -4,6 +4,7 @@ from sqlalchemy import DateTime
 
 
 class Comment(db.Model):
+    __tablename__ = "comments"
 
     # Columns
 
