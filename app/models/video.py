@@ -10,7 +10,7 @@ class Video(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     userId = db.Column(db.Integer, db.ForeignKey("users.id"))
-    videoUrl = db.Column(db.String(2000), nullable=False)
+    videoURL = db.Column(db.String(2000), nullable=False)
     s3Name = db.Column(db.String(2000))
     videoType = db.Column(db.String(40), nullable=False)
     topic = db.Column(db.String(255), nullable=False)
