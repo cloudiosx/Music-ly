@@ -21,6 +21,10 @@ class User(db.Model, UserMixin):
     created_at = db.Column(DateTime, default=datetime.datetime.utcnow)
     updated_at = db.Column(DateTime, default=datetime.datetime.utcnow)
 
+    # Relationships
+
+    videos = db.relationship("Video", back_populates="user")
+
     @property
     def password(self):
         return self.hashed_password
