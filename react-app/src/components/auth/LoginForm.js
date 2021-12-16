@@ -31,6 +31,7 @@ const LoginForm = () => {
   }
 
   return (
+    <h1>GIT PUSH IS WORKING</h1>
     <form onSubmit={onLogin}>
       <div>
         {errors.map((error, ind) => (
