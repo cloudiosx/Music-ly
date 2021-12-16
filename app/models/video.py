@@ -22,3 +22,4 @@ class Video(db.Model):
     # Relationships
 
     user = db.relationship("User", back_populates="videos")
+    comments = db.relationship("Comment", back_populates="video", cascade="all,delete")
