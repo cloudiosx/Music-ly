@@ -10,7 +10,7 @@ from .hashtag import Hashtag
 
 # Joins Tables Imports
 
+from .followers import followers
 from .videoLikes import videoLikes
-from .commentLikes import commentLikes
-
 from .videoHashtags import videoHashtags
+from .commentLikes import commentLikes

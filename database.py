@@ -102,6 +102,13 @@ with app.app_context():
         hashtag3.hashtagsOfVideo.append(video1)
         hashtag4.hashtagsOfVideo.append(video1)
 
+        user1.followings.append(user2)
+        user1.followings.append(user3)
+        user1.followings.append(user4)
+        user2.followings.append(user1)
+        user2.followings.append(user3)
+        user2.followings.append(user4)
+
         db.session.commit()
 
     db_setup()

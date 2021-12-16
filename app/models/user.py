@@ -1,4 +1,5 @@
 from .db import db
+from .followers import followers
 from .videoLikes import videoLikes
 from .commentLikes import commentLikes
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -39,6 +40,16 @@ class User(db.Model, UserMixin):
         "Comment",
         secondary=commentLikes,
         backref=db.backref("likesOfComment", lazy="dynamic"),
+    )
+
+    # Self-Reference Joins Table Relationship
+
+    followers = db.relationship(
+        "User",
+        secondary=followers,
+        primaryjoin=(followers.c.personDoingTheFollowing == id),
+        secondaryjoin=(followers.c.personReceivingTheFollowing == id),
+        backref=db.backref("followings"),
     )
 
     @property
