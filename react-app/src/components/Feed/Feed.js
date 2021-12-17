@@ -5,10 +5,17 @@ import NavBar from '../NavBar/NavBar';
 import "./Feed.css";
 
 function Feed() {
-  // const history = useHistory();
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  // }, [])
+  const history = useHistory();
+  const dispatch = useDispatch();
+
+  // useSelectors
+
+  const allPosts = useSelector((state) => state.postStore.allPosts);
+  console.log('allPosts ===> ', allPosts)
+
+  useEffect(() => {
+    dispatch(postStore.getAllPosts());
+  }, [dispatch])
 
   return (
     <>
