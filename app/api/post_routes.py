@@ -1,16 +1,27 @@
 from flask import Blueprint, jsonify, request
 from flask_login import current_user
-from app.models import Video
+from app.models import Video, User
+from sqlalchemy import desc
 
 post_routes = Blueprint("posts", __name__)
 
 # GET /posts
 @post_routes.route("/")
 def posts():
-    posts = Video.query.all()
+    posts = (
+        Video.query.join(User, User.id == Video.userId)
+        .add_columns(User.fullname, User.username, User.photoURL)
+        .order_by(desc(Video.created_at))
+        .all()
+    )
     newList = []
     for post in posts:
-        postDetails = post.to_dict()
+        postDetails = post[0].to_dict()
+        postDetails["User"] = {
+            "fullname": post[1],
+            "username": post[2],
+            "photoURL": post[3],
+        }
         newList.append(postDetails)
     return jsonify(newList)
 

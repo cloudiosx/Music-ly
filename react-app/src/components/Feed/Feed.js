@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import NavBar from '../NavBar/NavBar';
 import * as postStore from '../../store/post';
+import ReactPlayer from 'react-player';
 import "./Feed.css";
 
 function Feed() {
@@ -26,8 +27,11 @@ function Feed() {
           <div className='test-data'>
             {allPosts && allPosts.map((post) => (
               <div key={post.id} className='post-container'>
-                <video className='video' src={post.videoURL} loop autoPlay muted/>
-                <h1>{post.caption}</h1>
+                <div className='post-container-header'>
+                  <img src={post.User.photoURL} />
+                  <p>{post.caption}</p>
+                </div>
+                <ReactPlayer width="336px" height="600px" controls url={post.videoURL} />
               </div>
             ))}
           </div>
