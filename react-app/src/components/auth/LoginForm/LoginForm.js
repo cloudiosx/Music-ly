@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { login } from '../../store/session';
+import { login } from '../../../store/session';
+import './LoginForm.css'
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -32,8 +33,16 @@ const LoginForm = () => {
 
   return (
     <>
-      <h1>GIT PUSH IS WORKING</h1>
-      <form onSubmit={onLogin}>
+    <div className='splitScreen'>
+      <div className="leftPane">
+        <h1>Hello</h1>
+      </div>
+      <div className="rightPane">
+        <h1>World</h1>
+      </div>
+    </div>
+
+      {/* <form onSubmit={onLogin}>
         <div>
           {errors.map((error, ind) => (
             <div key={ind}>{error}</div>
@@ -60,7 +69,7 @@ const LoginForm = () => {
           />
           <button type='submit'>Login</button>
         </div>
-      </form>
+      </form> */}
     </>
   );
 };
