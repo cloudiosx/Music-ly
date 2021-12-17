@@ -15,7 +15,9 @@ function Feed() {
       <div>
         <NavBar />
         <div className="main-post-container">
-          <h1>Here are the random posts</h1>
+          <div className='test-data'>
+            <h1>Here are the random posts</h1>
+          </div>
         </div>
       </div>
     </>

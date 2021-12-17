@@ -32,6 +32,10 @@
   align-items: center;
 }
 
+.nav-link {
+  text-decoration: none;
+}
+
 .nav-links-right {
   margin-right: 100px;
   color: slategray;

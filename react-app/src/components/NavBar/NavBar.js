@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import SearchBar from '../SearchBar/SearchBar';
 import './NavBar.css'
-import LogoutButton from '../auth/LogoutButton';
 
 const NavBar = () => {
   return (
@@ -14,18 +14,18 @@ const NavBar = () => {
         </li>
         <li>
           <div>
-            Search bar
+            <SearchBar />
           </div>
         </li>
         <li>
           <ul className="right-nav-container">
             <li>
-              <NavLink to="/upload" exact={true} activeClassName="active">
+              <NavLink to="/upload" exact={true} activeClassName="active" className='nav-link'>
                 <div className="fas fa-home nav-links-right">Upload</div>
               </NavLink>
             </li>
             <li>
-              <NavLink to="/login" exact={true} activeClassName="active">
+              <NavLink to="/login" exact={true} activeClassName="active" className='nav-link'>
                 <div className="fas fa-search nav-links-right">Log in</div>
               </NavLink>
             </li>
