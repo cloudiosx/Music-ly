@@ -1,3 +1,13 @@
-.test-data {
+.main-post-container{
+  height: 1000px;
+}
+
+/* .test-data {
   padding-top: 100px;
+} */
+
+.post-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
