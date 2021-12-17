@@ -28,7 +28,7 @@ function Feed() {
             {allPosts && allPosts.map((post) => (
               <div key={post.id} className='post-container'>
                 <div className='post-container-header'>
-                  <img src={post.User.photoURL} />
+                  <img className='profile-image' src={post.User.photoURL} />
                   <p>{post.caption}</p>
                 </div>
                 <ReactPlayer width="336px" height="600px" controls url={post.videoURL} />
