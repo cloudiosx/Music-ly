@@ -1,3 +1,5 @@
+/* Page Layout */
+
 .splitScreen {
   display: flex;
   flex-direction: row;
@@ -5,9 +7,25 @@
 
 .leftPane {
   width: 50%;
-
+  height: 100%;
 }
 
-.bottomPane {
+.rightPane {
   width: 50%;
+}
+
+/* LeftPane */
+
+.leftPane-loginForm-emailContainer, .leftPane-loginForm-passwordContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+/* RightPane */
+
+video {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }

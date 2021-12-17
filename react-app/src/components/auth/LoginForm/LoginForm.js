@@ -35,41 +35,45 @@ const LoginForm = () => {
     <>
     <div className='splitScreen'>
       <div className="leftPane">
-        <h1>Hello</h1>
+        <div className='leftPane-loginForm'>
+          <div className='leftPane-loginForm-header'>
+              <p>Million of videos within your fingertips</p>
+              <p>Log in to continue.</p>
+          </div>
+          <form onSubmit={onLogin}>
+            <div>
+              {errors.map((error, ind) => (
+                <div key={ind}>{error}</div>
+              ))}
+            </div>
+            <div className='leftPane-loginForm-emailContainer'>
+              <label htmlFor='email'>Email</label>
+              <input
+                name='email'
+                type='text'
+                placeholder='Email'
+                value={email}
+                onChange={updateEmail}
+              />
+            </div>
+            <div className='leftPane-loginForm-passwordContainer'>
+              <label htmlFor='password'>Password</label>
+              <input
+                name='password'
+                type='password'
+                placeholder='Password'
+                value={password}
+                onChange={updatePassword}
+              />
+              <button type='submit'>Login</button>
+            </div>
+          </form>
+        </div>
       </div>
       <div className="rightPane">
-        <h1>World</h1>
+        <video src='/videos/loginVideo1.mp4' loop autoPlay/>
       </div>
     </div>
-
-      {/* <form onSubmit={onLogin}>
-        <div>
-          {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
-          ))}
-        </div>
-        <div>
-          <label htmlFor='email'>Email</label>
-          <input
-            name='email'
-            type='text'
-            placeholder='Email'
-            value={email}
-            onChange={updateEmail}
-          />
-        </div>
-        <div>
-          <label htmlFor='password'>Password</label>
-          <input
-            name='password'
-            type='password'
-            placeholder='Password'
-            value={password}
-            onChange={updatePassword}
-          />
-          <button type='submit'>Login</button>
-        </div>
-      </form> */}
     </>
   );
 };
