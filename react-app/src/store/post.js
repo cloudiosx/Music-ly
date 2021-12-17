@@ -7,7 +7,7 @@ const allPosts = (payload) => ({
 
 export const getAllPosts = () =>
   async (dispatch) => {
-    const res = await fetch('/api/posts')
+    const res = await fetch('/api/posts/')
 
     if (res.ok) {
       const posts = await res.json();
