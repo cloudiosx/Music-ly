@@ -4,29 +4,29 @@ from app.models import db, Video
 def seed_posts():
     johnPost1 = Video(
         userId=1,
-        videoURL="",
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/loginVideo1.mp4",
         s3Name="s3Name",
         videoType="comment",
         topic="comedy",
-        music="avicci",
+        music="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/%5BMP3DOWNLOAD.TO%5D+Phao+-+2+Phut+Hon+(KAIZ+Remix)+_+9D+AUDIO+%F0%9F%8E%A7-320k.mp3",
         caption="This is sick",
     )
     jackiePost1 = Video(
         userId=2,
-        videoURL="",
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/loginVideo1.mp4",
         s3Name="s3Name",
         videoType="comment",
         topic="comedy",
-        music="avicci",
+        music="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/%5BMP3DOWNLOAD.TO%5D+Phao+-+2+Phut+Hon+(KAIZ+Remix)+_+9D+AUDIO+%F0%9F%8E%A7-320k.mp3",
         caption="This is sick",
     )
     davidPost1 = Video(
         userId=3,
-        videoURL="",
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/loginVideo1.mp4",
         s3Name="s3Name",
         videoType="comment",
         topic="comedy",
-        music="avicci",
+        music="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/%5BMP3DOWNLOAD.TO%5D+Phao+-+2+Phut+Hon+(KAIZ+Remix)+_+9D+AUDIO+%F0%9F%8E%A7-320k.mp3",
         caption="This is sick",
     )
 
