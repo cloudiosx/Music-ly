@@ -33,8 +33,8 @@ const LoginForm = () => {
 
   return (
     <>
-    <div className='splitScreen'>
-      <div className="leftPane">
+    <div className='splitScreen-loginForm'>
+      <div className="splitScreen-loginForm-leftPane">
         <div className='leftPane-loginForm'>
           <div className='leftPane-loginForm-header'>
               <p>Million of videos within your fingertips</p>
@@ -75,7 +75,7 @@ const LoginForm = () => {
           </div>
         </div>
       </div>
-      <div className="rightPane">
+      <div className="splitScreen-loginForm-rightPane">
         <video src='/videos/loginVideo1.mp4' loop autoPlay/>
       </div>
     </div>

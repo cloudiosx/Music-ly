@@ -4,12 +4,12 @@
 
 /* Page Layout */
 
-.splitScreen-loginForm {
+.splitScreen-signUpForm {
   display: flex;
   flex-direction: row;
 }
 
-.splitScreen-loginForm-leftPane {
+.splitScreen-signUpForm-leftPane {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,13 +17,14 @@
   width: 50%;
 }
 
-.splitScreen-loginForm-rightPane {
+.splitScreen-signUpForm-rightPane {
   width: 50%;
+  background-color: black;
 }
 
 /* LeftPane */
 
-.leftPane-loginForm-emailContainer, .leftPane-loginForm-passwordContainer {
+.leftPane-signUpForm-fullnameContainer, .leftPane-signUpForm-usernameContainer, .leftPane-signUpForm-emailContainer, .leftPane-signUpForm-passwordContainer, .leftPane-signUpForm-repeatPasswordContainer, .leftPane-signUpForm-fileUploadContainer {
   display: flex;
   flex-direction: column;
 }
