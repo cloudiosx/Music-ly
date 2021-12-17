@@ -7,7 +7,12 @@ post_routes = Blueprint("posts", __name__)
 # GET /posts
 @post_routes.route("/")
 def posts():
-    return "You are in the post index route"
+    posts = Video.query.all()
+    newList = []
+    for post in posts:
+        postDetails = post[0].to_dict()
+        newList.append(postDetails)
+    return jsonify(newList)
 
 
 # GET /posts/filtered

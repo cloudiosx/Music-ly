@@ -32,3 +32,17 @@ class Video(db.Model):
         secondary=videoHashtags,
         backref=db.backref("hashtagsOfVideo", lazy="dynamic"),
     )
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "userId": self.userId,
+            "videoURL": self.videoURL,
+            "s3Name": self.s3Name,
+            "videoType": self.videoType,
+            "topic": self.topic,
+            "music": self.music,
+            "caption": self.caption,
+            "created_at": self.created_at,
+            "updated_at": self.updated_at,
+        }
