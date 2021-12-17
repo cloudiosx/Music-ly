@@ -28,6 +28,6 @@ def user_posts(id):
 
 # Edit a user's profile
 @user_routes.route("/<int:id>/edit", methods=["POST"])
-def user_posts(id):
+def user_edit(id):
     user = User.query.get(id)
     return "You are in the edit user profile route"
