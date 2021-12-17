@@ -10,12 +10,8 @@ def posts():
     posts = Video.query.all()
     newList = []
     for post in posts:
-        print("post", post)
-        print("posts", posts)
         postDetails = post.to_dict()
-        print("postDetails", postDetails)
         newList.append(postDetails)
-    print("newList", newList)
     return jsonify(newList)
 
 
