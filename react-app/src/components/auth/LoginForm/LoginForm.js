@@ -40,34 +40,39 @@ const LoginForm = () => {
               <p>Million of videos within your fingertips</p>
               <p>Log in to continue.</p>
           </div>
-          <form onSubmit={onLogin}>
-            <div>
-              {errors.map((error, ind) => (
-                <div key={ind}>{error}</div>
-              ))}
-            </div>
-            <div className='leftPane-loginForm-emailContainer'>
-              <label htmlFor='email'>Email</label>
-              <input
-                name='email'
-                type='text'
-                placeholder='Email'
-                value={email}
-                onChange={updateEmail}
-              />
-            </div>
-            <div className='leftPane-loginForm-passwordContainer'>
-              <label htmlFor='password'>Password</label>
-              <input
-                name='password'
-                type='password'
-                placeholder='Password'
-                value={password}
-                onChange={updatePassword}
-              />
-              <button type='submit'>Login</button>
-            </div>
-          </form>
+          <div className='leftPane-loginForm-body'>
+            <form onSubmit={onLogin}>
+              <div>
+                {errors.map((error, ind) => (
+                  <div key={ind}>{error}</div>
+                ))}
+              </div>
+              <div className='leftPane-loginForm-emailContainer'>
+                <label htmlFor='email'>Email</label>
+                <input
+                  name='email'
+                  type='text'
+                  placeholder='Email'
+                  value={email}
+                  onChange={updateEmail}
+                />
+              </div>
+              <div className='leftPane-loginForm-passwordContainer'>
+                <label htmlFor='password'>Password</label>
+                <input
+                  name='password'
+                  type='password'
+                  placeholder='Password'
+                  value={password}
+                  onChange={updatePassword}
+                />
+                <button type='submit'>Login</button>
+              </div>
+            </form>
+          </div>
+          <div className='leftPane-loginForm-footer'>
+            <p>Don't have an account? <a href="/sign-up">Sign Up</a></p>
+          </div>
         </div>
       </div>
       <div className="rightPane">
