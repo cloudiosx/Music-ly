@@ -25,6 +25,15 @@ function Feed() {
         <div className="main-post-container">
           <div className='test-data'>
             <h1>Here are the random posts</h1>
+            {allPosts && allPosts.map((post) => (
+              <div key={post.id} className='post-container'>
+                {console.log('INTHELOOP allPosts', allPosts)}
+                {console.log('INTHELOOP post videoURL', post.videoURL)}
+                {console.log('INTHELOOP post caption', post.caption)}
+                <video src={post.videoURL} loop autoPlay muted/>
+                <h1>{post.caption}</h1>
+              </div>
+            ))}
           </div>
         </div>
       </div>
