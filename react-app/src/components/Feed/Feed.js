@@ -30,6 +30,7 @@ function Feed() {
                 <div className='post-container-header'>
                   <img className='profile-image' src={post.User.photoURL} />
                   <p>{post.caption}</p>
+                  {console.log("Hello world")}
                 </div>
                 <ReactPlayer width="336px" height="600px" controls url={post.videoURL} />
               </div>
