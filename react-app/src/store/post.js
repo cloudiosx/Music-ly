@@ -5,8 +5,8 @@ const allPosts = (payload) => ({
   payload
 });
 
-export const getAllPosts = () => {
-  async(dispatch) => {
+export const getAllPosts = () =>
+  async (dispatch) => {
     const res = await fetch('/api/posts')
 
     if (res.ok) {
@@ -14,8 +14,7 @@ export const getAllPosts = () => {
       dispatch(allPosts(posts))
       return posts
     }
-  }
-};
+  };
 
 const postReducer = (state = {}, action) => {
   switch (action.type) {
