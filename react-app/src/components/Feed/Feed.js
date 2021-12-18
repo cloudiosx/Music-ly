@@ -24,17 +24,22 @@ function Feed() {
       <div>
         <NavBar />
         <div className="main-post-container">
-          <div className='test-data'>
-            {allPosts && allPosts.map((post) => (
-              <div key={post.id} className='post-container'>
-                <div className='post-container-header'>
-                  <img className='profile-image' src={post.User.photoURL} />
-                  <p>{post.caption}</p>
-                  {console.log("Hello world")}
+          <div className='post-container'>
+            <div className="sidebar">
+              <h1>Hello World</h1>
+            </div>
+            <div className='content'>
+              {allPosts && allPosts.map((post) => (
+                <div key={post.id} className='post-content-container'>
+                  <div className='post-container-header'>
+                    <img className='profile-image' src={post.User.photoURL} />
+                    <p>{post.caption}</p>
+                    {console.log("Hello world")}
+                  </div>
+                  <ReactPlayer width="336px" height="600px" controls url={post.videoURL} />
                 </div>
-                <ReactPlayer width="336px" height="600px" controls url={post.videoURL} />
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>
