@@ -1,7 +1,7 @@
 import { REMOVE_USER, SET_USER_ERROR, SET_USER_LOADING, SET_USER_SUCCESS } from "./constants";
 
 const actSetUserLoading = () => ({
-  type: SET_USER_SUCCESS,
+  type: SET_USER_LOADING,
 });
 
 const actSetUserSuccess = (user) => ({
@@ -10,7 +10,7 @@ const actSetUserSuccess = (user) => ({
 });
 
 const actSetUserError = (payload) => ({
-  type: SET_USER_SUCCESS,
+  type: SET_USER_ERROR,
   payload
 });
 
