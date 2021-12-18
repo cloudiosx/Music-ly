@@ -2,7 +2,6 @@ import { ALL_POSTS_SUCCESS, ALL_POSTS_LOADING, ALL_POSTS_ERROR } from './constan
 
 const actGetAllPostsLoading = () => ({
   type: ALL_POSTS_LOADING,
-  payload
 });
 
 const actGetAllPostsSuccess = (payload) => ({
@@ -27,7 +26,7 @@ export const getAllPosts = () => async (dispatch) => {
       return posts;
     }
 
-    dispatch(actGetAllPostErrors({ messsage: 'something wrong' }));
+    dispatch(actGetAllPostsError({ messsage: 'something wrong' }));
   } catch (error) {
     dispatch(actGetAllPostsError(error));
   }
