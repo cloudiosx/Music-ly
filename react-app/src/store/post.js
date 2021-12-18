@@ -1,4 +1,4 @@
-const ALL_POSTS = 'post/ALL_POSTS';
+
 
 const allPosts = (payload) => ({
   type: ALL_POSTS,
