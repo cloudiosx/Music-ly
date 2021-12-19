@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify
 from flask_login import login_required
-from app.models import User
+from app.models import User, Video
+from sqlalchemy import desc
 
 user_routes = Blueprint("users", __name__)
 
@@ -23,7 +24,11 @@ def user(id):
 # Get all of a User's posts
 @user_routes.route("/<int:id>/posts")
 def user_posts(id):
-    return "You are in the user posts route"
+    posts = (
+        Video.query.filter(Video.userId == id).order_by(desc(Video.created_at)).all()
+    )
+    postsList = [post.to_dict() for post in posts]
+    return jsonify(postsList)
 
 
 # Edit a user's profile
