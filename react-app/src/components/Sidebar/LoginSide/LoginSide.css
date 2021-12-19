@@ -1,0 +1,22 @@
+.login_side {
+  padding: 24px 16px 24px 8px;
+  margin: 0;
+}
+
+.sidebar-lock:hover .login_side {
+  padding-right: 8px;
+}
+
+.login_side-info {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: rgba(22, 24, 35, 0.5);
+}
+
+.login_side--button {
+  margin-top: 20px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+}
