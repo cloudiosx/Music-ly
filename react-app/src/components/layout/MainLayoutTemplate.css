@@ -22,3 +22,28 @@
   width: 772px;
   max-width: 772px;
 }
+
+/* side bar */
+.main-layout-sidebar {
+  /* width: 346px; 30% of 1150*/
+  position: relative;
+  flex: 0 0 346px !important;
+}
+
+.sidebar-lock {
+  position: fixed;
+  left: unset;
+  top: calc(5vh + 20px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-width: 346px;
+  max-height: calc(100vh - 5vh - 20px);
+}
+
+.sidebar-lock::-webkit-scrollbar {
+  display: none;
+}
+.sidebar-lock:hover::-webkit-scrollbar {
+  display: block;
+}
+/* end side bar */
