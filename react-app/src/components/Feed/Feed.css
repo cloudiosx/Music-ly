@@ -1,48 +1,5 @@
-.main-post-container{
-  max-width: 1150px;
-  background-color: lightgray;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.post-container {
-  display: flex;
-  flex-direction: row;
-  /* background-color: red; */
-}
-
-.post-content-container {
+.main_feed-container {
   display: flex;
   flex-direction: column;
-}
-
-/* .test-data {
-  padding-top: 100px;
-} */
-
-/* Each Post */
-
-/* .post-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-} */
-
-.sidebar {
-  width: 345px;
-  /* background-color: black; */
-}
-
-.content {
-  width: 805px;
-  /* background-color: blue; */
-}
-
-.profile-image {
-  height: 40px;
-  width: 40px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-right: 10px;
+  align-items: flex-end;
 }
