@@ -1,23 +1,35 @@
-.nav-bar-container{
+.nav-bar-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 100vw;
+  justify-content: space-around;
+  /* width: 100vw; */
   height: 5vh;
   box-shadow: 0 5px 5px -2px rgb(233, 233, 233);
   background-color: white;
   position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  padding: 10px 0;
 }
 
-.nav-bar{
+.nav-bar {
   display: flex;
   list-style: none;
   justify-content: space-between;
-  width: 100vw;
-  padding: 0;
+  align-items: center;
+  width: 100%;
+  max-width: 1150px;
+  padding: 0 20px;
 }
 
-.nav-bar-image{
+.nav-bar li {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.nav-bar-image {
   height: 30px;
   width: 30px;
   object-fit: cover;
@@ -26,10 +38,32 @@
   margin-top: 5px;
 }
 
-.right-nav-container{
+.right-nav-container {
   display: flex;
   list-style: none;
   align-items: center;
+  padding: 0;
+  gap: 20px;
+}
+
+.right-nav-container .button-upload {
+  position: relative;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.right-nav-container .button-upload:hover {
+  text-decoration: underline;
+}
+
+.right-nav-container .button-login {
+  height: 36px;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 700;
+  min-width: 100px;
 }
 
 .nav-link {
@@ -37,15 +71,14 @@
 }
 
 .nav-links-right {
-  margin-right: 100px;
   color: slategray;
 }
 
-.nav-links-right:hover{
+.nav-links-right:hover {
   color: black;
 }
 
-.feed-text{
+.feed-text {
   position: absolute;
   margin-left: 49%;
   align-self: center;
@@ -56,7 +89,6 @@
   text-decoration: none;
   color: black;
   font-size: 20px;
-  margin-left: 50px;
 }
 
 .nav-bar-logo:visited {
@@ -64,21 +96,21 @@
   text-decoration: none;
 }
 
-.nav-bar-logo-link{
+.nav-bar-logo-link {
   text-decoration: none;
 }
 
-@media screen and (max-width: 600px){
-  .nav-bar{
-      flex-direction: column;
-      align-items: center;
+@media screen and (max-width: 600px) {
+  .nav-bar {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .nav-bar-logo{
-      margin-left: 0;
-      margin-bottom: 15px;
-}
- .nav-bar-image{
-     margin-right: 27px;
- }
+  .nav-bar-logo {
+    margin-left: 0;
+    margin-bottom: 15px;
+  }
+  .nav-bar-image {
+    margin-right: 27px;
+  }
 }

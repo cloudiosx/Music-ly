@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import SearchBar from '../SearchBar/SearchBar';
-import './NavBar.css'
+import Button from '../pieces/Button';
+import './NavBar.css';
 
 const NavBar = () => {
   return (
@@ -20,13 +21,13 @@ const NavBar = () => {
         <li>
           <ul className="right-nav-container">
             <li>
-              <NavLink to="/upload" exact={true} activeClassName="active" className='nav-link'>
-                <div className="fas fa-home nav-links-right">Upload</div>
-              </NavLink>
+              <div className="button-upload">Upload</div>
             </li>
             <li>
-              <NavLink to="/login" exact={true} activeClassName="active" className='nav-link'>
-                <div className="fas fa-search nav-links-right">Log in</div>
+              <NavLink to="/login" exact={true} className="nav-link">
+                <Button className="button-login" type="fill">
+                  Login
+                </Button>
               </NavLink>
             </li>
             {/* <li>
@@ -47,6 +48,6 @@ const NavBar = () => {
       </ul>
     </nav>
   );
-}
+};
 
 export default NavBar;
