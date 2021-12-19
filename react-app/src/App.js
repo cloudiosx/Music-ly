@@ -14,6 +14,13 @@ function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
+  const renderMainLayoutRoutes = (routes) => {
+    return routes.map((route, idx) => {
+      const isExact = route.exact === undefined ? true : route.exact;
+      return <MainLayoutTemplate key={idx} exact={isExact} path={route.path} Component={route.component} />;
+    });
+  }
+
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
@@ -29,21 +36,22 @@ function App() {
     <BrowserRouter>
       {/* <NavBar /> */}
       <Switch>
-        <Route path='/' exact={true}>
+        {renderMainLayoutRoutes(mainLayoutRoutes)}
+        {/* <Route path='/' exact={true}>
           <Feed />
-        </Route>
+        </Route> */}
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        <Route path='/users' exact={true} >
+        {/* <Route path='/users' exact={true} >
           <UsersList/>
         </Route>
         <Route path='/users/:userId' exact={true} >
           <User />
-        </Route>
+        </Route> */}
       </Switch>
     </BrowserRouter>
   );
