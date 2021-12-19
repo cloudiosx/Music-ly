@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
-import NavBar from '../NavBar/NavBar';
-import * as postStore from '../../store/post/actions';
-import ReactPlayer from 'react-player';
-import "./Feed.css";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { getAllPosts } from '../../store/post/actions';
+import Post from '../Post/Post';
+import './Feed.css';
 
 function Feed() {
   const history = useHistory();
@@ -13,37 +12,17 @@ function Feed() {
   // useSelectors
 
   const allPosts = useSelector((state) => state.postStore.allPosts);
-  console.log('allPosts ===> ', allPosts)
+  console.log('allPosts ===> ', allPosts);
 
   useEffect(() => {
-    dispatch(postStore.getAllPosts());
-  }, [dispatch])
+    dispatch(getAllPosts());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
-    <>
-      <div>
-        <NavBar />
-        <div className="main-post-container">
-          <div className='post-container'>
-            <div className="sidebar">
-              <h1>Hello World</h1>
-            </div>
-            <div className='content'>
-              {allPosts && allPosts.map((post) => (
-                <div key={post.id} className='post-content-container'>
-                  <div className='post-container-header'>
-                    <img className='profile-image' src={post.User.photoURL} />
-                    <p>{post.caption}</p>
-                    {console.log("Hello world")}
-                  </div>
-                  <ReactPlayer width="336px" height="600px" controls url={post.videoURL} />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
+    <main className="main_feed-container">
+      {allPosts && allPosts.map((post) => <Post post={post} key={post.id} />)}
+    </main>
   );
 }
 

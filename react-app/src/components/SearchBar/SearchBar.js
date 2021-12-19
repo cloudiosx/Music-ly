@@ -1,13 +1,22 @@
-const SearchBar = () => (
-  <form action="/" method="get">
+import React from 'react';
+import './SearchBar.css';
+
+const SearchBar = () => {
+  return (
+    <form action="/" method="get" className="search_form">
       <input
-          type="text"
-          id="header-search"
-          placeholder="Search accounts and videos"
-          name="s"
+        type="text"
+        id="header-search"
+        className="search_input"
+        placeholder="Search accounts and videos"
+        name="search"
       />
-      <button type="submit">Search</button>
-  </form>
-);
+      <span className="search_divider"></span>
+      <button type="submit" className="search_button">
+        <img src="/images/magnify.svg" alt="click here to search" />
+      </button>
+    </form>
+  );
+};
 
 export default SearchBar;

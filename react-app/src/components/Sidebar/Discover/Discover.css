@@ -1,0 +1,16 @@
+.discover {
+  padding: 16px 8px 8px 8px;
+  width: 100%;
+}
+
+.discover_content {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.discover_tags_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}

@@ -1,0 +1,32 @@
+.myButton {
+  width: 100%;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  min-width: 100px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 8px;
+}
+
+.myButton.button-fill {
+  background-color: #fe2c55;
+  color: #fff;
+  width: 100%;
+}
+
+.myButton.button-text {
+  background: #fff;
+  border: 1px solid #fe2c55;
+  color: #fe2c55;
+}
+
+.myButton.medium {
+  height: 48px;
+}
+
+.myButton.small {
+  height: 28px;
+}
