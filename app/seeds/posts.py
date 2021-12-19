@@ -8,7 +8,7 @@ def seed_posts():
         s3Name="s3Name",
         videoType="comment",
         topic="comedy",
-        music="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/%5BMP3DOWNLOAD.TO%5D+Phao+-+2+Phut+Hon+(KAIZ+Remix)+_+9D+AUDIO+%F0%9F%8E%A7-320k.mp3",
+        music="Phao - 2 Phut Hon (KAIZ Remix)",
         caption="This is sick",
     )
     jackiePost1 = Video(
@@ -17,7 +17,7 @@ def seed_posts():
         s3Name="s3Name",
         videoType="comment",
         topic="comedy",
-        music="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/%5BMP3DOWNLOAD.TO%5D+Phao+-+2+Phut+Hon+(KAIZ+Remix)+_+9D+AUDIO+%F0%9F%8E%A7-320k.mp3",
+        music="Phao - 2 Phut Hon (KAIZ Remix)",
         caption="This is sick",
     )
     davidPost1 = Video(
@@ -26,7 +26,7 @@ def seed_posts():
         s3Name="s3Name",
         videoType="comment",
         topic="comedy",
-        music="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/%5BMP3DOWNLOAD.TO%5D+Phao+-+2+Phut+Hon+(KAIZ+Remix)+_+9D+AUDIO+%F0%9F%8E%A7-320k.mp3",
+        music="Phao - 2 Phut Hon (KAIZ Remix)",
         caption="This is sick",
     )
 
