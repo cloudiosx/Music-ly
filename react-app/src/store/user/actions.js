@@ -23,14 +23,14 @@ const actGetUserError = (payload) => ({
 export const getUserProfile = (id) => async (dispatch) => {
   dispatch(actGetUserLoading());
   try {
-    const response = await fetch(`/api/user/${id}`, {
+    const res = await fetch(`/api/user/${id}`, {
       headers: {
         'Content-Type': 'application/json',
       },
     });
 
-    if (response.ok) {
-      const data = await response.json();
+    if (res.ok) {
+      const data = await res.json();
       if (data.errors) {
         dispatch(actGetUserError(data.errors));
         return;
