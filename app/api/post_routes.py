@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import current_user
-from app.models import Video, User
+from app.models import db, Video, User
 from sqlalchemy import desc
 
 post_routes = Blueprint("posts", __name__)
@@ -35,25 +35,43 @@ def filtered_posts():
 # GET /posts/:id
 @post_routes.route("/<int:id>")
 def post(id):
-    return "You are in the post id route"
+    post = Video.query.get(id)
+    return post
 
 
 # POST /posts/new
 @post_routes.route("/new", methods=["POST"])
 def new_post():
-    return "You are in the create post id route"
+    new_post = Video(
+        userId=request.json["userId"],
+        videoURL=request.json["videoURL"],
+        videoType=request.json["videoType"],
+        topic=request.json["topic"],
+        music=request.json["music"],
+        caption=request.json["caption"],
+    )
+    db.session.add(new_post)
+    db.session.commit()
+    return new_post.to_dict()
 
 
 # UPDATE /posts/edit
 @post_routes.route("/<int:id>/edit", methods=["POST"])
 def updatePost(id):
-    return "You are in the update post id route"
+    postToUpdate = Video.query.get(id)
+    postToUpdate.caption = request.json["caption"]
+    db.session.commit()
+    updatedPost = Video.query.get(id)
+    return jsonify(updatedPost.to_dict())
 
 
 # DELETE /posts/:id
 @post_routes.route("/<int:id>", methods=["DELETE"])
 def deletePost(id):
-    return "You are in the delete post id route"
+    postToDelete = Video.query.get(id)
+    db.session.delete(postToDelete)
+    db.session.commit()
+    return jsonify(postToDelete.to_dict())
 
 
 # POST /posts/like
