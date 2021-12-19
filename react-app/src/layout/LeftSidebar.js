@@ -1,5 +1,5 @@
 import React from 'react';
-import Discover from '../components/Sidebar/Discorver';
+import Discover from '../components/Sidebar/Discover';
 import ForYou from '../components/Sidebar/ForYou';
 import LoginSide from '../components/Sidebar/LoginSide';
 import SuggestedAccounts from '../components/Sidebar/SuggestedAccounts';
