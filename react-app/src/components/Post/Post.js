@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactPlayer from 'react-player';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import Button from '../pieces/Button';
+import VideoMeta from '../pieces/VideoMeta';
 import './Post.css';
 
 const Post = (props) => {
   const { post } = props;
+  const history = useHistory();
+
+  const handleClickVideo = () => history.push(`/posts/${post.id}`);
   return (
     <>
       <div className="post">
@@ -38,26 +42,14 @@ const Post = (props) => {
           </div>
 
           <div className="post_content_video">
-            <ReactPlayer width="336px" height="600px" controls url={post.videoURL} />
+            <div onClick={handleClickVideo}>
+              {/* <ReactPlayer width="336px" height="600px" controls url={post.videoURL} /> */}
+              <video className='post_content_video_player' src={post.videoURL} controls></video>
+            </div>
             <div className="post_content_video--actions">
-              <div className="post_content_video--actions--item">
-                <div className="post__video--icon--wrap">
-                  <i class="far fa-heart"></i>
-                </div>
-                <b>399.7K</b>
-              </div>
-              <div className="post_content_video--actions--item">
-                <div className="post__video--icon--wrap">
-                  <i class="far fa-comment-dots"></i>
-                </div>
-                <b>399.7K</b>
-              </div>
-              <div className="post_content_video--actions--item">
-                <div className="post__video--icon--wrap">
-                  <i class="fas fa-share"></i>
-                </div>
-                <b>399.7K</b>
-              </div>
+              <VideoMeta content="399.7K" icon="far fa-heart" />
+              <VideoMeta content="399.7K" icon="far fa-comment-dots" />
+              <VideoMeta content="399.7K" icon="fas fa-share" />
             </div>
           </div>
         </div>
