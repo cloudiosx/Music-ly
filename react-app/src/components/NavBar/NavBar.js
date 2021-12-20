@@ -1,16 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import SearchBar from '../SearchBar/SearchBar';
 import Button from '../pieces/Button';
 import './NavBar.css';
+import Modal from '../pieces/Modal';
+import UploadPost from '../UploadPost/UploadPost';
 
 const NavBar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleModalUpload = () => {
+    setIsOpen((v) => !v);
+  };
+
   return (
     <nav className="nav-bar-container">
       <ul className="nav-bar">
         <li>
           <NavLink className="nav-bar-logo-link" to="/" exact={true} activeClassName="active">
-            <div className="nav-bar-logo"><img src="/images/logo.svg" alt="music.ly logo" /></div>
+            <div className="nav-bar-logo">
+              <img src="/images/logo.svg" alt="music.ly logo" />
+            </div>
           </NavLink>
         </li>
         <li>
@@ -21,7 +31,9 @@ const NavBar = () => {
         <li>
           <ul className="right-nav-container">
             <li>
-              <div className="button-upload">Upload</div>
+              <div className="button-upload" onClick={toggleModalUpload}>
+                Upload
+              </div>
             </li>
             <li>
               <NavLink to="/login" exact={true} className="nav-link">
@@ -46,6 +58,9 @@ const NavBar = () => {
           </ul>
         </li>
       </ul>
+      <Modal isOpen={isOpen} onClose={toggleModalUpload}>
+        <UploadPost />
+      </Modal>
     </nav>
   );
 };
