@@ -36,7 +36,7 @@ def filtered_posts():
 @post_routes.route("/<int:id>")
 def post(id):
     post = Video.query.get(id)
-    return post
+    return post.to_dict()
 
 
 # POST /posts/new
