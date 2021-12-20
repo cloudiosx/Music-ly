@@ -30,7 +30,7 @@ function PostDetail() {
   return (
     <main className="post_detail">
       <div className="post_left">
-        <video className='post_left_video' src={post.videoURL} controls></video>
+        <video className='post_left_video' src={post[0]?.videoURL} controls></video>
         {/* <ReactPlayer controls url={post?.videoURL} width="100%" height="100%" /> */}
         <img src="/images/closeIcon.svg" alt="go back" className="closeIcon" onClick={goBack} />
       </div>
@@ -39,12 +39,12 @@ function PostDetail() {
           <div className="post_right_head-1">
             <div style={{ flex: '0 0 auto', marginRight: '12px' }}>
               <span className="img_wrap">
-                <img src={post?.User?.photoUrl} alt="user" />
+                <img src={post[1]?.photoURL} alt="user" />
               </span>
             </div>
             <div className="middle">
-              <h2>{post?.userName}</h2>
-              <p>{post?.fullname}</p>
+              <h2>{post[1]?.username}</h2>
+              <p>{post[1]?.fullname}</p>
             </div>
             <Button type="text" className="followButton">
               Follow
@@ -53,9 +53,9 @@ function PostDetail() {
         </div>
         <div className="post_right_info">
           <h1 className="caption">
-            <b className="caption">{post?.caption}</b>
+            <b className="caption">{post[0]?.caption}</b>
           </h1>
-          <h2 className="music">{post?.caption}</h2>
+          <h2 className="music">{post[0]?.caption}</h2>
           <div className="actions">
             <VideoMeta content="399.7K" icon="far fa-heart" isHorizon />
             <VideoMeta content="399.7K" icon="far fa-comment-dots" isHorizon />
