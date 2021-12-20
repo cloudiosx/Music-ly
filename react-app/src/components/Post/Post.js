@@ -34,7 +34,7 @@ const Post = (props) => {
           </div>
 
           <div className="post_content_music">
-            <h4>The music goes here</h4>
+            <h4>{post.music}</h4>
           </div>
 
           <div className="post_content_video">
