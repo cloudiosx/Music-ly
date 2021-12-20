@@ -41,11 +41,12 @@ def post(id):
     #     .add_columns(User.fullname, User.username, User.photoURL)
     #     .order_by(desc(Video.created_at))
     #     .all()
+    #
     # )
 
     post = Video.query.get(id)
 
-    print("post details =============>", post.to_dict())
+    print("post details ============>", post.to_dict())
 
     postDetails = post.to_dict()
 
@@ -72,10 +73,17 @@ def post(id):
     # print("postList =============>", postList)
     # print("jsonList =============>", jsonList)
 
-    returnList.append(postDetails)
-    returnList.append(userDetails)
-    print("returnList =============>", returnList)
-    return jsonify(returnList)
+    returnObject = {"User": {**userDetails}, **postDetails}
+
+    print("userDetails ============> ", userDetails)
+
+    # {"User": {userDetails}, "caption": "caption", "id": 2}
+
+    # returnList.append(postDetails)
+    # returnList.append(userDetails)
+    # print("returnList =============>", returnList)
+    print("returnObject =============>", returnObject)
+    return returnObject
 
 
 # POST /posts/new
