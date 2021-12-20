@@ -76,5 +76,21 @@ def deletePost(id):
 
 # POST /posts/like
 @post_routes.route("/<int:id>/like", methods=["POST"])
-def likePost(id):
-    return "You are in the create like under post id route"
+def addLikeOnPost(id):
+    userId = request.json["userId"]
+    postId = request.json["postId"]
+    post = Video.query.get(postId)
+    post.likesOfVideo.append(userId)
+    db.session.commit()
+    return "Like has been added. Success!"
+
+
+# DELETE /posts/like
+@post_routes.route("/<int:id>/like", methods=["DELETE"])
+def removeLikeOnPost(id):
+    userId = request.json["userId"]
+    postId = request.json["postId"]
+    post = Video.query.get(postId)
+    post.likesOfVideo.remove(userId)
+    db.session.commit()
+    return "Like has been removed. Success!"
