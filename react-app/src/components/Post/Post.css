@@ -103,6 +103,12 @@
   position: relative;
   display: inline-block;
 }
+
+.post_content_video_player {
+  width: 336px;
+  height: 600px;
+}
+
 .post_content_video--actions {
   position: absolute;
   right: -64px;

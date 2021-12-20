@@ -30,7 +30,8 @@ function PostDetail() {
   return (
     <main className="post_detail">
       <div className="post_left">
-        <ReactPlayer controls url={post?.videoURL} width="100%" height="100%" />
+        <video className='post_left_video' src={post.videoURL} controls></video>
+        {/* <ReactPlayer controls url={post?.videoURL} width="100%" height="100%" /> */}
         <img src="/images/closeIcon.svg" alt="go back" className="closeIcon" onClick={goBack} />
       </div>
       <div className="post_right">

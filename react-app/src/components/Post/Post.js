@@ -43,7 +43,8 @@ const Post = (props) => {
 
           <div className="post_content_video">
             <div onClick={handleClickVideo}>
-              <ReactPlayer width="336px" height="600px" controls url={post.videoURL} />
+              {/* <ReactPlayer width="336px" height="600px" controls url={post.videoURL} /> */}
+              <video className='post_content_video_player' src={post.videoURL} controls></video>
             </div>
             <div className="post_content_video--actions">
               <VideoMeta content="399.7K" icon="far fa-heart" />
