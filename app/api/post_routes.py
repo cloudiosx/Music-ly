@@ -35,8 +35,47 @@ def filtered_posts():
 # GET /posts/:id
 @post_routes.route("/<int:id>")
 def post(id):
+
+    # post = (
+    #     Video.query.join(User, User.id == Video.userId)
+    #     .add_columns(User.fullname, User.username, User.photoURL)
+    #     .order_by(desc(Video.created_at))
+    #     .all()
+    # )
+
     post = Video.query.get(id)
-    return post.to_dict()
+
+    print("post details =============>", post.to_dict())
+
+    postDetails = post.to_dict()
+
+    print("post details 2 =============>", postDetails["userId"])
+
+    returnList = []
+
+    user = User.query.get(postDetails["userId"])
+
+    print("user details =============>", user.to_dict())
+
+    userDetails = user.to_dict()
+    # jsonList = []
+
+    # postList = {
+    #     "video": post[0].to_dict(),
+    #     "fullname": post[1],
+    #     "username": post[2],
+    #     "photoURL": post[3],
+    # }
+
+    # jsonList.append(postList)
+
+    # print("postList =============>", postList)
+    # print("jsonList =============>", jsonList)
+
+    returnList.append(postDetails)
+    returnList.append(userDetails)
+    print("returnList =============>", returnList)
+    return jsonify(returnList)
 
 
 # POST /posts/new
