@@ -82,9 +82,11 @@ def deletePost(id):
 
 @post_routes.route("/<int:id>/comments")
 def post_comments(id):
+    returnObject = []
     comments = Comment.query.filter_by(videoId=id).all()
-    print("comments ==========>", comments)
-    return comments
+    for comment in comments:
+        returnObject.append(comment.to_dict())
+    return jsonify(returnObject)
 
 
 # UPDATE a post's like

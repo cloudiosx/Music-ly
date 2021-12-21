@@ -26,4 +26,5 @@ class Comment(db.Model):
             "videoId": self.videoId,
             "content": self.content,
             "created_at": self.created_at,
+            "photoURL": self.user.photoURL,
         }
