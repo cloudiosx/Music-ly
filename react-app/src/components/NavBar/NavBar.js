@@ -1,13 +1,22 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import SearchBar from '../SearchBar/SearchBar';
+import { logout } from '../../store/session/actions';
 import Button from '../pieces/Button';
-import './NavBar.css';
 import Modal from '../pieces/Modal';
+import SearchBar from '../SearchBar/SearchBar';
 import UploadPost from '../UploadPost/UploadPost';
+import './NavBar.css';
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const { user } = useSelector((state) => state.session);
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(logout());
+  };
 
   const toggleModalUpload = () => {
     setIsOpen((v) => !v);
@@ -30,31 +39,38 @@ const NavBar = () => {
         </li>
         <li>
           <ul className="right-nav-container">
+            {user && (
+              <li>
+                <div className="button-upload--nologin" onClick={handleLogout}>
+                  <i class="fas fa-sign-out-alt"></i> Logout
+                </div>
+              </li>
+            )}
             <li>
-              <div className="button-upload" onClick={toggleModalUpload}>
-                Upload
-              </div>
+              {!user ? (
+                // TODO: ths should open login modal
+                <div className="button-upload--nologin" onClick={toggleModalUpload}>
+                  Upload
+                </div>
+              ) : (
+                <div className="button-upload" onClick={toggleModalUpload}>
+                  <img src="/images/uploadCloud.svg" alt="upload video" />
+                </div>
+              )}
             </li>
             <li>
-              <NavLink to="/login" exact={true} className="nav-link">
-                <Button className="button-login" type="fill">
-                  Login
-                </Button>
-              </NavLink>
+              {!user ? (
+                <NavLink to="/login" exact={true} className="nav-link">
+                  <Button className="button-login" type="fill">
+                    Login
+                  </Button>
+                </NavLink>
+              ) : (
+                <span className="nav_user_image">
+                  <img src={user.photoURL} alt={user.username} />
+                </span>
+              )}
             </li>
-            {/* <li>
-              <NavLink
-                to='/user1'
-                exact={true}
-                activeClassName="active"
-              >
-              <img
-                  className="nav-bar-image"
-                  src='https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/19f406936fed4c92a0789d9cab8a871c.png'
-                  alt=""
-              />
-              </NavLink>
-            </li> */}
           </ul>
         </li>
       </ul>
