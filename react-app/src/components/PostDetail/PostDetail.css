@@ -204,6 +204,14 @@
   text-align: center;
   padding: 0px 60px;
 }
+.logout_container .login_button {
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  height: 44px;
+  max-width: 360px;
+  align-self: center;
+}
 .logout_container--title {
   font-weight: 700;
   font-size: 24px;

@@ -1,0 +1,32 @@
+.comment_input_container {
+  margin: 0px 32px;
+  padding: 21px 0px;
+  background-color: rgb(255, 255, 255);
+}
+
+.comment_input_wrapper {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: -5px;
+}
+
+.comment_input_wrapper--input {
+  flex: 1 1 0%;
+  height: 30px;
+}
+
+.comment_input_wrapper--post-button {
+  font-weight: 600;
+  margin: 0px 4px 12px 16px;
+  font-size: 14px;
+  color: rgba(22, 24, 35, 0.34);
+  line-height: 14px;
+  cursor: default;
+}
+
+.comment_input_wrapper--post-button.active {
+  cursor: pointer;
+  color: rgb(254, 44, 85);
+}

@@ -3,14 +3,14 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm/LoginForm';
 import SignUpForm from './components/auth/SignUpForm/SignUpForm';
-import Feed from './components/Feed/Feed'
+import Feed from './components/Feed/Feed';
 import NavBar from './components/NavBar/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session/actions';
-import { mainLayoutRoutes } from './routes'
-import MainLayoutTemplate from './layout/MainLayoutTemplate'
+import MainLayoutTemplate from './layout/MainLayoutTemplate';
+import { mainLayoutRoutes } from './routes';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -18,17 +18,17 @@ function App() {
 
   const renderMainLayoutRoutes = (routes) => {
     return routes.map((route, idx) => {
+      // by dafault route's exact is true if no declare
       const isExact = route.exact === undefined ? true : route.exact;
       return <MainLayoutTemplate key={idx} exact={isExact} path={route.path} Component={route.component} />;
     });
-  }
+  };
 
   useEffect(() => {
-    (async() => {
-      await dispatch(authenticate());
-      setLoaded(true);
-    })();
-  }, [dispatch]);
+    setLoaded(false);
+    dispatch(authenticate(() => setLoaded(true)));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   if (!loaded) {
     return null;
@@ -39,19 +39,19 @@ function App() {
       {/* <NavBar /> */}
       <Switch>
         {renderMainLayoutRoutes(mainLayoutRoutes)}
-        {/* <Route path='/' exact={true}>
-          <Feed />
+        {/* <Route path="/" exact={true}>
+            <Feed />
         </Route> */}
-        <Route path='/login' exact={true}>
+        <Route path="/login" exact={true}>
           <LoginForm />
         </Route>
-        <Route path='/sign-up' exact={true}>
+        <Route path="/sign-up" exact={true}>
           <SignUpForm />
         </Route>
-        {/* <Route path='/users' exact={true} >
-          <UsersList/>
+        {/* <Route path="/users" exact={true}>
+          <UsersList />
         </Route>
-        <Route path='/users/:userId' exact={true} >
+        <Route path="/users/:userId" exact={true}>
           <User />
         </Route> */}
       </Switch>

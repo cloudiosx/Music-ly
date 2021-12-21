@@ -3,6 +3,9 @@ import ReactPlayer from 'react-player';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { getOnePost } from '../../store/post/actions';
+import CommentInput from '../CommentInput/CommentInput';
+import CommentLogout from '../CommentLogout/CommentLogout';
+import Comments from '../Comments/Comments';
 import Button from '../pieces/Button';
 import VideoMeta from '../pieces/VideoMeta';
 import './PostDetail.css';
@@ -13,8 +16,9 @@ function PostDetail() {
   const { postId } = useParams();
 
   const post = useSelector((state) => state.postStore.postDetail);
+  const user = useSelector((state) => state.session.user);
 
-  console.log("post", post);
+  console.log('post', post);
   console.log(postId);
 
   useEffect(() => {
@@ -30,7 +34,7 @@ function PostDetail() {
   return (
     <main className="post_detail">
       <div className="post_left">
-        <video className='post_left_video' src={post[0]?.videoURL} controls></video>
+        <video className="post_left_video" src={post.videoURL} controls></video>
         {/* <ReactPlayer controls url={post?.videoURL} width="100%" height="100%" /> */}
         <img src="/images/closeIcon.svg" alt="go back" className="closeIcon" onClick={goBack} />
       </div>
@@ -39,12 +43,12 @@ function PostDetail() {
           <div className="post_right_head-1">
             <div style={{ flex: '0 0 auto', marginRight: '12px' }}>
               <span className="img_wrap">
-                <img src={post[1]?.photoURL} alt="user" />
+                <img src={post?.User?.photoUrl} alt="user" />
               </span>
             </div>
             <div className="middle">
-              <h2>{post[1]?.username}</h2>
-              <p>{post[1]?.fullname}</p>
+              <h2>{post?.User?.username}</h2>
+              <p>{post?.User?.fullname}</p>
             </div>
             <Button type="text" className="followButton">
               Follow
@@ -53,9 +57,9 @@ function PostDetail() {
         </div>
         <div className="post_right_info">
           <h1 className="caption">
-            <b className="caption">{post[0]?.caption}</b>
+            <b className="caption">{post?.caption}</b>
           </h1>
-          <h2 className="music">{post[0]?.caption}</h2>
+          <h2 className="music">{post?.caption}</h2>
           <div className="actions">
             <VideoMeta content="399.7K" icon="far fa-heart" isHorizon />
             <VideoMeta content="399.7K" icon="far fa-comment-dots" isHorizon />
@@ -70,21 +74,9 @@ function PostDetail() {
             </div>
           </div>
         </div>
-        <div className="post_right_comment">
-          <div className="logout_container">
-            <h3 className="logout_container--title">Login to see comments</h3>
-            <p className="logout_container--subtitle">Login to see comments and like the video</p>
-            <Button type="fill" size="medium" className="login_button">
-              Log in
-            </Button>
-            <p className="question">
-              Don't have an accounts?
-              <span className="question--signup">Sign up</span>
-            </p>
-          </div>
-        </div>
+        <div className="post_right_comment">{!user ? <CommentLogout /> : <Comments />}</div>
+        {user && <CommentInput />}
       </div>
-      {/* {allPosts && allPosts.map((post) => <Post post={post} key={post.id} />)} */}
     </main>
   );
 }
