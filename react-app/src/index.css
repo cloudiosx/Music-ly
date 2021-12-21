@@ -5,6 +5,10 @@ body {
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 .active_link {
   color: #fe2c55 !important;
 }
