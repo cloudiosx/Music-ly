@@ -19,7 +19,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
     photoURL = db.Column(db.String(2000), nullable=False)
-    s3Name = db.Column(db.String(2000))
+    # s3Name = db.Column(db.String(2000))
     verified = db.Column(db.Boolean, default=False, nullable=False)
     created_at = db.Column(DateTime, default=datetime.datetime.utcnow)
     updated_at = db.Column(DateTime, default=datetime.datetime.utcnow)
