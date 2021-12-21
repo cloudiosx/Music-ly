@@ -45,4 +45,5 @@ class Video(db.Model):
             "caption": self.caption,
             "created_at": self.created_at,
             "updated_at": self.updated_at,
+            "comments": [comment.to_dict() for comment in self.comments],
         }
