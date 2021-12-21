@@ -19,7 +19,7 @@ const actRemoveUser = () => ({
   type: REMOVE_USER,
 });
 
-export const authenticate = () => async (dispatch) => {
+export const authenticate = (callbackLoaded) => async (dispatch) => {
   dispatch(actSetUserLoading());
   try {
     const response = await fetch('/api/auth/', {
@@ -37,6 +37,8 @@ export const authenticate = () => async (dispatch) => {
     }
   } catch (error) {
     dispatch(actSetUserError(error));
+  } finally {
+    callbackLoaded();
   }
 };
 
