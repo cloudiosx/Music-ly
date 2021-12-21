@@ -34,7 +34,7 @@ function PostDetail() {
   return (
     <main className="post_detail">
       <div className="post_left">
-        <video className="post_left_video" src={post?.videoURL} controls></video>
+        <video className="post_left_video" src={post?.videoURL} controls muted autoPlay={true}></video>
         {/* <ReactPlayer controls url={post?.videoURL} width="100%" height="100%" /> */}
         <img src="/images/closeIcon.svg" alt="go back" className="closeIcon" onClick={goBack} />
       </div>
@@ -57,24 +57,24 @@ function PostDetail() {
         </div>
         <div className="post_right_info">
           <h1 className="caption">
-            <b className="caption">{post?.caption}</b>
+            <b className="caption">
+              {post?.caption} <strong>#{post?.topic}</strong>
+            </b>
           </h1>
-          <h2 className="music">{post?.caption}</h2>
+          <h2 className="music">{post?.music}</h2>
           <div className="actions">
             <VideoMeta content="399.7K" icon="far fa-heart" isHorizon />
             <VideoMeta content="399.7K" icon="far fa-comment-dots" isHorizon />
             <VideoMeta content="399.7K" icon="fas fa-share" isHorizon />
           </div>
           <div className="copy_link">
-            <div className="copy_link--link">
-              https://google.com/1545653145645621454564564635465456344654658456343564564356465843564369549364356
-            </div>
+            <div className="copy_link--link">{window.location.href}</div>
             <div className="copy_link--copy">
               <p>Copy Link</p>
             </div>
           </div>
         </div>
-        <div className="post_right_comment">{!user ? <CommentLogout /> : <Comments />}</div>
+        <div className="post_right_comment">{!user ? <CommentLogout /> : <Comments comments={post.comments} />}</div>
         {user && <CommentInput />}
       </div>
     </main>
