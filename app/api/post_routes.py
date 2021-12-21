@@ -89,25 +89,20 @@ def post_comments(id):
     return jsonify(returnObject)
 
 
-# UPDATE a post's like
-
-# # POST /posts/like
-# @post_routes.route("/<int:id>/like", methods=["POST"])
-# def addLikeOnPost(id):
-#     userId = request.json["userId"]
-#     postId = request.json["postId"]
-#     post = Video.query.get(postId)
-#     post.likesOfVideo.append(userId)
-#     db.session.commit()
-#     return "Like has been added. Success!"
+# POST a Like on a post
 
 
-# # DELETE /posts/like
-# @post_routes.route("/<int:id>/like", methods=["DELETE"])
-# def removeLikeOnPost(id):
-#     userId = request.json["userId"]
-#     postId = request.json["postId"]
-#     post = Video.query.get(postId)
-#     post.likesOfVideo.remove(userId)
-#     db.session.commit()
-#     return "Like has been removed. Success!"
+@post_routes.route("/<int:id>/like", methods=["POST"])
+def likePost(id):
+    post = Video.query.get(id)
+    userId = request.json["userId"]
+    postId = request.json["videoId"]
+
+    if post.likesOfVideo.includes(userId):
+        post.likesOfVideo.remove(userId)
+        db.session.commit()
+        return "You have unliked the post successfully"
+    else:
+        post.likesOfVideo.append(userId)
+        db.session.commit()
+        return "You have liked the post successfully"
