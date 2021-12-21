@@ -19,3 +19,11 @@ class Comment(db.Model):
 
     user = db.relationship("User", back_populates="comments", lazy="subquery")
     video = db.relationship("Video", back_populates="comments")
+
+    def to_dict(self):
+        return {
+            "userId": self.userId,
+            "videoId": self.videoId,
+            "content": self.content,
+            "created_at": self.created_at,
+        }

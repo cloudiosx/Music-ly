@@ -1,6 +1,5 @@
 from flask import Blueprint, jsonify, request
-from flask_login import current_user
-from app.models import db, Video, User
+from app.models import db, Video, User, Comment
 from sqlalchemy import desc
 
 post_routes = Blueprint("posts", __name__)
@@ -35,54 +34,11 @@ def filtered_posts():
 # GET /posts/:id
 @post_routes.route("/<int:id>")
 def post(id):
-
-    # post = (
-    #     Video.query.join(User, User.id == Video.userId)
-    #     .add_columns(User.fullname, User.username, User.photoURL)
-    #     .order_by(desc(Video.created_at))
-    #     .all()
-    #
-    # )
-
     post = Video.query.get(id)
-
-    print("post details ============>", post.to_dict())
-
     postDetails = post.to_dict()
-
-    print("post details 2 =============>", postDetails["userId"])
-
-    returnList = []
-
     user = User.query.get(postDetails["userId"])
-
-    print("user details =============>", user.to_dict())
-
     userDetails = user.to_dict()
-    # jsonList = []
-
-    # postList = {
-    #     "video": post[0].to_dict(),
-    #     "fullname": post[1],
-    #     "username": post[2],
-    #     "photoURL": post[3],
-    # }
-
-    # jsonList.append(postList)
-
-    # print("postList =============>", postList)
-    # print("jsonList =============>", jsonList)
-
     returnObject = {"User": {**userDetails}, **postDetails}
-
-    print("userDetails ============> ", userDetails)
-
-    # {"User": {userDetails}, "caption": "caption", "id": 2}
-
-    # returnList.append(postDetails)
-    # returnList.append(userDetails)
-    # print("returnList =============>", returnList)
-    print("returnObject =============>", returnObject)
     return returnObject
 
 
@@ -121,23 +77,35 @@ def deletePost(id):
     return jsonify(postToDelete.to_dict())
 
 
-# POST /posts/like
-@post_routes.route("/<int:id>/like", methods=["POST"])
-def addLikeOnPost(id):
-    userId = request.json["userId"]
-    postId = request.json["postId"]
-    post = Video.query.get(postId)
-    post.likesOfVideo.append(userId)
-    db.session.commit()
-    return "Like has been added. Success!"
+# GET a post's comment
 
 
-# DELETE /posts/like
-@post_routes.route("/<int:id>/like", methods=["DELETE"])
-def removeLikeOnPost(id):
-    userId = request.json["userId"]
-    postId = request.json["postId"]
-    post = Video.query.get(postId)
-    post.likesOfVideo.remove(userId)
-    db.session.commit()
-    return "Like has been removed. Success!"
+@post_routes.route("/<int:id>/comments")
+def post_comments(id):
+    comments = Comment.query.filter_by(videoId=id).all()
+    print("comments ==========>", comments)
+    return comments
+
+
+# UPDATE a post's like
+
+# # POST /posts/like
+# @post_routes.route("/<int:id>/like", methods=["POST"])
+# def addLikeOnPost(id):
+#     userId = request.json["userId"]
+#     postId = request.json["postId"]
+#     post = Video.query.get(postId)
+#     post.likesOfVideo.append(userId)
+#     db.session.commit()
+#     return "Like has been added. Success!"
+
+
+# # DELETE /posts/like
+# @post_routes.route("/<int:id>/like", methods=["DELETE"])
+# def removeLikeOnPost(id):
+#     userId = request.json["userId"]
+#     postId = request.json["postId"]
+#     post = Video.query.get(postId)
+#     post.likesOfVideo.remove(userId)
+#     db.session.commit()
+#     return "Like has been removed. Success!"
