@@ -1,8 +1,10 @@
 import React from 'react';
-import Discover from '../components/Sidebar/Discover';
+import Discover from '../components/Sidebar/Discorver';
 import ForYou from '../components/Sidebar/ForYou';
 import LoginSide from '../components/Sidebar/LoginSide';
 import SuggestedAccounts from '../components/Sidebar/SuggestedAccounts';
+import FollowingList from '../components/Sidebar/FollowingList';
+import PopularTopics from '../components/Sidebar/PopularTopics';
 import './MainLayoutTemplate.css';
 
 const LeftSidebar = ({ children }) => {
@@ -10,8 +12,10 @@ const LeftSidebar = ({ children }) => {
     <div className="main-layout-sidebar">
       <div className="sidebar-lock">
         <ForYou />
+        <PopularTopics />
         <LoginSide />
         <SuggestedAccounts />
+        <FollowingList />
         <Discover />
       </div>
     </div>
