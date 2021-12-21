@@ -14,7 +14,12 @@ const CommentInput = (props) => {
   return (
     <div className="comment_input_container">
       <div className="comment_input_wrapper">
-        <input type="text" className="comment_input_wrapper--input" onChange={(e) => setText(e.target.value)} />
+        <input
+          type="text"
+          placeholder="Write comment here"
+          className="comment_input_wrapper--input"
+          onChange={(e) => setText(e.target.value)}
+        />
         <div className={`comment_input_wrapper--post-button ${!disabled ? 'active' : ''}`} onClick={handleSendComment}>
           Post
         </div>

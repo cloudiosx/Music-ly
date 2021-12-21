@@ -1,0 +1,89 @@
+.follow_info {
+  height: 206px;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 35px 12px 20px;
+  color: rgb(255, 255, 255);
+  text-align: center;
+
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  background: linear-gradient(rgba(22, 24, 35, 0) 2.92%, rgba(22, 24, 35, 0.5) 98.99%);
+  box-sizing: border-box;
+}
+
+.follow_info .image_wrap {
+  border-width: 1px;
+  border-color: rgb(255, 255, 255);
+  width: 48px;
+  height: 48px;
+  margin-bottom: 14px;
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  white-space: nowrap;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 32px;
+  border-radius: 50%;
+}
+
+.follow_info .image_wrap img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.follow_info .follow_info--title {
+  font-size: 18px;
+  line-height: 25px;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+.follow_info .follow_info--subtitle {
+  display: flex;
+  gap: 5px;
+  margin: 0 auto;
+  align-items: center;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.follow_info .button_wrap {
+  width: 164px;
+  margin: 8px auto auto;
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+}
+
+.follow_info .button_wrap--follow {
+  height: 36px;
+  min-width: 164px;
+  line-height: 1;
+  font-size: 18px;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+  padding: 1px 6px;
+}
+
+.follow_info .button_wrap--follow.following {
+  background: rgba(22, 24, 35, 0.03);
+  border: 1px solid rgba(22, 24, 35, 0.2);
+  color: #161823;
+}

@@ -14,7 +14,7 @@
 
 .comment_input_wrapper--input {
   flex: 1 1 0%;
-  height: 30px;
+  padding: 8px 12px;
 }
 
 .comment_input_wrapper--post-button {

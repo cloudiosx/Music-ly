@@ -6,17 +6,20 @@ import SuggestedAccounts from '../components/Sidebar/SuggestedAccounts';
 import FollowingList from '../components/Sidebar/FollowingList';
 import PopularTopics from '../components/Sidebar/PopularTopics';
 import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
+
 import './MainLayoutTemplate.css';
 
 const LeftSidebar = ({ children }) => {
   const user = useSelector((state) => state.session.user);
+  const location = useLocation();
   return (
     <div className="main-layout-sidebar">
       <div className="sidebar-lock">
         <ForYou />
         {!user && <LoginSide />}
         <PopularTopics />
-        <SuggestedAccounts />
+        {location.pathname !== '/following' && <SuggestedAccounts />}
         {!user && <FollowingList />}
         <Discover />
       </div>
