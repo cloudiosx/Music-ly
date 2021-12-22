@@ -1,5 +1,6 @@
 from flask import Blueprint, request, jsonify
 from app.models import db, Comment
+from flask_login import current_user
 
 comment_routes = Blueprint("comments", __name__)
 
@@ -7,7 +8,7 @@ comment_routes = Blueprint("comments", __name__)
 @comment_routes.route("/new", methods=["POST"])
 def new_comment():
     comment = Comment(
-        userId=request.json["userId"],
+        userId=current_user.id,
         postId=request.json["videoId"],
         comment=request.json["content"],
     )
@@ -17,7 +18,7 @@ def new_comment():
 
 
 # UPDATE /comments/:id/edit
-@comment_routes.route("/<int:id>/edit", methods=["POST"])
+@comment_routes.route("/<int:id>/edit", methods=["PUT"])
 def update_comment(id):
     commentToUpdate = Comment.query.get(id)
     commentToUpdate.content = request.json["content"]
