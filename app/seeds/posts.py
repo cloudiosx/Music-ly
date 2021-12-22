@@ -1,4 +1,5 @@
 from app.models import db, Video
+from .users import addison, charli, zach
 
 
 def seed_posts():
@@ -34,9 +35,26 @@ def seed_posts():
     db.session.add(charliPost1)
     db.session.add(zachPost1)
 
+    addisonPost1.likesOfVideo.append(charli)
+    addisonPost1.likesOfVideo.append(zach)
+    charliPost1.likesOfVideo.append(addison)
+    charliPost1.likesOfVideo.append(zach)
+
     db.session.commit()
 
 
 def undo_posts():
     db.session.execute("TRUNCATE videos RESTART IDENTITY CASCADE;")
     db.session.commit()
+
+
+# id = db.Column(db.Integer, primary_key=True)
+# userId = db.Column(db.Integer, db.ForeignKey("users.id"))
+#     videoURL = db.Column(db.String(2000), nullable=False)
+#     s3Name = db.Column(db.String(2000))
+#     videoType = db.Column(db.String(40), nullable=False)
+#     topic = db.Column(db.String(255), nullable=False)
+#     music = db.Column(db.String(255))
+#     caption = db.Column(db.String(2000))
+#     created_at = db.Column(DateTime, default=datetime.datetime.utcnow)
+#     updated_at = db.Column(DateTime, default=datetime.datetime.utcnow)
