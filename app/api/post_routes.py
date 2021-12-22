@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from app.models import db, Video, User, Comment
+from app.models import *
 from flask_login import current_user
 from sqlalchemy import desc
 
@@ -8,15 +8,13 @@ post_routes = Blueprint("posts", __name__)
 # GET /posts
 @post_routes.route("/")
 def posts():
-    currentUserId = current_user.id
     posts = (
         Video.query.join(User, User.id == Video.userId)
         .add_columns(User.fullname, User.username, User.photoURL)
         .order_by(desc(Video.created_at))
         .all()
     )
-    # newList = []
-    returnObject = {}
+    newList = []
     for post in posts:
         postDetails = post[0].to_dict()
         postDetails["User"] = {
@@ -24,20 +22,17 @@ def posts():
             "username": post[2],
             "photoURL": post[3],
         }
-        # newList.append(postDetails)
-        if post.likesOfVideo.includes(currentUserId):
+        if postDetails["userId"] in post[0].likesOfVideo.all():
             isLiked = True
         else:
             isLiked = False
-        totalLikes = post.likesOfVideo.length
-        totalComments = Comment.query.filter_by(videoId=post.id).all().length
-        returnObject["Post"] = postDetails
-        returnObject["isLiked"] = isLiked
-        returnObject["totalLikes"] = totalLikes
-        returnObject["totalComments"] = totalComments
-
-    # return jsonify(newList)
-    return returnObject
+        postDetails["isLiked"] = isLiked
+        totalLikes = len(post[0].likesOfVideo.all())
+        totalComments = len(Comment.query.filter_by(videoId=post[0].id).all())
+        postDetails["totalLikes"] = totalLikes
+        postDetails["totalComments"] = totalComments
+        newList.append(postDetails)
+    return jsonify(newList)
 
 
 # GET /posts/filtered
@@ -53,13 +48,12 @@ def post(id):
     postDetails = post.to_dict()
     user = User.query.get(postDetails["userId"])
     userDetails = user.to_dict()
-    currentUserId = current_user.id
-    if post.likesOfVideo.includes(currentUserId):
+    if postDetails["userId"] in post.likesOfVideo:
         isLiked = True
     else:
         isLiked = False
-    totalLikes = post.likesOfVideo.length
-    totalComments = Comment.query.filter_by(videoId=id).all().length
+    totalLikes = len(post.likesOfVideo.all())
+    totalComments = len(Comment.query.filter_by(videoId=id).all())
     returnObject = {
         "User": {**userDetails},
         **postDetails,
