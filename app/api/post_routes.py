@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify, request
 from app.models import db, Video, User, Comment
+from flask_login import current_user
 from sqlalchemy import desc
 
 post_routes = Blueprint("posts", __name__)
@@ -7,13 +8,15 @@ post_routes = Blueprint("posts", __name__)
 # GET /posts
 @post_routes.route("/")
 def posts():
+    currentUserId = current_user.id
     posts = (
         Video.query.join(User, User.id == Video.userId)
         .add_columns(User.fullname, User.username, User.photoURL)
         .order_by(desc(Video.created_at))
         .all()
     )
-    newList = []
+    # newList = []
+    returnObject = {}
     for post in posts:
         postDetails = post[0].to_dict()
         postDetails["User"] = {
@@ -21,8 +24,20 @@ def posts():
             "username": post[2],
             "photoURL": post[3],
         }
-        newList.append(postDetails)
-    return jsonify(newList)
+        # newList.append(postDetails)
+        if post.likesOfVideo.includes(currentUserId):
+            isLiked = True
+        else:
+            isLiked = False
+        totalLikes = post.likesOfVideo.length
+        totalComments = Comment.query.filter_by(videoId=post.id).all().length
+        returnObject["Post"] = postDetails
+        returnObject["isLiked"] = isLiked
+        returnObject["totalLikes"] = totalLikes
+        returnObject["totalComments"] = totalComments
+
+    # return jsonify(newList)
+    return returnObject
 
 
 # GET /posts/filtered
@@ -38,7 +53,20 @@ def post(id):
     postDetails = post.to_dict()
     user = User.query.get(postDetails["userId"])
     userDetails = user.to_dict()
-    returnObject = {"User": {**userDetails}, **postDetails}
+    currentUserId = current_user.id
+    if post.likesOfVideo.includes(currentUserId):
+        isLiked = True
+    else:
+        isLiked = False
+    totalLikes = post.likesOfVideo.length
+    totalComments = Comment.query.filter_by(videoId=id).all().length
+    returnObject = {
+        "User": {**userDetails},
+        **postDetails,
+        "isLiked": isLiked,
+        "totalLikes": totalLikes,
+        "totalComments": totalComments,
+    }
     return returnObject
 
 
@@ -89,7 +117,7 @@ def post_comments(id):
     return jsonify(returnObject)
 
 
-# POST a Like on a post
+# POST a like on a post
 
 
 @post_routes.route("/<int:id>/like", methods=["POST"])
