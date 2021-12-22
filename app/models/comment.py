@@ -28,4 +28,6 @@ class Comment(db.Model):
             "content": self.content,
             "created_at": self.created_at,
             "photoURL": self.user.photoURL,
+            "fullname": self.user.fullname,
+            "username": self.user.username,
         }
