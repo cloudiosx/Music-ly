@@ -4,14 +4,15 @@ import Button from '../pieces/Button';
 import './CardFollowInfo.css';
 
 const CardFollowInfo = (props) => {
+  const { userData } = props;
   return (
     <div className="follow_info">
       <span className="image_wrap">
-        <img src="/images/user1.jpg" alt="user 1" />
+        <img src={`${userData.photoURL}`} alt={userData.fullname} />
       </span>
-      <h5 className="follow_info--title">This user's fullname</h5>
+      <h5 className="follow_info--title">{userData.fullname}</h5>
       <p className="follow_info--subtitle">
-        This user's username
+        {userData.username}
         <img src="/images/verified.svg" alt="verified" />
       </p>
       <div className="button_wrap">
@@ -24,6 +25,8 @@ const CardFollowInfo = (props) => {
   );
 };
 
-CardFollowInfo.propTypes = {};
+CardFollowInfo.propTypes = {
+  userData: PropTypes.object,
+};
 
 export default CardFollowInfo;
