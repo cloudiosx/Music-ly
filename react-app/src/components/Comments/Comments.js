@@ -10,20 +10,20 @@ const Comments = (props) => {
     <div className="comments">
       {comments.map((comment) => {
         return (
-          <div className="comments_item">
+          <div className="comments_item" key={comment.id}>
             <div className="comments_item_content">
               <span className="avatar_comment">
-                <img src="/images/user1.jpg" alt="user 1" />
+                <img src={comment.photoURL} alt={comment.fullname} />
               </span>
               <div className="content_container">
                 <NavLink to={`/users/${comment.userId}`} className="user_link">
-                  This username's comment
+                  {comment.username}
                 </NavLink>
                 <p className="comment_text">
                   <span>{comment.content}</span>
-                  <div className="comment_text_time">
+                  <p className="comment_text_time">
                     <span>{timeAgo(comment.created_at)}</span>
-                  </div>
+                  </p>
                 </p>
               </div>
               <div className="like_container">
