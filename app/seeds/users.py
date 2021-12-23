@@ -38,6 +38,10 @@ def seed_users():
     db.session.add(charli)
     db.session.add(zach)
 
+    charli.followings.append(zach)
+    charli.followings.append(addison)
+    addison.followings.append(charli)
+
     db.session.commit()
 
 
