@@ -12,6 +12,7 @@ import './MainLayoutTemplate.css';
 
 const LeftSidebar = ({ children }) => {
   const user = useSelector((state) => state.session.user);
+
   const location = useLocation();
   return (
     <div className="main-layout-sidebar">
@@ -20,7 +21,7 @@ const LeftSidebar = ({ children }) => {
         {!user && <LoginSide />}
         <PopularTopics />
         {location.pathname !== '/following' && <SuggestedAccounts />}
-        {!user && <FollowingList />}
+        {user && <FollowingList />}
         <Discover />
       </div>
     </div>
