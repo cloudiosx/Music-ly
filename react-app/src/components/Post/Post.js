@@ -55,9 +55,9 @@ const Post = (props) => {
               ></video>
             </div>
             <div className="post_content_video--actions">
-              <VideoMeta content="399.7K" icon="far fa-heart" />
-              <VideoMeta content="399.7K" icon="far fa-comment-dots" />
-              <VideoMeta content="399.7K" icon="fas fa-share" />
+              <VideoMeta content={post.totalLikes} icon={`far fa-heart fa-3x ${post.isLiked ? 'active_link' : ''}`} />
+              <VideoMeta content={post.totalComments} icon="far fa-comment-dots fa-3x" />
+              <VideoMeta content={post.totalComments} icon="fas fa-share fa-3x" />
             </div>
           </div>
         </div>
