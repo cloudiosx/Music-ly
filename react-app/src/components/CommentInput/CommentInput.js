@@ -1,14 +1,25 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import './CommentInput.css';
+import { saveComment } from '../../store/interactions/actions';
 
 const CommentInput = (props) => {
+  const { user, postId } = props;
+  const dispatch = useDispatch();
   const [text, setText] = useState('');
+
   const disabled = text.trim().length === 0;
 
   const handleSendComment = () => {
     if (disabled) return;
-    //  TODO: call API to send comment
+    const commentData = {
+      userId: user.id,
+      postId: parseInt(postId),
+      content: text,
+      created_at: new Date(),
+    };
+    dispatch(saveComment(commentData));
   };
 
   return (
@@ -28,6 +39,9 @@ const CommentInput = (props) => {
   );
 };
 
-CommentInput.propTypes = {};
+CommentInput.propTypes = {
+  postId: PropTypes.string.isRequired,
+  user: PropTypes.object.isRequired,
+};
 
 export default CommentInput;
