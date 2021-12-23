@@ -11,6 +11,7 @@ import User from './components/User';
 import { authenticate } from './store/session/actions';
 import MainLayoutTemplate from './layout/MainLayoutTemplate';
 import { mainLayoutRoutes } from './routes';
+import { getAllUsers } from './store/user/actions';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -26,7 +27,12 @@ function App() {
 
   useEffect(() => {
     setLoaded(false);
-    dispatch(authenticate(() => setLoaded(true)));
+    dispatch(
+      authenticate(() => {
+        dispatch(getAllUsers());
+        setLoaded(true);
+      })
+    );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
