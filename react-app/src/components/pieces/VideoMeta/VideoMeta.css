@@ -26,10 +26,6 @@
   align-items: center;
 }
 
-.video_meta--icon--wrap i {
-  font-size: 40px;
-}
-
 .video_meta b {
   display: inline-block;
   text-align: center;

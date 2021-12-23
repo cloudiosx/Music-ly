@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify
 from flask_login import login_required
-from app.models import User, Video
+from app.models import User, Video, followers
+from flask_login import current_user
 from sqlalchemy import desc
 
 user_routes = Blueprint("users", __name__)
@@ -10,7 +11,20 @@ user_routes = Blueprint("users", __name__)
 @login_required
 def users():
     users = User.query.all()
-    return {"users": [user.to_dict() for user in users]}
+    userList = [user.to_dict() for user in users]
+    return jsonify(userList)
+
+
+# Get all Users that the current_user doesn't follow
+@user_routes.route("/notFollowed")
+def notFollowedUsers():
+    users = User.query.all()
+    # If users does not include current_user.followers
+    for follower in current_user.followers:
+        if follower in users:
+            users.remove(follower)
+    userList = [user.to_dict() for user in users]
+    return jsonify(userList)
 
 
 # Get a single User

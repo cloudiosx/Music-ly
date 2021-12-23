@@ -11,7 +11,7 @@ def new_comment():
     requestBody = ast.literal_eval(request.data.decode("utf-8"))
     comment = Comment(
         userId=current_user.to_dict()["id"],
-        videoId=requestBody["videoId"],
+        videoId=requestBody["postId"],
         content=requestBody["content"],
     )
     db.session.add(comment)
