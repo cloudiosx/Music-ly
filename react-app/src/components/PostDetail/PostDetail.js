@@ -63,9 +63,13 @@ function PostDetail() {
           </h1>
           <h2 className="music">{post?.music}</h2>
           <div className="actions">
-            <VideoMeta content="399.7K" icon="far fa-heart" isHorizon />
-            <VideoMeta content="399.7K" icon="far fa-comment-dots" isHorizon />
-            <VideoMeta content="399.7K" icon="fas fa-share" isHorizon />
+            <VideoMeta
+              content={post.totalLikes}
+              icon={`far fa-heart fa-2x ${post.isLiked ? 'active_link' : ''}`}
+              isHorizon
+            />
+            <VideoMeta content={post.totalComments} icon="far fa-comment-dots fa-2x" isHorizon />
+            <VideoMeta content={post.totalComments} icon="fas fa-share fa-2x" isHorizon />
           </div>
           <div className="copy_link">
             <div className="copy_link--link">{window.location.href}</div>
@@ -75,7 +79,7 @@ function PostDetail() {
           </div>
         </div>
         <div className="post_right_comment">{!user ? <CommentLogout /> : <Comments comments={post.comments} />}</div>
-        {user && <CommentInput />}
+        {user && <CommentInput postId={postId} user={user} />}
       </div>
     </main>
   );
