@@ -5,14 +5,15 @@ import CardFollowInfo from '../CardFollowInfo/CardFollowInfo';
 import './CardFollow.css';
 
 const CardFollow = (props) => {
+  const { userData } = props;
   return (
     <div className="card_follow" style={{ backgroundImage: 'url("/videos/loginVideo1.mp4")' }}>
       <div style={{ position: 'absolute', inset: 0 }}>
         {/* TODO: */}
-        <NavLink to={`/users/1`}>
+        <NavLink to={`/users/${userData.id}`}>
           <div className="card_follow_video">
             <div className="card_follow_video--fade">
-              <CardFollowInfo />
+              <CardFollowInfo userData={userData} />
             </div>
           </div>
         </NavLink>
@@ -21,6 +22,8 @@ const CardFollow = (props) => {
   );
 };
 
-CardFollow.propTypes = {};
+CardFollow.propTypes = {
+  userData: PropTypes.object,
+};
 
 export default CardFollow;
