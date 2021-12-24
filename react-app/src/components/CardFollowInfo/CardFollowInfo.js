@@ -13,7 +13,7 @@ const CardFollowInfo = (props) => {
       <h5 className="follow_info--title">{userData.fullname}</h5>
       <p className="follow_info--subtitle">
         {userData.username}
-        <img src="../../../public/images/verified.svg" alt="verified" />
+        <img src="/images/verified.svg" alt="verified" />
       </p>
       <div className="button_wrap">
         {/*  add class following */}

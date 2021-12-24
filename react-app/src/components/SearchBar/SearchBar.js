@@ -13,7 +13,7 @@ const SearchBar = () => {
       />
       <span className="search_divider"></span>
       <button type="submit" className="search_button">
-        <img src="../../../public/images/magnify.svg" alt="click here to search" />
+        <img src="/images/magnify.svg" alt="click here to search" />
       </button>
     </form>
   );

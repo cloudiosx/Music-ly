@@ -28,7 +28,7 @@ const NavBar = () => {
         <li>
           <NavLink className="nav-bar-logo-link" to="/" exact={true} activeClassName="active">
             <div className="nav-bar-logo">
-              <img src="../../../public/images/logo.svg" alt="music.ly logo" />
+              <img src="/images/logo.svg" alt="music.ly logo" />
             </div>
           </NavLink>
         </li>
@@ -54,7 +54,7 @@ const NavBar = () => {
                 </div>
               ) : (
                 <div className="button-upload" onClick={toggleModalUpload}>
-                  <img src="../../../public/images/uploadCloud.svg" alt="upload video" />
+                  <img src="/images/uploadCloud.svg" alt="upload video" />
                 </div>
               )}
             </li>
