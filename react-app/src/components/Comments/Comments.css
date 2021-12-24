@@ -66,6 +66,12 @@
   word-break: break-word;
   white-space: pre-line;
 }
+
+.content_container .comment_text input {
+  width: 120%;
+  padding: 8px 12px;
+}
+
 .content_container .comment_text .comment_text_time {
   display: flex;
 }
@@ -80,24 +86,17 @@
 /* likes of a comment */
 .comments_item_content .like_container {
   position: absolute;
-  top: 24px;
-  right: 2px;
+  top: 20px;
+  right: 10px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  gap: 20px;
   -webkit-box-align: center;
   align-items: center;
-  width: 20px;
-}
-
-.comments_item_content .like_container i {
-  font-size: 20px;
 }
 
 .comments_item_content .like_container span {
-  display: block;
-  font-weight: 400;
-  font-size: 13px;
-  line-height: 17px;
-  text-align: center;
-  color: rgba(22, 24, 35, 0.5);
+  font-size: 20px;
+  cursor: pointer;
+  padding: 5px;
 }

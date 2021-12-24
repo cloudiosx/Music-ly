@@ -22,8 +22,10 @@ def new_comment():
 # UPDATE /comments/:id/edit
 @comment_routes.route("/<int:id>/edit", methods=["PUT"])
 def update_comment(id):
+    requestBody = ast.literal_eval(request.data.decode("utf-8"))
+    print("requestBody", requestBody)
     commentToUpdate = Comment.query.get(id)
-    commentToUpdate.content = request.json["content"]
+    commentToUpdate.content = requestBody["content"]
     db.session.commit()
     updatedComment = Comment.query.get(id)
     return jsonify(updatedComment.to_dict())

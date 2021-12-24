@@ -9,7 +9,7 @@ const FollowingList = () => {
   return (
     <div className="wrapper_with_divider following_list">
       <h4 className="title">Following accounts</h4>
-      {allUsers && allUsers.map((user) => <UserHeader key={user.id} userData={user} />)}
+      {!!allUsers && allUsers.map((user) => <UserHeader key={user.id} userData={user} />)}
     </div>
   );
 };

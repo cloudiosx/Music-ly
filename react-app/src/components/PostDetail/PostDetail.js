@@ -78,7 +78,9 @@ function PostDetail() {
             </div>
           </div>
         </div>
-        <div className="post_right_comment">{!user ? <CommentLogout /> : <Comments comments={post.comments} />}</div>
+        <div className="post_right_comment">
+          {!user ? <CommentLogout /> : <Comments comments={post.comments} user={user} postId={postId} />}
+        </div>
         {user && <CommentInput postId={postId} user={user} />}
       </div>
     </main>

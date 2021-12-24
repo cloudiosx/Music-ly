@@ -114,17 +114,16 @@ def post_comments(id):
 # POST a like on a post
 
 
-@post_routes.route("/<int:id>/like", methods=["POST"])
+@post_routes.route("/<int:id>/like", methods=["PUT"])
 def likePost(id):
     post = Video.query.get(id)
-    userId = request.json["userId"]
-    postId = request.json["videoId"]
+    user = User.query.get(current_user.to_dict()["id"])
 
-    if post.likesOfVideo.includes(userId):
-        post.likesOfVideo.remove(userId)
+    if user in post.likesOfVideo.all():
+        post.likesOfVideo.remove(user)
         db.session.commit()
         return "You have unliked the post successfully"
     else:
-        post.likesOfVideo.append(userId)
+        post.likesOfVideo.append(user)
         db.session.commit()
         return "You have liked the post successfully"

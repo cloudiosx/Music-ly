@@ -1,4 +1,4 @@
-import { COMMENT_FAIL, COMMENT_SUCCESS } from './constants';
+import { COMMENT_FAIL, COMMENT_SUCCESS, DELETE_COMMENT_FAIL, DELETE_COMMENT_SUCCESS } from './constants';
 
 const actCommentSuccess = (payload) => ({
   type: COMMENT_SUCCESS,
@@ -7,6 +7,16 @@ const actCommentSuccess = (payload) => ({
 
 const actCommentFail = (payload) => ({
   type: COMMENT_FAIL,
+  payload,
+});
+
+const actDeleteCommentSuccess = (payload) => ({
+  type: DELETE_COMMENT_SUCCESS,
+  payload,
+});
+
+const actDeleteCommentFail = (payload) => ({
+  type: DELETE_COMMENT_FAIL,
   payload,
 });
 
@@ -41,15 +51,19 @@ export const saveComment = (data) => async (dispatch, getState) => {
   }
 };
 
-export const deleteComment = (data) => async (dispatch) => {
+export const deleteComment = (id) => async (dispatch) => {
   try {
-    const res = await fetch(`/api/comments/${data.id}`, {
+    const res = await fetch(`/api/comments/${id}`, {
       method: 'DELETE',
     });
     if (res.ok) {
-      // TODO
+      dispatch(actDeleteCommentSuccess(id));
+    } else {
+      dispatch(actDeleteCommentFail(id));
     }
-  } catch (error) {}
+  } catch (error) {
+    dispatch(actDeleteCommentFail(id));
+  }
 };
 
 // toggle likes

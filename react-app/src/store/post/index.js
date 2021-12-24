@@ -11,7 +11,8 @@
   DELETE_POST_SUCCESS,
   DELETE_POST_ERROR,
 } from './constants';
-import { COMMENT_SUCCESS, COMMENT_FAIL } from '../interactions/constants';
+import { COMMENT_SUCCESS, COMMENT_FAIL, DELETE_COMMENT_FAIL, DELETE_COMMENT_SUCCESS } from '../interactions/constants';
+import deepClone from '../../util/deepClone';
 
 // declare init state, it should have default value type as expected data type
 const INITIAL_STATE = {
@@ -116,8 +117,8 @@ const postReducer = (state = INITIAL_STATE, action) => {
       } else {
         postDetail = {
           ...state.postDetail,
-          comment: state.postDetail.comments.map((oldComment) => {
-            if (oldComment.id === comment.id) return comment;
+          comments: state.postDetail.comments.map((oldComment) => {
+            if (oldComment.id === comment.id) return { ...oldComment, content: comment.content };
             return oldComment;
           }),
         };
@@ -130,6 +131,27 @@ const postReducer = (state = INITIAL_STATE, action) => {
     }
     case COMMENT_FAIL: {
       // TODO: handle error adding comment
+      return {
+        ...state,
+        // postDetail: action.payload,
+        // loadingPostDetail: false,
+        // errorPostDetail: null,
+      };
+    }
+
+    // delete a comment success, update 1 post
+    case DELETE_COMMENT_SUCCESS: {
+      const commentId = action.payload;
+      const postDetail = deepClone(state.postDetail);
+      postDetail.comments = postDetail.comments.filter((item) => item.id !== commentId);
+      postDetail.totalComments -= 1;
+      return {
+        ...state,
+        postDetail,
+      };
+    }
+    case DELETE_COMMENT_FAIL: {
+      // TODO: handle error delete comment
       return {
         ...state,
         // postDetail: action.payload,
