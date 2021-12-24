@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { timeAgo } from '../../util/time';
 import { useDispatch } from 'react-redux';
 import { deleteComment, saveComment } from '../../store/interactions/actions';
 import './Comments.css';
-import CommentInput from '../CommentInput/CommentInput';
 
 const CommentItem = (props) => {
   const { comment, user, postId } = props;
@@ -17,6 +16,15 @@ const CommentItem = (props) => {
   const isMyComment = user.id === comment.userId;
 
   const toggleEditMode = () => setEditMode((prev) => !prev);
+
+  // whenever we open editmode, set the input value as the original content
+  useEffect(() => {
+    if (editMode) {
+      setText(comment.content);
+    } else {
+      setText('');
+    }
+  }, [editMode, comment]);
 
   const handleMouseOver = () => {
     setIsHover(true);
@@ -84,13 +92,18 @@ const CommentItem = (props) => {
           </NavLink>
           <p className="comment_text">
             {editMode ? (
-              <input type="text" placeholder="Write your edit comment here" onChange={(e) => setText(e.target.value)} />
+              <input
+                type="text"
+                value={text}
+                placeholder="Write your edit comment here"
+                onChange={(e) => setText(e.target.value)}
+              />
             ) : (
               <span>{comment.content}</span>
             )}
-            <p className="comment_text_time">
+            <span className="comment_text_time">
               <span>{timeAgo(comment.created_at)}</span>
-            </p>
+            </span>
           </p>
           {/* <CommentInput postId={postId} user={user} /> */}
         </div>
