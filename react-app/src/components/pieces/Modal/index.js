@@ -28,7 +28,7 @@ const Modal = (props) => {
     <div className="modal_overlay" onClick={handleClickBackDrop}>
       <div className="modal" onClick={(e) => e.stopPropagation()}>
         <button className="modal_closeX" onClick={onClose}>
-          <img src="/images/closeIcon.svg" alt="close icon" />
+          <img src="../../../../public/images/closeIcon.svg" alt="close icon" />
         </button>
         {children}
       </div>

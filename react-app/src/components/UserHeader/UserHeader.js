@@ -12,7 +12,7 @@ const UserHeader = (props) => {
       <div className="user_header_content">
         <div className="user_header_content--title">
           <h4 className="user_header_content--title-name">{userData.username}</h4>
-          <img src="/images/verified.svg" alt="verified check mark" />
+          <img src="../../../public/images/verified.svg" alt="verified check mark" />
         </div>
         <p className="user_header_content--subname">{userData.fullname}</p>
       </div>
