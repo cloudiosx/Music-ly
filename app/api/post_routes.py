@@ -76,9 +76,11 @@ def post(id):
     if current_user.is_authenticated:
         post = Video.query.get(id)
         postDetails = post.to_dict()
-        user = User.query.get(current_user.to_dict()["id"])
+        currentUser = User.query.get(current_user.to_dict()["id"])
+        # userDetails = user.to_dict()
+        user = User.query.get(postDetails["userId"])
         userDetails = user.to_dict()
-        if user in post.likesOfVideo.all():
+        if currentUser in post.likesOfVideo.all():
             isLiked = True
         else:
             isLiked = False
