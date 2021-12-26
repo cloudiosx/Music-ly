@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './Modal.css';
 
 const Modal = (props) => {
-  const { isOpen, onClose, children } = props;
+  const { isOpen, onClose, children, style, className } = props;
 
   useEffect(() => {
     const closeOnEsc = (e) => {
@@ -26,7 +26,7 @@ const Modal = (props) => {
   if (!isOpen) return null;
   return createPortal(
     <div className="modal_overlay" onClick={handleClickBackDrop}>
-      <div className="modal" onClick={(e) => e.stopPropagation()}>
+      <div className={`modal ${className}`} style={style} onClick={(e) => e.stopPropagation()}>
         <button className="modal_closeX" onClick={onClose}>
           <img src="/images/closeIcon.svg" alt="close icon" />
         </button>
@@ -40,6 +40,13 @@ const Modal = (props) => {
 Modal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
+  style: PropTypes.object,
+  className: PropTypes.string,
+};
+
+Modal.defaultProps = {
+  style: {},
+  className: '',
 };
 
 export default Modal;
