@@ -14,7 +14,7 @@ def posts():
         .order_by(desc(Video.created_at))
         .all()
     )
-    user = User.query.get(current_user.to_dict()["id"])
+    # user = User.query.get(current_user.to_dict()["id"])
     newList = []
     for post in posts:
         postDetails = post[0].to_dict()
