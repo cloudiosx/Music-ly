@@ -2,14 +2,26 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { logout } from '../../store/session/actions';
+import LoginModal from '../auth/AuthForm/LoginModal';
+import SignUpModal from '../auth/AuthForm/SignUpModal';
 import Button from '../pieces/Button';
 import Modal from '../pieces/Modal';
 import SearchBar from '../SearchBar/SearchBar';
 import UploadPost from '../UploadPost/UploadPost';
 import './NavBar.css';
 
+const ModalView = {
+  login: 'login',
+  signup: 'signup',
+};
+
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [modalView, setModalView] = useState('');
+
+  const closeModal = () => setModalView('');
+  const openLoginModal = () => setModalView(ModalView.login);
+  const openSignUpModal = () => setModalView(ModalView.signup);
 
   const { user } = useSelector((state) => state.session);
   const dispatch = useDispatch();
@@ -48,8 +60,7 @@ const NavBar = () => {
             )}
             <li>
               {!user ? (
-                // TODO: ths should open login modal
-                <div className="button-upload--nologin" onClick={toggleModalUpload}>
+                <div className="button-upload--nologin" onClick={openLoginModal}>
                   Upload
                 </div>
               ) : (
@@ -60,11 +71,11 @@ const NavBar = () => {
             </li>
             <li>
               {!user ? (
-                <NavLink to="/login" exact={true} className="nav-link">
+                <span onClick={openLoginModal} className="nav-link">
                   <Button className="button-login" type="fill">
                     Login
                   </Button>
-                </NavLink>
+                </span>
               ) : (
                 <span className="nav_user_image">
                   <img src={user.photoURL} alt={user.username} />
@@ -77,6 +88,8 @@ const NavBar = () => {
       <Modal isOpen={isOpen} onClose={toggleModalUpload}>
         <UploadPost />
       </Modal>
+      <LoginModal isOpen={modalView === ModalView.login} onClose={closeModal} onClickFooterAction={openSignUpModal} />
+      <SignUpModal isOpen={modalView === ModalView.signup} onClose={closeModal} onClickFooterAction={openLoginModal} />
     </nav>
   );
 };
