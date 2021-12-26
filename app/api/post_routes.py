@@ -23,14 +23,15 @@ def posts():
             "username": post[2],
             "photoURL": post[3],
         }
-        # if postDetails["userId"] in post[0].likesOfVideo.all():
-        #     isLiked = True
-        # else:
-        #     isLiked = False
-        if user in post[0].likesOfVideo.all():
-            isLiked = True
+        if current_user.is_authenticated:
+            user = User.query.get(current_user.to_dict()["id"])
+            if user in post[0].likesOfVideo.all():
+                isLiked = True
+            else:
+                isLiked = False
         else:
             isLiked = False
+
         postDetails["isLiked"] = isLiked
         totalLikes = len(post[0].likesOfVideo.all())
         totalComments = len(Comment.query.filter_by(videoId=post[0].id).all())
@@ -51,13 +52,16 @@ def filtered_posts():
 def post(id):
     post = Video.query.get(id)
     postDetails = post.to_dict()
-    # user = User.query.get(postDetails["userId"])
-    user = User.query.get(current_user.to_dict()["id"])
-    userDetails = user.to_dict()
-    if user in post.likesOfVideo.all():
-        isLiked = True
+    if current_user.is_authenticated:
+        currentUser = User.query.get(current_user.to_dict()["id"])
+        if currentUser in post.likesOfVideo.all():
+            isLiked = True
+        else:
+            isLiked = False
     else:
         isLiked = False
+    user = User.query.get(postDetails["userId"])
+    userDetails = user.to_dict()
     totalLikes = len(post.likesOfVideo.all())
     totalComments = len(Comment.query.filter_by(videoId=id).all())
     returnObject = {
