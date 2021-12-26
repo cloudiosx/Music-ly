@@ -11,8 +11,16 @@
   DELETE_POST_SUCCESS,
   DELETE_POST_ERROR,
 } from './constants';
-import { COMMENT_SUCCESS, COMMENT_FAIL, DELETE_COMMENT_FAIL, DELETE_COMMENT_SUCCESS } from '../interactions/constants';
+import {
+  COMMENT_SUCCESS,
+  COMMENT_FAIL,
+  DELETE_COMMENT_FAIL,
+  DELETE_COMMENT_SUCCESS,
+  LIKE_POST_SUCCESS,
+  LIKE_POST_FAIL,
+} from '../interactions/constants';
 import deepClone from '../../util/deepClone';
+import { isFromUnlikeToLike } from './helper';
 
 // declare init state, it should have default value type as expected data type
 const INITIAL_STATE = {
@@ -152,6 +160,46 @@ const postReducer = (state = INITIAL_STATE, action) => {
     }
     case DELETE_COMMENT_FAIL: {
       // TODO: handle error delete comment
+      return {
+        ...state,
+        // postDetail: action.payload,
+        // loadingPostDetail: false,
+        // errorPostDetail: null,
+      };
+    }
+
+    // like/unlike post, update isLiked in postList and postDetail
+    case LIKE_POST_SUCCESS: {
+      const { postId } = action.payload;
+      let allPosts = deepClone(state.allPosts);
+      const postDetail = deepClone(state.postDetail);
+
+      if (postDetail?.id?.toString() === postId.toString()) {
+        const fromUnlikeToLike = isFromUnlikeToLike(postDetail.isLiked);
+        // toggle like
+        postDetail.isLiked = !postDetail.isLiked;
+        // add/remove count
+        const offset = fromUnlikeToLike ? 1 : -1;
+        postDetail.totalLikes += offset;
+      }
+
+      allPosts = allPosts.map((oldPost) => {
+        if (oldPost.id === postId) {
+          const fromUnlikeToLike = isFromUnlikeToLike(oldPost.isLiked);
+          const offset = fromUnlikeToLike ? 1 : -1;
+          return { ...oldPost, isLiked: !oldPost.isLiked, totalLikes: oldPost.totalLikes + offset };
+        }
+        return oldPost;
+      });
+
+      return {
+        ...state,
+        postDetail,
+        allPosts,
+      };
+    }
+    case LIKE_POST_FAIL: {
+      // TODO: handle error like post
       return {
         ...state,
         // postDetail: action.payload,

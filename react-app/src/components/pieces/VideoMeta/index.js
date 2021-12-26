@@ -3,10 +3,17 @@ import PropTypes from 'prop-types';
 import './VideoMeta.css';
 
 const VideoMeta = (props) => {
-  const { content, isHorizon, icon } = props;
+  const { content, isHorizon, icon, onClick } = props;
+
+  const handleClickIcon = () => {
+    if (onClick && typeof onClick === 'function') {
+      onClick();
+    }
+  };
+
   return (
     <div className={`video_meta${isHorizon ? ' horizon' : ''}`}>
-      <div className="video_meta--icon--wrap">
+      <div className="video_meta--icon--wrap" onClick={handleClickIcon}>
         <i class={icon}></i>
       </div>
       <b>{content}</b>
@@ -15,9 +22,10 @@ const VideoMeta = (props) => {
 };
 
 VideoMeta.propTypes = {
-  content: PropTypes.string.isRequired,
+  content: PropTypes.any.isRequired,
   icon: PropTypes.string.isRequired,
   isHorizon: PropTypes.bool,
+  onClick: PropTypes.func,
 };
 
 export default VideoMeta;

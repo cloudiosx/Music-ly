@@ -1,0 +1,133 @@
+.main_profile-container header {
+  margin-bottom: 20px;
+  width: 594px;
+  box-sizing: border-box;
+  padding-right: 52px;
+  flex: 0 0 auto;
+  position: relative;
+}
+
+/* info row */
+.profile_userinfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.profile_userinfo .profile_userinfo_avatar {
+  width: 116px;
+  height: 116px;
+  border-color: rgba(22, 24, 35, 0.12);
+  border-width: 0.5px;
+  line-height: 32px;
+  border-radius: 50%;
+}
+
+.profile_userinfo .profile_userinfo_avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profile_userinfo .profile_userinfo_right {
+  margin-left: 20px;
+  flex: 1 1 0%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profile_userinfo_right .profile_userinfo_right--title {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 38px;
+  padding-bottom: 4px;
+}
+
+.profile_userinfo_right .profile_userinfo_right--subtitle {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 25px;
+  text-overflow: ellipsis;
+  height: 25px;
+  overflow: hidden;
+  max-width: 450px;
+  white-space: nowrap;
+}
+
+.profile_userinfo_right .profile_userinfo_right--button {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+
+  padding: 1px 6px;
+  min-width: 208px;
+  height: 36px;
+  font-size: 16px;
+
+  font-weight: 700;
+  position: relative;
+  width: 208px;
+  margin: 16px 0px 0px;
+}
+
+/* stats row */
+.profile_stats {
+  display: flex;
+  align-items: center;
+  margin-top: 22px;
+  color: rgba(18, 18, 18, 0.75);
+}
+
+.profile_stats .stats_item {
+  margin-right: 20px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  display: flex;
+  align-items: baseline;
+  direction: ltr;
+}
+
+.profile_stats .stats_item--label {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  margin-left: 6px;
+}
+
+/* bio description */
+.profile_bio {
+  margin-top: 10px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #121212;
+  white-space: pre-line;
+}
+
+/* profile share link */
+.profile_links {
+  margin-top: 5px;
+  font-weight: 700;
+}
+
+.profile_links a {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 18px;
+  height: 22px;
+  max-width: 236px;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: rgb(22, 24, 35);
+  text-decoration: underline;
+}
+
+.profile_links i {
+  margin-right: 5px;
+}

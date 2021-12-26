@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactPlayer from 'react-player';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
+import { updateLike } from '../../store/interactions/actions';
 import Button from '../pieces/Button';
 import VideoMeta from '../pieces/VideoMeta';
 import './Post.css';
@@ -8,11 +10,22 @@ import './Post.css';
 const Post = (props) => {
   const { post } = props;
   const history = useHistory();
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.session.user);
 
   const handleClickVideo = (e) => {
     e.stopPropagation();
     history.push(`/posts/${post.id}`);
   };
+
+  const handleClickLike = () => {
+    if (!user) return; // user not logged in
+    const dataLike = {
+      postId: post.id,
+    };
+    dispatch(updateLike(dataLike));
+  };
+
   return (
     <>
       <div className="post">
@@ -55,7 +68,11 @@ const Post = (props) => {
               ></video>
             </div>
             <div className="post_content_video--actions">
-              <VideoMeta content={post.totalLikes} icon={`far fa-heart fa-3x ${post.isLiked ? 'active_link' : ''}`} />
+              <VideoMeta
+                content={post.totalLikes}
+                onClick={handleClickLike}
+                icon={`far fa-heart fa-3x ${post.isLiked ? 'active_link' : ''}`}
+              />
               <VideoMeta content={post.totalComments} icon="far fa-comment-dots fa-3x" />
               <VideoMeta content={post.totalComments} icon="fas fa-share fa-3x" />
             </div>

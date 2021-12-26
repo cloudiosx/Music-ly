@@ -3,6 +3,7 @@ import User from './components/User';
 import UsersList from './components/UsersList';
 import PostDetail from './components/PostDetail/PostDetail';
 import Following from './components/Following/Following';
+import Profile from './components/Profile/Profile';
 
 export const mainLayoutRoutes = [
   {
@@ -19,7 +20,7 @@ export const mainLayoutRoutes = [
   },
   {
     path: '/users/:userId',
-    component: User,
+    component: Profile,
   },
   {
     path: '/posts/:postId',

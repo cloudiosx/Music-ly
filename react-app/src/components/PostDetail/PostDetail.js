@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import ReactPlayer from 'react-player';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
+import { updateLike } from '../../store/interactions/actions';
 import { getOnePost } from '../../store/post/actions';
 import CommentInput from '../CommentInput/CommentInput';
 import CommentLogout from '../CommentLogout/CommentLogout';
@@ -29,6 +30,11 @@ function PostDetail() {
 
   const goBack = () => {
     history.goBack();
+  };
+
+  const handleClickLike = () => {
+    if (!user) return;
+    dispatch(updateLike({ postId }));
   };
 
   return (
@@ -65,6 +71,7 @@ function PostDetail() {
           <div className="actions">
             <VideoMeta
               content={post.totalLikes}
+              onClick={handleClickLike}
               icon={`far fa-heart fa-2x ${post.isLiked ? 'active_link' : ''}`}
               isHorizon
             />

@@ -1,0 +1,52 @@
+.profile_body {
+  flex: 1 1 auto;
+  /* display: flex; */
+  width: 594px;
+  display: block;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+  flex-direction: column;
+  min-height: 490px;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.profile_body .tab_bar {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: stretch;
+  height: 44px;
+  margin-bottom: 2px;
+}
+
+.profile_body .tab_bar .tab_underline {
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  background: rgb(22, 24, 35);
+  left: 0px;
+  bottom: 0px;
+  transition: transform 0.3s ease 0s;
+  transform: translateX(0px);
+}
+
+.profile_body .tab_bar--videos,
+.profile_body .tab_bar--liked {
+  flex: 1 1 0%;
+  position: relative;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.profile_body .tab_bar--liked {
+  color: rgba(18, 18, 18, 0.5);
+}
