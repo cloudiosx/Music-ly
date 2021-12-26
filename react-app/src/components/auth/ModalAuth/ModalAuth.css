@@ -1,0 +1,48 @@
+.auth_modal_view {
+  padding: 48px 36px 64px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  font-size: 14px;
+  color: #161823;
+  z-index: -1;
+}
+
+.auth_modal_view .auth_modal_view--title {
+  font-size: 24px;
+  line-height: 32px;
+  text-align: center;
+  font-weight: bolder;
+  font-weight: bolder;
+}
+
+.auth_modal_footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 10;
+}
+
+.auth_modal_footer .auth_modal_footer_content {
+  height: 64px;
+  border-top: 0.5px solid rgba(22, 24, 35, 0.12);
+  font-size: 15px;
+  line-height: 18px;
+  color: #161823;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+}
+.auth_modal_footer .auth_modal_footer--button {
+  margin-left: 5px;
+  font-size: 15px;
+  line-height: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-block;
+}
