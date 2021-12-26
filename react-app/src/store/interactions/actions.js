@@ -1,4 +1,11 @@
-import { COMMENT_FAIL, COMMENT_SUCCESS, DELETE_COMMENT_FAIL, DELETE_COMMENT_SUCCESS } from './constants';
+import {
+  COMMENT_FAIL,
+  COMMENT_SUCCESS,
+  DELETE_COMMENT_FAIL,
+  DELETE_COMMENT_SUCCESS,
+  LIKE_POST_FAIL,
+  LIKE_POST_SUCCESS,
+} from './constants';
 
 const actCommentSuccess = (payload) => ({
   type: COMMENT_SUCCESS,
@@ -17,6 +24,16 @@ const actDeleteCommentSuccess = (payload) => ({
 
 const actDeleteCommentFail = (payload) => ({
   type: DELETE_COMMENT_FAIL,
+  payload,
+});
+
+const actToggleLikeSuccess = (payload) => ({
+  type: LIKE_POST_SUCCESS,
+  payload,
+});
+
+const actToggleLikeFail = (payload) => ({
+  type: LIKE_POST_FAIL,
   payload,
 });
 
@@ -67,25 +84,21 @@ export const deleteComment = (id) => async (dispatch) => {
 };
 
 // toggle likes
-// TODO: update like should send the post data that this like sending to
+// {postId}
 export const updateLike = (data) => async (dispatch) => {
   try {
-    let res;
-    if (data.id) {
-      res = await fetch(`/api/likes/${data.id}`, {
-        method: 'PUT',
-        body: JSON.stringify(data),
-      });
-    } else {
-      res = await fetch('/api/likes', {
-        method: 'POST',
-        body: JSON.stringify(data),
-      });
-    }
+    const res = await fetch(`/api/posts/${data.postId}/like`, {
+      method: 'PUT',
+      body: JSON.stringify(data),
+    });
     if (res.ok) {
-      // TODO
+      dispatch(actToggleLikeSuccess(data));
+    } else {
+      dispatch(actToggleLikeFail(data));
     }
-  } catch (error) {}
+  } catch (error) {
+    dispatch(actToggleLikeFail(data));
+  }
 };
 
 // toggle follow
