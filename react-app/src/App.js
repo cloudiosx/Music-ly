@@ -42,25 +42,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/* <NavBar /> */}
-      <Switch>
-        {renderMainLayoutRoutes(mainLayoutRoutes)}
-        {/* <Route path="/" exact={true}>
-            <Feed />
-        </Route> */}
-        <Route path="/login" exact={true}>
-          <LoginForm />
-        </Route>
-        <Route path="/sign-up" exact={true}>
-          <SignUpForm />
-        </Route>
-        {/* <Route path="/users" exact={true}>
-          <UsersList />
-        </Route>
-        <Route path="/users/:userId" exact={true}>
-          <User />
-        </Route> */}
-      </Switch>
+      <Switch>{renderMainLayoutRoutes(mainLayoutRoutes)}</Switch>
     </BrowserRouter>
   );
 }
