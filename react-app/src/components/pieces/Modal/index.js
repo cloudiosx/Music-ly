@@ -28,7 +28,7 @@ const Modal = (props) => {
     <div className="modal_overlay" onClick={handleClickBackDrop}>
       <div className={`modal ${className}`} style={style} onClick={(e) => e.stopPropagation()}>
         <button className="modal_closeX" onClick={onClose}>
-          <img src="/images/closeIcon.svg" alt="close icon" />
+          <img src="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/SvgImages/closeIcon.svg" alt="close icon" />
         </button>
         {children}
       </div>

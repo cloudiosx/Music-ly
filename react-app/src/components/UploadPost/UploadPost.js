@@ -30,7 +30,7 @@ const UploadPost = (props) => {
       <div className="upload_post--content">
         <div className="uploader" style={{ marginTop: 24 }}>
           <div className="upload">
-            <img src="/images/uploadCloud.svg" alt="upload button" width="40px" height="29px" />
+            <img src="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/SvgImages/uploadCloud.svg" alt="upload button" width="40px" height="29px" />
             <div className="upload--text-main">Select video to upload</div>
             <div className="upload--text-sub">Or drag and drop a file</div>
             <ul className="upload__info">

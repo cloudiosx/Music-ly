@@ -42,7 +42,7 @@ function PostDetail() {
       <div className="post_left">
         <video className="post_left_video" src={post?.videoURL} controls muted autoPlay={true}></video>
         {/* <ReactPlayer controls url={post?.videoURL} width="100%" height="100%" /> */}
-        <img src="/images/closeIcon.svg" alt="go back" className="closeIcon" onClick={goBack} />
+        <img src="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/SvgImages/closeIcon.svg" alt="go back" className="closeIcon" onClick={goBack} />
       </div>
       <div className="post_right">
         <div className="post_right_head">
