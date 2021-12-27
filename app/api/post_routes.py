@@ -14,7 +14,6 @@ def posts():
         .order_by(desc(Video.created_at))
         .all()
     )
-
     newList = []
     for post in posts:
         postDetails = post[0].to_dict()

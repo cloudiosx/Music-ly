@@ -1,0 +1,62 @@
+.auth_modal_body {
+  align-self: flex-start;
+  flex: 1;
+  width: 100%;
+}
+
+.auth_modal_body .form_field {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.auth_modal_body .form_field .label {
+  margin-bottom: 10px;
+  margin-left: 15px;
+}
+
+.auth_modal_body .form_field .inputDiv {
+  height: 30px;
+  outline: none;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 8px 40px 8px 45px;
+  display: flex;
+  position: relative;
+}
+
+.auth_modal_body .form_field .inputDiv input {
+  width: 100%;
+  outline: none;
+  border: 0px;
+}
+
+.auth_modal_body .form_field .inputDiv .input_icon--start,
+.auth_modal_body .form_field .inputDiv .input_icon--end {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+}
+
+.auth_modal_body .form_field .inputDiv .input_icon--end {
+  right: 15px;
+  left: unset;
+  cursor: pointer;
+}
+
+/* Actions */
+.action_group {
+  display: flex;
+  gap: 20px;
+}
+
+.action_group .action_group--button {
+  border-radius: 50px;
+  min-width: 150px;
+}
+
+.action_group .action_group--button.ok {
+  border-radius: 50px;
+  min-width: 150px;
+}
