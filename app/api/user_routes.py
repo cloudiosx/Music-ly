@@ -19,12 +19,16 @@ def users():
 @user_routes.route("/notFollowed")
 def notFollowedUsers():
     users = User.query.all()
-    # If users does not include current_user.followers
-    for follower in current_user.followers:
-        if follower in users:
-            users.remove(follower)
-    userList = [user.to_dict() for user in users]
-    return jsonify(userList)
+    if current_user.is_authenticated:
+        # If users does not include current_user.followers
+        for follower in current_user.followers:
+            if follower in users:
+                users.remove(follower)
+        userList = [user.to_dict() for user in users]
+        return jsonify(userList)
+    else:
+        userList = [user.to_dict() for user in users]
+        return jsonify(userList)
 
 
 # Get a single User
