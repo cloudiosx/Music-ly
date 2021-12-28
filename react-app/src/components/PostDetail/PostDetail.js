@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import ReactPlayer from 'react-player';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
+import { useLoginContext } from '../../Context/LoginProvider';
 import { updateFollow, updateLike } from '../../store/interactions/actions';
 import { getOnePost } from '../../store/post/actions';
 import CommentInput from '../CommentInput/CommentInput';
@@ -14,6 +15,8 @@ import './PostDetail.css';
 function PostDetail() {
   const history = useHistory();
   const dispatch = useDispatch();
+  const { openLoginModal } = useLoginContext();
+
   const { postId } = useParams();
 
   const post = useSelector((state) => state.postStore.postDetail);
@@ -33,7 +36,10 @@ function PostDetail() {
   };
 
   const handleClickLike = () => {
-    if (!user) return;
+    if (!user) {
+      openLoginModal();
+      return;
+    }
     dispatch(updateLike({ postId }));
   };
 
