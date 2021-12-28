@@ -48,7 +48,10 @@ function PostDetail() {
   };
 
   const toggleFollow = () => {
-    if (!user) return; // user not logged in
+    if (!user) {
+      openLoginModal();
+      return;
+    }
     dispatch(updateFollow({ postId: post.id }));
   };
 
