@@ -18,6 +18,8 @@ import {
   DELETE_COMMENT_SUCCESS,
   LIKE_POST_SUCCESS,
   LIKE_POST_FAIL,
+  FOLLOW_SUCCESS,
+  FOLLOW_FAIL,
 } from '../interactions/constants';
 import deepClone from '../../util/deepClone';
 import { isFromUnlikeToLike } from './helper';
@@ -200,6 +202,39 @@ const postReducer = (state = INITIAL_STATE, action) => {
     }
     case LIKE_POST_FAIL: {
       // TODO: handle error like post
+      return {
+        ...state,
+        // postDetail: action.payload,
+        // loadingPostDetail: false,
+        // errorPostDetail: null,
+      };
+    }
+
+    // follow/unFollow on post,
+    case FOLLOW_SUCCESS: {
+      const { postId } = action.payload;
+      let allPosts = deepClone(state.allPosts);
+      const postDetail = deepClone(state.postDetail);
+
+      if (postDetail?.id?.toString() === postId.toString()) {
+        postDetail.isFollowed = !postDetail.isFollowed;
+      }
+
+      allPosts = allPosts.map((oldPost) => {
+        if (oldPost.id === postId) {
+          return { ...oldPost, isFollowed: !oldPost.isFollowed };
+        }
+        return oldPost;
+      });
+
+      return {
+        ...state,
+        postDetail,
+        allPosts,
+      };
+    }
+    case FOLLOW_FAIL: {
+      // TODO: handle error follow post
       return {
         ...state,
         // postDetail: action.payload,

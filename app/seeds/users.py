@@ -111,6 +111,16 @@ jason = User(
     verified=True,
 )
 
+michael = User(
+    fullname="Michael Le",
+    username="justmaiko",
+    email="michael@michael.com",
+    password="password",
+    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/MichaelLe/michaelle.jpg",
+    s3Name="s3Name",
+    verified=True,
+)
+
 # Adds a demo user, you can add other users here if you want
 def seed_users():
 
@@ -125,6 +135,7 @@ def seed_users():
     db.session.add(spencer)
     db.session.add(imaginedragons)
     db.session.add(jason)
+    db.session.add(michael)
 
     charli.followings.append(zach)
     charli.followings.append(addison)

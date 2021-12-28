@@ -106,6 +106,10 @@
   height: 36px;
   flex: 0 0 auto;
 }
+.post_right_head .followButton.following {
+  color: #000;
+  border-color: #000;
+}
 
 .post_right_info {
   display: flex;

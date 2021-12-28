@@ -63,6 +63,10 @@
   right: 0;
   top: 8px;
 }
+.post_content_follow .post_content_follow--following {
+  color: #000;
+  border-color: #000;
+}
 
 /* post caption */
 
