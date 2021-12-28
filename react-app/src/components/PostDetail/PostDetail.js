@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import ReactPlayer from 'react-player';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
-import { updateLike } from '../../store/interactions/actions';
+import { updateFollow, updateLike } from '../../store/interactions/actions';
 import { getOnePost } from '../../store/post/actions';
 import CommentInput from '../CommentInput/CommentInput';
 import CommentLogout from '../CommentLogout/CommentLogout';
@@ -37,12 +37,19 @@ function PostDetail() {
     dispatch(updateLike({ postId }));
   };
 
+  const toggleFollow = () => {
+    if (!user) return; // user not logged in
+    dispatch(updateFollow({ postId: post.id }));
+  };
+
+  if (!post) return null;
+
   return (
     <main className="post_detail">
       <div className="post_left">
         <video className="post_left_video" src={post?.videoURL} controls muted autoPlay={true}></video>
         {/* <ReactPlayer controls url={post?.videoURL} width="100%" height="100%" /> */}
-        <img src="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/SvgImages/closeIcon.svg" alt="go back" className="closeIcon" onClick={goBack} />
+        <img src="/images/closeIcon.svg" alt="go back" className="closeIcon" onClick={goBack} />
       </div>
       <div className="post_right">
         <div className="post_right_head">
@@ -56,8 +63,8 @@ function PostDetail() {
               <h2>{post?.User?.username}</h2>
               <p>{post?.User?.fullname}</p>
             </div>
-            <Button type="text" className="followButton">
-              Follow
+            <Button onClick={toggleFollow} type="text" className={`followButton ${post.isFollowed ? 'following' : ''}`}>
+              {post.isFollowed ? 'Following' : 'Follow'}
             </Button>
           </div>
         </div>
