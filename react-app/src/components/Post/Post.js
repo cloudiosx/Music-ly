@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
 import { useLoginContext } from '../../Context/LoginProvider';
 import { updateFollow, updateLike } from '../../store/interactions/actions';
+import { deletePost } from '../../store/post/actions';
 import Button from '../pieces/Button';
 import VideoMeta from '../pieces/VideoMeta';
 import './Post.css';
@@ -33,8 +34,24 @@ const Post = (props) => {
   };
 
   const toggleFollow = () => {
-    if (!user) return; // user not logged in
+    if (!user) {
+      openLoginModal(); // user not logged in
+      return;
+    }
     dispatch(updateFollow({ postId: post.id }));
+  };
+
+  const handleClickComment = () => {
+    if (!user) {
+      openLoginModal(); // user not logged in
+      return;
+    }
+    history.push(`/posts/${post.id}`);
+  };
+
+  const deleteMyPost = () => {
+    if (!user) return; // user not logged in
+    dispatch(deletePost(post.id));
   };
 
   if (!post) return null;
@@ -60,14 +77,20 @@ const Post = (props) => {
           </div>
 
           <div className="post_content_follow">
-            <Button
-              onClick={toggleFollow}
-              size="small"
-              type="text"
-              className={`${post.isFollowed ? 'post_content_follow--following' : ''}`}
-            >
-              {post.isFollowed ? 'Following' : 'Follow'}
-            </Button>
+            {user && user?.id === post.userId ? (
+              <Button onClick={deleteMyPost} type="text" className={`post_content_follow--following`}>
+                Delete
+              </Button>
+            ) : (
+              <Button
+                onClick={toggleFollow}
+                size="small"
+                type="text"
+                className={`${post.isFollowed ? 'post_content_follow--following' : ''}`}
+              >
+                {post.isFollowed ? 'Following' : 'Follow'}
+              </Button>
+            )}
           </div>
 
           <div className="post_content_music">
@@ -90,7 +113,7 @@ const Post = (props) => {
                 onClick={handleClickLike}
                 icon={`far fa-heart fa-3x ${post.isLiked ? 'active_link' : ''}`}
               />
-              <VideoMeta content={post.totalComments} icon="far fa-comment-dots fa-3x" />
+              <VideoMeta content={post.totalComments} onClick={handleClickComment} icon="far fa-comment-dots fa-3x" />
               <VideoMeta content={post.totalComments} icon="fas fa-share fa-3x" />
             </div>
           </div>

@@ -30,7 +30,7 @@ const INITIAL_STATE = {
   loadingAllPosts: false,
   errorAllPosts: null,
 
-  postDetail: {},
+  postDetail: null,
   loadingPostDetail: false,
   errorPostDetail: null,
 };
@@ -66,7 +66,7 @@ const postReducer = (state = INITIAL_STATE, action) => {
     case ONE_POST_LOADING: {
       return {
         ...state,
-        postDetail: {},
+        postDetail: null,
         loadingPostDetail: true,
         errorPostDetail: null,
       };
@@ -82,7 +82,7 @@ const postReducer = (state = INITIAL_STATE, action) => {
     case ONE_POST_ERROR: {
       return {
         ...state,
-        postDetail: {},
+        postDetail: null,
         loadingPostDetail: false,
         errorPostDetail: action.payload,
       };
@@ -90,9 +90,16 @@ const postReducer = (state = INITIAL_STATE, action) => {
 
     //delete post
     case DELETE_POST_SUCCESS: {
+      const postId = action.payload;
+      let postDetail = state.postDetail;
+      if (postDetail?.id?.toString() === postId.toString()) {
+        postDetail = null;
+      }
+      const allPosts = state.allPosts.filter((item) => item?.id?.toString() !== postId.toString());
       return {
         ...state,
-        // TODO:
+        postDetail,
+        allPosts,
       };
     }
     case DELETE_POST_ERROR: {

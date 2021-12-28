@@ -20,7 +20,7 @@ const LoginProvider = ({ children }) => {
 
   return (
     <>
-      <LoginContext.Provider value={{ openLoginModal }}>{children}</LoginContext.Provider>
+      <LoginContext.Provider value={{ openLoginModal, openSignUpModal }}>{children}</LoginContext.Provider>
 
       <LoginModal isOpen={modalView === ModalView.login} onClose={closeModal} onClickFooterAction={openSignUpModal} />
       <SignUpModal isOpen={modalView === ModalView.signup} onClose={closeModal} onClickFooterAction={openLoginModal} />

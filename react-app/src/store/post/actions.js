@@ -1,15 +1,13 @@
 import {
-  ALL_POSTS_SUCCESS,
-  ALL_POSTS_LOADING,
   ALL_POSTS_ERROR,
-  ONE_POST_SUCCESS,
-  ONE_POST_LOADING,
-  ONE_POST_ERROR,
+  ALL_POSTS_LOADING,
+  ALL_POSTS_SUCCESS,
+  DELETE_POST_ERROR,
   DELETE_POST_SUCCESS,
-  DELETE_POST_ERROR
-} from './constants'
-
-// All Posts
+  ONE_POST_ERROR,
+  ONE_POST_LOADING,
+  ONE_POST_SUCCESS,
+} from './constants';
 
 const actGetAllPostsLoading = () => ({
   type: ALL_POSTS_LOADING,
@@ -17,63 +15,68 @@ const actGetAllPostsLoading = () => ({
 
 const actGetAllPostsSuccess = (payload) => ({
   type: ALL_POSTS_SUCCESS,
-  payload
+  payload,
 });
 
 const actGetAllPostsError = (payload) => ({
   type: ALL_POSTS_ERROR,
-  payload
+  payload,
 });
 
-export const getAllPosts = () => async (dispatch) => {
+// get all posts
+export const getAllPosts = () => async (dispatch, option) => {
   dispatch(actGetAllPostsLoading());
   try {
     const res = await fetch('/api/posts/');
+
     if (res.ok) {
       const posts = await res.json();
       dispatch(actGetAllPostsSuccess(posts));
       return posts;
     }
-    dispatch(actGetAllPostsError({ messsage: 'something wrong' }));
+    dispatch(actGetAllPostsError({ message: 'something wrong' }));
   } catch (error) {
     dispatch(actGetAllPostsError(error));
   }
 };
 
-// Single Post
-
 const actGetOnePostLoading = () => ({
   type: ONE_POST_LOADING,
 });
 
-const actGetOnePostSuccess = (payload) => ({
+const actOnePostSuccess = (payload) => ({
   type: ONE_POST_SUCCESS,
-  payload
+  payload,
 });
 
 const actGetOnePostError = (payload) => ({
   type: ONE_POST_ERROR,
-  payload
+  payload,
 });
 
+// get one post
 export const getOnePost = (id) => async (dispatch) => {
   dispatch(actGetOnePostLoading());
+  console.log('id ===============>', id);
   try {
     const res = await fetch(`/api/posts/${id}`);
+
     if (res.ok) {
       const post = await res.json();
-      dispatch(actGetOnePostSuccess(post));
+      dispatch(actOnePostSuccess(post));
       return post;
     }
     dispatch(actGetOnePostError({ message: 'something wrong' }));
   } catch (error) {
     dispatch(actGetOnePostError(error));
   }
-}
+};
 
+// save one Post (edit/create)
 export const savePost = (data) => async (dispatch) => {
   try {
     const formData = new FormData();
+
     Object.keys(data).forEach((key) => {
       formData.append(key, data[key]);
     });
@@ -82,50 +85,54 @@ export const savePost = (data) => async (dispatch) => {
     if (data.id) {
       res = await fetch(`/api/posts/${data.id}`, {
         method: 'PUT',
-        body: formData
+        body: formData,
       });
     } else {
       res = await fetch(`/api/posts/`, {
         method: 'POST',
-        body: formData
+        body: formData,
       });
     }
 
     if (res.ok) {
       const post = await res.json();
-      dispatch(actGetOnePostSuccess(post));
+      // TODO: check when integrate
+      // the idea now is that we return the whole post data then
+      // it's update to the store
+      // then it's also auto update to the UI
+      dispatch(actOnePostSuccess(post));
       return post;
     }
   } catch (error) {
-    dispatch(actGetOnePostError(error));
+    // TODO: update when integrate
   }
-}
-
-// Delete Post
+};
 
 const actDeletePostSuccess = (payload) => ({
   type: DELETE_POST_SUCCESS,
-  payload
+  payload,
 });
 
 const actDeletePostError = (payload) => ({
   type: DELETE_POST_ERROR,
-  payload
+  payload,
 });
 
+// delete one Post
 export const deletePost = (id) => async (dispatch) => {
   try {
     const res = await fetch(`/api/posts/${id}`, {
-      method: 'DELETE'
+      method: 'DELETE',
     });
 
     if (res.ok) {
-      const post = await res.json();
-      dispatch(actDeletePostSuccess(post));
-      return post;
+      await res.json();
+      dispatch(actDeletePostSuccess(id));
+      return;
     }
     dispatch(actDeletePostError({ message: 'Something went wrong' }));
   } catch (error) {
+    // TODO: update when integrate
     dispatch(actDeletePostError(error));
   }
-}
+};

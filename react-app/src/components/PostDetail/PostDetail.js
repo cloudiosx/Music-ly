@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { useLoginContext } from '../../Context/LoginProvider';
 import { updateFollow, updateLike } from '../../store/interactions/actions';
-import { getOnePost } from '../../store/post/actions';
+import { deletePost, getOnePost } from '../../store/post/actions';
 import CommentInput from '../CommentInput/CommentInput';
 import CommentLogout from '../CommentLogout/CommentLogout';
 import Comments from '../Comments/Comments';
@@ -35,6 +35,10 @@ function PostDetail() {
     history.goBack();
   };
 
+  const goToHome = () => {
+    history.replace('/');
+  };
+
   const handleClickLike = () => {
     if (!user) {
       openLoginModal();
@@ -44,11 +48,35 @@ function PostDetail() {
   };
 
   const toggleFollow = () => {
-    if (!user) return; // user not logged in
+    if (!user) {
+      openLoginModal();
+      return;
+    }
     dispatch(updateFollow({ postId: post.id }));
   };
 
-  if (!post) return null;
+  const deleteMyPost = () => {
+    if (!user) return; // user not logged in
+    dispatch(deletePost(postId));
+  };
+
+  if (!post) {
+    return (
+      <div className="post_detail">
+        <div className="post_left">
+          <div className="post_left_video"></div>
+          {/* <ReactPlayer controls url={post?.videoURL} width="100%" height="100%" /> */}
+          <img src="/images/closeIcon.svg" alt="go back" className="closeIcon" onClick={goBack} />
+        </div>
+        <div className="post_right delete--content">
+          <div>Can't find the post, It may have been deleted</div>
+          <Button onClick={goToHome} size="medium" type="text">
+            Back to feed
+          </Button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <main className="post_detail">
@@ -69,9 +97,19 @@ function PostDetail() {
               <h2>{post?.User?.username}</h2>
               <p>{post?.User?.fullname}</p>
             </div>
-            <Button onClick={toggleFollow} type="text" className={`followButton ${post.isFollowed ? 'following' : ''}`}>
-              {post.isFollowed ? 'Following' : 'Follow'}
-            </Button>
+            {user && user?.id === post.userId ? (
+              <Button onClick={deleteMyPost} type="text" className={`followButton following`}>
+                Delete
+              </Button>
+            ) : (
+              <Button
+                onClick={toggleFollow}
+                type="text"
+                className={`followButton ${post.isFollowed ? 'following' : ''}`}
+              >
+                {post.isFollowed ? 'Following' : 'Follow'}
+              </Button>
+            )}
           </div>
         </div>
         <div className="post_right_info">
