@@ -2,6 +2,7 @@ import React from 'react';
 import ReactPlayer from 'react-player';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
+import { useLoginContext } from '../../Context/LoginProvider';
 import { updateFollow, updateLike } from '../../store/interactions/actions';
 import Button from '../pieces/Button';
 import VideoMeta from '../pieces/VideoMeta';
@@ -11,6 +12,8 @@ const Post = (props) => {
   const { post } = props;
   const history = useHistory();
   const dispatch = useDispatch();
+  const { openLoginModal } = useLoginContext();
+
   const user = useSelector((state) => state.session.user);
 
   const handleClickVideo = (e) => {
@@ -19,7 +22,10 @@ const Post = (props) => {
   };
 
   const handleClickLike = () => {
-    if (!user) return; // user not logged in
+    if (!user) {
+      openLoginModal(); // user not logged in
+      return;
+    }
     const dataLike = {
       postId: post.id,
     };
