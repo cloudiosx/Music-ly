@@ -3,7 +3,7 @@ import { useLoginContext } from '../../Context/LoginProvider';
 import Button from '../pieces/Button';
 
 function CommentLogout() {
-  const { openLoginModal } = useLoginContext();
+  const { openLoginModal, openSignUpModal } = useLoginContext();
   return (
     <div className="logout_container">
       <h3 className="logout_container--title">Login to see comments</h3>
@@ -13,7 +13,9 @@ function CommentLogout() {
       </Button>
       <p className="question">
         Don't have an accounts?
-        <span className="question--signup">Sign up</span>
+        <span onClick={openSignUpModal} className="question--signup">
+          Sign up
+        </span>
       </p>
     </div>
   );
