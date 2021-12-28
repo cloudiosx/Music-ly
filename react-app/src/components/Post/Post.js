@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
 import { useLoginContext } from '../../Context/LoginProvider';
 import { updateFollow, updateLike } from '../../store/interactions/actions';
+import { deletePost } from '../../store/post/actions';
 import Button from '../pieces/Button';
 import VideoMeta from '../pieces/VideoMeta';
 import './Post.css';
@@ -37,6 +38,11 @@ const Post = (props) => {
     dispatch(updateFollow({ postId: post.id }));
   };
 
+  const deleteMyPost = () => {
+    if (!user) return; // user not logged in
+    dispatch(deletePost(post.id));
+  };
+
   if (!post) return null;
   return (
     <>
@@ -60,14 +66,20 @@ const Post = (props) => {
           </div>
 
           <div className="post_content_follow">
-            <Button
-              onClick={toggleFollow}
-              size="small"
-              type="text"
-              className={`${post.isFollowed ? 'post_content_follow--following' : ''}`}
-            >
-              {post.isFollowed ? 'Following' : 'Follow'}
-            </Button>
+            {user && user?.id === post.userId ? (
+              <Button onClick={deleteMyPost} type="text" className={`post_content_follow--following`}>
+                Delete
+              </Button>
+            ) : (
+              <Button
+                onClick={toggleFollow}
+                size="small"
+                type="text"
+                className={`${post.isFollowed ? 'post_content_follow--following' : ''}`}
+              >
+                {post.isFollowed ? 'Following' : 'Follow'}
+              </Button>
+            )}
           </div>
 
           <div className="post_content_music">
