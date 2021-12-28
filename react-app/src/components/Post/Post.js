@@ -34,8 +34,19 @@ const Post = (props) => {
   };
 
   const toggleFollow = () => {
-    if (!user) return; // user not logged in
+    if (!user) {
+      openLoginModal(); // user not logged in
+      return;
+    }
     dispatch(updateFollow({ postId: post.id }));
+  };
+
+  const handleClickComment = () => {
+    if (!user) {
+      openLoginModal(); // user not logged in
+      return;
+    }
+    history.push(`/posts/${post.id}`);
   };
 
   const deleteMyPost = () => {
@@ -102,7 +113,7 @@ const Post = (props) => {
                 onClick={handleClickLike}
                 icon={`far fa-heart fa-3x ${post.isLiked ? 'active_link' : ''}`}
               />
-              <VideoMeta content={post.totalComments} icon="far fa-comment-dots fa-3x" />
+              <VideoMeta content={post.totalComments} onClick={handleClickComment} icon="far fa-comment-dots fa-3x" />
               <VideoMeta content={post.totalComments} icon="fas fa-share fa-3x" />
             </div>
           </div>
