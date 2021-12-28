@@ -3,6 +3,8 @@ import {
   COMMENT_SUCCESS,
   DELETE_COMMENT_FAIL,
   DELETE_COMMENT_SUCCESS,
+  FOLLOW_FAIL,
+  FOLLOW_SUCCESS,
   LIKE_POST_FAIL,
   LIKE_POST_SUCCESS,
 } from './constants';
@@ -34,6 +36,16 @@ const actToggleLikeSuccess = (payload) => ({
 
 const actToggleLikeFail = (payload) => ({
   type: LIKE_POST_FAIL,
+  payload,
+});
+
+const actToggleFollowSuccess = (payload) => ({
+  type: FOLLOW_SUCCESS,
+  payload,
+});
+
+const actToggleFollowFail = (payload) => ({
+  type: FOLLOW_FAIL,
   payload,
 });
 
@@ -102,23 +114,21 @@ export const updateLike = (data) => async (dispatch) => {
 };
 
 // toggle follow
-// TODO: update follow should send the user data that interact with
+// {postId}
 export const updateFollow = (data) => async (dispatch) => {
   try {
-    let res;
-    if (data.id) {
-      res = await fetch(`/api/follows/${data.id}`, {
-        method: 'PUT',
-        body: JSON.stringify(data),
-      });
-    } else {
-      res = await fetch('/api/follows', {
-        method: 'POST',
-        body: JSON.stringify(data),
-      });
-    }
+    const res = await fetch('/api/followers/new', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
+
     if (res.ok) {
       // TODO
+      dispatch(actToggleFollowSuccess(data));
+    } else {
+      dispatch(actToggleFollowFail(data));
     }
-  } catch (error) {}
+  } catch (error) {
+    dispatch(actToggleFollowFail(data));
+  }
 };
