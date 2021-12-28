@@ -113,6 +113,16 @@ def seed_posts():
         caption="Couldn’t find a Halloween costume that fit @twistedpennywise @Ghostface Papi @Freddy Krueger @Jeremy Olenski #happyhalloween",
     )
 
+    michaelPost1 = Video(
+        userId=12,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/MichaelLe/michaelpost1.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Dance",
+        music="original sound - Michael Le",
+        caption="#ad Been hearing in 4D since i got these ✨😂 @JBLAudio #TourOne",
+    )
+
     db.session.add(addisonPost1)
     db.session.add(charliPost1)
     db.session.add(zachPost1)
@@ -124,6 +134,7 @@ def seed_posts():
     db.session.add(spencerPost1)
     db.session.add(imaginePost1)
     db.session.add(jasonPost1)
+    db.session.add(michaelPost1)
 
     addisonPost1.likesOfVideo.append(charli)
     addisonPost1.likesOfVideo.append(zach)

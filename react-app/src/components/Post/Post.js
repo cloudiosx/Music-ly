@@ -2,7 +2,7 @@ import React from 'react';
 import ReactPlayer from 'react-player';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
-import { updateLike } from '../../store/interactions/actions';
+import { updateFollow, updateLike } from '../../store/interactions/actions';
 import Button from '../pieces/Button';
 import VideoMeta from '../pieces/VideoMeta';
 import './Post.css';
@@ -26,6 +26,12 @@ const Post = (props) => {
     dispatch(updateLike(dataLike));
   };
 
+  const toggleFollow = () => {
+    if (!user) return; // user not logged in
+    dispatch(updateFollow({ postId: post.id }));
+  };
+
+  if (!post) return null;
   return (
     <>
       <div className="post">
@@ -48,8 +54,13 @@ const Post = (props) => {
           </div>
 
           <div className="post_content_follow">
-            <Button size="small" type="text">
-              Follow
+            <Button
+              onClick={toggleFollow}
+              size="small"
+              type="text"
+              className={`${post.isFollowed ? 'post_content_follow--following' : ''}`}
+            >
+              {post.isFollowed ? 'Following' : 'Follow'}
             </Button>
           </div>
 
