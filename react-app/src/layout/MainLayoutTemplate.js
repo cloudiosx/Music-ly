@@ -4,16 +4,19 @@ import { Route } from 'react-router-dom';
 import './MainLayoutTemplate.css';
 import LeftSidebar from './LeftSidebar';
 import ContentWrapper from './ContentWrapper';
+import LoginProvider from '../Context/LoginProvider';
 
 function MainLayout(props) {
   return (
-    <div className='page_main-layout'>
-      <NavBar />
-      <div className='main-layout-wrapper'>
-        <LeftSidebar />
-        <ContentWrapper>{props.children}</ContentWrapper>
+    <LoginProvider>
+      <div className="page_main-layout">
+        <NavBar />
+        <div className="main-layout-wrapper">
+          <LeftSidebar />
+          <ContentWrapper>{props.children}</ContentWrapper>
+        </div>
       </div>
-    </div>
+    </LoginProvider>
   );
 }
 
@@ -27,7 +30,7 @@ function MainLayoutTemplate({ Component, ...props }) {
         </MainLayout>
       )}
     />
-  )
+  );
 }
 
 export default MainLayoutTemplate;
