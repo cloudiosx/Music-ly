@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { signUp } from '../../../store/session/actions';
 import Button from '../../pieces/Button';
 import ModalAuth from '../ModalAuth/ModalAuth';
 import './AuthForm.css';
+import { renderErrorMessage } from '../../../util/validation';
 
 const SignUpModal = (props) => {
   const { isOpen, onClose, onClickFooterAction } = props;
@@ -18,6 +19,7 @@ const SignUpModal = (props) => {
   const [fullname, setFullname] = useState('');
   const [photoURL, setPhotoURL] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
     if (user) {
@@ -28,16 +30,18 @@ const SignUpModal = (props) => {
 
   const onRegister = async (e) => {
     e.preventDefault();
-    if (password === repeatPassword) {
-      const formData = new FormData();
-      formData.append('fullname', fullname);
-      formData.append('username', username);
-      formData.append('email', email);
-      formData.append('password', password);
-      formData.append('photoURL', photoURL);
-      formData.append('verified', false);
-      dispatch(signUp(formData));
+    if (disabled) {
+      setIsSubmitted(true);
+      return;
     }
+    const formData = new FormData();
+    formData.append('fullname', fullname);
+    formData.append('username', username);
+    formData.append('email', email);
+    formData.append('password', password);
+    formData.append('photoURL', photoURL);
+    formData.append('verified', false);
+    dispatch(signUp(formData));
   };
 
   const updateEmail = (e) => {
@@ -64,6 +68,28 @@ const SignUpModal = (props) => {
     setShowPassword((prev) => !prev);
   };
 
+  const emailError = useMemo(() => renderErrorMessage(email, { email: true, empty: true, min: 5, max: 20 }), [email]);
+  const passwordError = useMemo(() => renderErrorMessage(password, { empty: true, min: 8, max: 25 }), [password]);
+  const repeatPassError = useMemo(
+    () => renderErrorMessage(repeatPassword, { empty: true, compareWith: password, min: 8, max: 25 }),
+    [repeatPassword, password]
+  );
+
+  const usernameError = useMemo(() => renderErrorMessage(username, { empty: true }), [username]);
+  const fullnameError = useMemo(() => renderErrorMessage(fullname, { empty: true }), [fullname]);
+
+  const fileError = useMemo(() => renderErrorMessage(photoURL, { existed: true }), [photoURL]);
+
+  const disabled =
+    emailError ||
+    passwordError ||
+    repeatPassError ||
+    usernameError ||
+    fullnameError ||
+    fileError ||
+    !email ||
+    !password;
+
   return (
     <ModalAuth
       isOpen={isOpen}
@@ -80,6 +106,7 @@ const SignUpModal = (props) => {
             <i class="input_icon--start far fa-envelope fa-lg"></i>
             <input type="email" placeholder="Enter your email" value={email} onChange={updateEmail} />
           </div>
+          {(!!email || isSubmitted) && !!emailError && <p className="error_message">{emailError}</p>}
         </div>
         <div style={{ display: 'flex', gap: '10px' }}>
           <div className="form_field">
@@ -88,6 +115,7 @@ const SignUpModal = (props) => {
               <i class="input_icon--start far fa-user fa-lg"></i>
               <input type="text" placeholder="Enter your username" value={username} onChange={updateUsername} />
             </div>
+            {(!!username || isSubmitted) && !!usernameError && <p className="error_message">{usernameError}</p>}
           </div>
           <div className="form_field">
             <div className="label">Full Name</div>
@@ -95,6 +123,7 @@ const SignUpModal = (props) => {
               <i class="input_icon--start far fa-address-card fa-lg"></i>
               <input type="text" placeholder="Enter your full name" value={fullname} onChange={updateFullName} />
             </div>
+            {(!!fullname || isSubmitted) && !!fullnameError && <p className="error_message">{fullnameError}</p>}
           </div>
         </div>
         <div className="form_field">
@@ -109,6 +138,7 @@ const SignUpModal = (props) => {
             />
             <i onClick={toggleShowPassword} class={`input_icon--end fas fa-eye${!showPassword ? '-slash' : ''}`}></i>
           </div>
+          {(!!password || isSubmitted) && !!passwordError && <p className="error_message">{passwordError}</p>}
         </div>
         <div className="form_field">
           <div className="label">Repeat Password</div>
@@ -122,6 +152,7 @@ const SignUpModal = (props) => {
             />
             <i onClick={toggleShowPassword} class={`input_icon--end fas fa-eye${!showPassword ? '-slash' : ''}`}></i>
           </div>
+          {(!!repeatPassword || isSubmitted) && !!repeatPassError && <p className="error_message">{repeatPassError}</p>}
         </div>
         <div className="form_field">
           <div className="label">Upload your avatar</div>
@@ -132,12 +163,13 @@ const SignUpModal = (props) => {
             onChange={(e) => setPhotoURL(e.target.files[0])}
           />
         </div>
+        {(!!photoURL || isSubmitted) && !!fileError && <p className="error_message">{fileError}</p>}
       </div>
       <div className="action_group">
         <Button onClick={onClose} size="medium" className="action_group--button cancel">
           Cancel
         </Button>
-        <Button onClick={onRegister} type="fill" size="medium" className="action_group--button ok">
+        <Button onClick={onRegister} type="fill" size="medium" className="action_group--button ok" disabled={disabled}>
           Register
         </Button>
       </div>
