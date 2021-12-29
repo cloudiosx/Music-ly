@@ -7,7 +7,7 @@ const ModalAuth = (props) => {
   const { isOpen, onClose, children, title, onFooterAction, footerQuestion, footerAction } = props;
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} style={{ minWidth: 'unset', width: '520px', height: '720px' }}>
+    <Modal isOpen={isOpen} onClose={onClose} style={{ minWidth: 'unset', width: '520px', height: '780px' }}>
       <div className="auth_modal_view">
         <div className="auth_modal_view--title">{title}</div>
 

@@ -59,19 +59,18 @@ export const login = (email, password) => async (dispatch) => {
     if (response.ok) {
       const data = await response.json();
       dispatch(actSetUserSuccess(data));
-      return null;
     } else if (response.status < 500) {
       const data = await response.json();
       if (data.errors) {
-        dispatch(actSetUserError(data.errors));
-        return data.errors;
+        dispatch(actSetUserError({ message: 'The email or password is not found' }));
+        return;
       }
-      dispatch(actSetUserSuccess(data)); // TODO: check
+      dispatch(actSetUserError({ message: 'Something went wrong' }));
     } else {
       dispatch(actSetUserError({ message: 'Something went wrong' }));
-      return ['An error occurred. Please try again.'];
     }
   } catch (error) {
+    debugger;
     dispatch(actSetUserError(error));
   }
 };

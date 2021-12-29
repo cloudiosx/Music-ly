@@ -1,19 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../../store/session/actions';
 import Button from '../../pieces/Button';
 import ModalAuth from '../ModalAuth/ModalAuth';
 import './AuthForm.css';
+import { renderErrorMessage } from '../../../util/validation';
 
 const LoginModal = (props) => {
   const { isOpen, onClose, onClickFooterAction } = props;
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.session.user);
+  const { user, errorUser } = useSelector((state) => state.session);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
     if (user) {
@@ -23,7 +25,10 @@ const LoginModal = (props) => {
   }, [user]);
 
   const onLogin = async () => {
-    if (!email | !password) return;
+    if (emailError || passwordError) {
+      setIsSubmitted(true);
+      return;
+    }
     dispatch(login(email, password));
   };
 
@@ -39,6 +44,11 @@ const LoginModal = (props) => {
     setShowPassword((prev) => !prev);
   };
 
+  const emailError = useMemo(() => renderErrorMessage(email, { email: true, empty: true, min: 5, max: 20 }), [email]);
+  const passwordError = useMemo(() => renderErrorMessage(password, { empty: true, min: 8, max: 25 }), [password]);
+
+  const disabled = emailError || passwordError || !email || !password;
+
   return (
     <ModalAuth
       isOpen={isOpen}
@@ -48,6 +58,8 @@ const LoginModal = (props) => {
       onFooterAction={onClickFooterAction}
       title="Login to continue"
     >
+      {!!errorUser && <p className="error_message">{errorUser.message}</p>}
+
       <div className="auth_modal_body">
         <div className="form_field">
           <div className="label">Email</div>
@@ -55,6 +67,7 @@ const LoginModal = (props) => {
             <i class="input_icon--start far fa-envelope fa-lg"></i>
             <input type="email" placeholder="Enter your email" value={email} onChange={updateEmail} />
           </div>
+          {(!!email || isSubmitted) && !!emailError && <p className="error_message">{emailError}</p>}
         </div>
         <div className="form_field">
           <div className="label">Password</div>
@@ -68,13 +81,14 @@ const LoginModal = (props) => {
             />
             <i onClick={toggleShowPassword} class={`input_icon--end fas fa-eye${!showPassword ? '-slash' : ''}`}></i>
           </div>
+          {(!!password || isSubmitted) && !!passwordError && <p className="error_message">{passwordError}</p>}
         </div>
       </div>
       <div className="action_group">
         <Button onClick={onClose} size="medium" className="action_group--button cancel">
           Cancel
         </Button>
-        <Button onClick={onLogin} type="fill" size="medium" className="action_group--button ok">
+        <Button onClick={onLogin} type="fill" size="medium" className="action_group--button ok" disabled={disabled}>
           Login
         </Button>
       </div>

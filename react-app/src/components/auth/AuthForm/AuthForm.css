@@ -60,3 +60,8 @@
   border-radius: 50px;
   min-width: 150px;
 }
+
+.action_group .action_group--button.ok:disabled {
+  background-color: rgb(134 134 134);
+  cursor: default;
+}
