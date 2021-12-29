@@ -1,7 +1,6 @@
 const isNotEmpty = (input) => !!input && !!input.length;
 const isLessThan = (input, max) => !!input && input.length < max;
 const isGreaterThan = (input, min) => !!input && input.length > min;
-// email address validation (https://stackoverflow.com/a/46181/104380
 const isEmail = (input) =>
   !!input &&
   input.match(
