@@ -7,6 +7,8 @@ import {
   ONE_POST_ERROR,
   ONE_POST_LOADING,
   ONE_POST_SUCCESS,
+  UPLOAD_POST_ERROR,
+  UPLOAD_POST_SUCCESS,
 } from './constants';
 
 const actGetAllPostsLoading = () => ({
@@ -54,6 +56,16 @@ const actGetOnePostError = (payload) => ({
   payload,
 });
 
+const actUploadPostSuccess = (payload) => ({
+  type: UPLOAD_POST_SUCCESS,
+  payload,
+});
+
+const actUploadOnePostError = (payload) => ({
+  type: UPLOAD_POST_ERROR,
+  payload,
+});
+
 // get one post
 export const getOnePost = (id) => async (dispatch) => {
   dispatch(actGetOnePostLoading());
@@ -96,15 +108,12 @@ export const savePost = (data) => async (dispatch) => {
 
     if (res.ok) {
       const post = await res.json();
-      // TODO: check when integrate
-      // the idea now is that we return the whole post data then
-      // it's update to the store
-      // then it's also auto update to the UI
-      dispatch(actOnePostSuccess(post));
+      dispatch(actUploadPostSuccess(post));
       return post;
     }
+    dispatch(actUploadOnePostError({ message: 'Something wrong' }));
   } catch (error) {
-    // TODO: update when integrate
+    dispatch(actUploadOnePostError(error));
   }
 };
 
