@@ -155,3 +155,55 @@
 .post_button {
   width: 164px;
 }
+
+.post_button:disabled {
+  background-color: rgb(134 134 134);
+  cursor: default;
+}
+
+.preview_video {
+  position: relative;
+  background: rgb(255, 255, 255);
+  line-height: 0;
+  width: 284px;
+  height: 470px;
+}
+
+.preview_video video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: #000;
+}
+
+.preview_buttons {
+  margin-top: 18px;
+  background: rgb(255, 255, 255);
+  border: 1px solid rgba(22, 24, 35, 0.12);
+  box-sizing: border-box;
+  border-radius: 12px;
+  padding: 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.preview_buttons .preview_buttons--file_name {
+  font-size: 12px;
+  line-height: 17px;
+  font-weight: 600;
+  color: rgb(22, 24, 35);
+  cursor: pointer;
+}
+
+.preview_buttons .preview_buttons--change {
+  font-size: 12px;
+  line-height: 17px;
+  font-weight: 600;
+  color: rgb(22, 24, 35);
+  cursor: pointer;
+}
+
+.preview_buttons .preview_buttons--change:hover {
+  text-decoration: underline;
+}
