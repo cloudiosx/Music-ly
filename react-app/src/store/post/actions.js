@@ -57,7 +57,6 @@ const actGetOnePostError = (payload) => ({
 // get one post
 export const getOnePost = (id) => async (dispatch) => {
   dispatch(actGetOnePostLoading());
-  console.log('id ===============>', id);
   try {
     const res = await fetch(`/api/posts/${id}`);
 
@@ -73,6 +72,7 @@ export const getOnePost = (id) => async (dispatch) => {
 };
 
 // save one Post (edit/create)
+// { caption, file, topic, allows, music }
 export const savePost = (data) => async (dispatch) => {
   try {
     const formData = new FormData();
@@ -83,12 +83,12 @@ export const savePost = (data) => async (dispatch) => {
 
     let res;
     if (data.id) {
-      res = await fetch(`/api/posts/${data.id}`, {
+      res = await fetch(`/api/posts/${data.id}/edit/`, {
         method: 'PUT',
         body: formData,
       });
     } else {
-      res = await fetch(`/api/posts/`, {
+      res = await fetch(`/api/posts/new`, {
         method: 'POST',
         body: formData,
       });
