@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
 import './MainLayoutTemplate.css';
+import About from '../components/Sidebar/About';
 
 const LeftSidebar = ({ children }) => {
   const user = useSelector((state) => state.session.user);
@@ -23,6 +24,7 @@ const LeftSidebar = ({ children }) => {
         {location.pathname !== '/following' && <SuggestedAccounts />}
         {user && <FollowingList />}
         <Discover />
+        <About />
       </div>
     </div>
   );
