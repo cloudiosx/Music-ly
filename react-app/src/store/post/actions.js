@@ -85,7 +85,7 @@ export const getOnePost = (id) => async (dispatch) => {
 
 // save one Post (edit/create)
 // { caption, file, topic, allows, music }
-export const savePost = (data) => async (dispatch) => {
+export const savePost = (data, callBackAfterSuccess) => async (dispatch) => {
   try {
     const formData = new FormData();
 
@@ -109,6 +109,9 @@ export const savePost = (data) => async (dispatch) => {
     if (res.ok) {
       const post = await res.json();
       dispatch(actUploadPostSuccess(post));
+      if (callBackAfterSuccess) {
+        callBackAfterSuccess();
+      }
       return post;
     }
     dispatch(actUploadOnePostError({ message: 'Something wrong' }));
