@@ -35,6 +35,7 @@
   line-height: 18px;
   color: #161823;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 0 24px;
 }

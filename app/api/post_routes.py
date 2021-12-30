@@ -1,7 +1,9 @@
 from flask import Blueprint, jsonify, request
 from app.models import *
+from app.forms import UploadForm
 from flask_login import current_user
 from sqlalchemy import desc
+from app.utilities import upload_file_to_s3, allowed_file, get_unique_filename
 
 post_routes = Blueprint("posts", __name__)
 
@@ -14,6 +16,7 @@ def posts():
         .order_by(desc(Video.created_at))
         .all()
     )
+
     newList = []
     for post in posts:
         postDetails = post[0].to_dict()
@@ -90,17 +93,48 @@ def post(id):
 # POST /posts/new
 @post_routes.route("/new", methods=["POST"])
 def new_post():
-    new_post = Video(
-        userId=request.json["userId"],
-        videoURL=request.json["videoURL"],
-        videoType=request.json["videoType"],
-        topic=request.json["topic"],
-        music=request.json["music"],
-        caption=request.json["caption"],
-    )
-    db.session.add(new_post)
-    db.session.commit()
-    return new_post.to_dict()
+    currentUser = User.query.get(current_user.to_dict()["id"])
+    videoForm = UploadForm()
+    videoForm["csrf_token"].data = request.cookies["csrf_token"]
+
+    # if 'videoURL' not in videoForm.data:
+    #     return {"errors": "video required"}, 400
+
+    video = videoForm.data["file"]
+
+    if not allowed_file(video.filename):
+        return {"errors": "file type not permitted"}, 400
+
+    video.filename = get_unique_filename(video.filename)
+    upload = upload_file_to_s3(video)
+
+    if "url" not in upload:
+        return upload, 400
+
+    url = upload["url"]
+
+    if videoForm.validate_on_submit():
+        new_post = Video(
+            userId=current_user.to_dict()["id"],
+            videoURL=url,
+            videoType=videoForm.data["videoType"],
+            topic=videoForm.data["topic"],
+            music=videoForm.data["music"],
+            caption=videoForm.data["caption"],
+        )
+        db.session.add(new_post)
+        db.session.commit()
+        returnObject = {
+            **new_post.to_dict(),
+            "User": currentUser.to_dict(),
+            "isLiked": False,
+            "isFollowed": False,
+            "totalLikes": 0,
+            "totalComments": 0,
+            "comments": [],
+        }
+        return returnObject
+    return {"errors": "There was something wrong with uploading the file"}, 401
 
 
 # UPDATE /posts/edit

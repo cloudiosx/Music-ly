@@ -32,6 +32,12 @@ const LoginModal = (props) => {
     dispatch(login(email, password));
   };
 
+  const demoLogin = () => {
+    const fakeEmail = 'zach@zach.com';
+    const fakePassword = 'passwordpassword';
+    dispatch(login(fakeEmail, fakePassword));
+  };
+
   const updateEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -57,6 +63,7 @@ const LoginModal = (props) => {
       footerAction="Sign up"
       onFooterAction={onClickFooterAction}
       title="Login to continue"
+      demoLogin={demoLogin}
     >
       {!!errorUser && <p className="error_message">{errorUser.message}</p>}
 
@@ -84,6 +91,7 @@ const LoginModal = (props) => {
           {(!!password || isSubmitted) && !!passwordError && <p className="error_message">{passwordError}</p>}
         </div>
       </div>
+
       <div className="action_group">
         <Button onClick={onClose} size="medium" className="action_group--button cancel">
           Cancel
