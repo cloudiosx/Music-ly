@@ -26,11 +26,11 @@ const getErrorCheck = (input, typeCheck, options) => {
     case 'max':
       return isLessThan(input, options.max) ? '' : `*Field must less than ${options.max} characters`;
     case 'min':
-      return isGreaterThan(input, options.min) ? '' : `*Field must greater than ${options.min} characters`;
+      return isGreaterThan(input, options.min) ? '' : `*Field must be greater than ${options.min} characters`;
     case 'between':
       return isBetween(input, options)
         ? ''
-        : `*Field must greater than ${options.min} and less than ${options.max} characters`;
+        : `*Field must be greater than ${options.min} and less than ${options.max} characters`;
     default:
       return 'Field required';
   }
