@@ -10,6 +10,8 @@
   ONE_POST_LOADING,
   DELETE_POST_SUCCESS,
   DELETE_POST_ERROR,
+  UPLOAD_POST_ERROR,
+  UPLOAD_POST_SUCCESS,
 } from './constants';
 import {
   COMMENT_SUCCESS,
@@ -103,6 +105,23 @@ const postReducer = (state = INITIAL_STATE, action) => {
       };
     }
     case DELETE_POST_ERROR: {
+      return {
+        ...state,
+        // TODO:
+      };
+    }
+
+    // upload post
+    case UPLOAD_POST_SUCCESS: {
+      const newPost = action.payload;
+
+      const allPosts = [newPost, ...state.allPosts];
+      return {
+        ...state,
+        allPosts,
+      };
+    }
+    case UPLOAD_POST_ERROR: {
       return {
         ...state,
         // TODO:
