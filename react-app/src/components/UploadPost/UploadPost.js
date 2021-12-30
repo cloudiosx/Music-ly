@@ -6,7 +6,7 @@ import './UploadPost.css';
 import { savePost } from '../../store/post/actions';
 import { renderErrorMessage } from '../../util/validation';
 
-const UploadPost = (props) => {
+const UploadPost = ({ toggleModalUpload }) => {
   const fileRef = useRef(null);
   const [caption, setCaption] = useState('');
   const [music, setMusic] = useState('');
@@ -34,7 +34,7 @@ const UploadPost = (props) => {
       music,
     };
     console.log('postData', postData);
-    dispatch(savePost(postData));
+    dispatch(savePost(postData, toggleModalUpload));
   };
 
   useEffect(() => {
@@ -196,6 +196,8 @@ const UploadPost = (props) => {
   );
 };
 
-UploadPost.propTypes = {};
+UploadPost.propTypes = {
+  toggleModalUpload: PropTypes.func,
+};
 
 export default UploadPost;
