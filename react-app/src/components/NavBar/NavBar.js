@@ -83,7 +83,7 @@ const NavBar = () => {
         </li>
       </ul>
       <Modal isOpen={isOpen} onClose={toggleModalUpload}>
-        <UploadPost onClose={toggleModalUpload} />
+        <UploadPost toggleModalUpload={toggleModalUpload} />
       </Modal>
     </nav>
   );
