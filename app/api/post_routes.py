@@ -32,7 +32,6 @@ def posts():
                 isLiked = True
             else:
                 isLiked = False
-            print("post", post)
             if current_user in user.followings:
                 isFollowed = True
             else:
