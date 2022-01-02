@@ -50,7 +50,7 @@ def user(id):
         totalLikes += len(post.likesOfVideo.all())
     if current_user.is_authenticated:
         currentUser = User.query.get(current_user.to_dict()["id"])
-        if currentUser in user.followings:
+        if currentUser in user.followers:
             isFollowed = True
         else:
             isFollowed = False
