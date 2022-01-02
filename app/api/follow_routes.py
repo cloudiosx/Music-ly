@@ -19,7 +19,7 @@ def new_follow():
         user = User.query.get(userId)
         currentUser = User.query.get(current_user.to_dict()["id"])
 
-        if currentUser not in user.followings:
+        if currentUser not in user.followers:
             user.followers.append(currentUser)
             db.session.commit()
             return "You have followed the user successfully"
