@@ -20,6 +20,8 @@ const initialState = {
   allUsers: [],
   loadingAllUsers: false,
   errorAllUsers: null,
+
+  allUsersThatIAmNotFollowing: [],
 };
 
 export default function reducer(state = initialState, action) {
@@ -72,21 +74,21 @@ export default function reducer(state = initialState, action) {
     case GET_ALL_USER_THAT_I_DONT_FOLLOW_SUCCESS:
       return {
         ...state,
-        allUsers: action.payload,
+        allUsersThatIAmNotFollowing: action.payload,
         loadingAllUsers: false,
         errorAllUsers: null,
       };
     case GET_ALL_USER_THAT_I_DONT_FOLLOW_LOADING:
       return {
         ...state,
-        allUsers: [],
+        allUsersThatIAmNotFollowing: [],
         loadingAllUsers: true,
         errorAllUsers: null,
       };
     case GET_ALL_USER_THAT_I_DONT_FOLLOW_ERROR:
       return {
         ...state,
-        allUsers: [],
+        allUsersThatIAmNotFollowing: [],
         loadingAllUsers: false,
         errorAllUsers: action.payload,
       };
@@ -95,6 +97,7 @@ export default function reducer(state = initialState, action) {
     case FOLLOW_SUCCESS: {
       const { userId } = action.payload;
       const userProfile = deepClone(state.userProfile);
+      let allUsersThatIAmNotFollowing = deepClone(state.allUsersThatIAmNotFollowing);
 
       if (userProfile?.id?.toString() === userId.toString()) {
         if (userProfile.isFollowed) {
@@ -105,9 +108,20 @@ export default function reducer(state = initialState, action) {
         userProfile.isFollowed = !userProfile.isFollowed;
       }
 
+      allUsersThatIAmNotFollowing = allUsersThatIAmNotFollowing.map((item) => {
+        if (item?.id?.toString() === userId.toString()) {
+          return {
+            ...item,
+            isFollowed: !Boolean(item?.isFollowed),
+          };
+        }
+        return item;
+      });
+
       return {
         ...state,
         userProfile,
+        allUsersThatIAmNotFollowing,
       };
     }
     case FOLLOW_FAIL: {
