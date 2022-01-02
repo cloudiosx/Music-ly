@@ -148,7 +148,7 @@ const UploadPost = ({ toggleModalUpload }) => {
           </div>
 
           <div className="form-wrap">
-            <p className="form-title">Music</p>
+            <p className="form-title">Music Title</p>
             <input className="input_text" value={music} onChange={(e) => setMusic(e.target.value)} />
             {(!!music || isSubmitted) && !!musicError && <p className="error_message">{musicError}</p>}
           </div>
