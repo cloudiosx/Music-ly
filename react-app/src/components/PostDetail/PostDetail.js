@@ -12,7 +12,7 @@ import Button from '../pieces/Button';
 import VideoMeta from '../pieces/VideoMeta';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import SmsIcon from '@mui/icons-material/Sms';
+import SmsOutlinedIcon from '@mui/icons-material/SmsOutlined';
 import ReplyIcon from '@mui/icons-material/Reply';
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
 import './PostDetail.css';
@@ -134,17 +134,17 @@ function PostDetail() {
             </b>
           </h1>
           <h2 className="music">
-            <MusicNoteIcon />
+            <MusicNoteIcon fontSize="small" />
             {post?.music}
           </h2>
           <div className="actions">
             <VideoMeta
               content={post.totalLikes}
               onClick={handleClickLike}
-              icon={post.isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+              icon={post.isLiked ? <FavoriteIcon color="error" /> : <FavoriteBorderIcon />}
               isHorizon
             />
-            <VideoMeta content={post.totalComments} icon={<SmsIcon />} isHorizon />
+            <VideoMeta content={post.totalComments} icon={<SmsOutlinedIcon />} isHorizon />
             <VideoMeta
               content={post.totalComments}
               icon={<ReplyIcon style={{ transform: 'scaleX(-1)' }} />}
