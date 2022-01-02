@@ -13,4 +13,10 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  padding-right: 16px;
+  margin-right: 16px;
+}
+
+.discover_tags_wrapper:hover {
+  /* padding-right: 16px; */
 }
