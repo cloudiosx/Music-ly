@@ -97,6 +97,11 @@ export default function reducer(state = initialState, action) {
       const userProfile = deepClone(state.userProfile);
 
       if (userProfile?.id?.toString() === userId.toString()) {
+        if (userProfile.isFollowed) {
+          userProfile.totalFollowers -= 1;
+        } else {
+          userProfile.totalFollowers += 1;
+        }
         userProfile.isFollowed = !userProfile.isFollowed;
       }
 
