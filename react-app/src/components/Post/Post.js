@@ -100,7 +100,7 @@ const Post = (props) => {
 
           <div className="post_content_music">
             <h4 style={{ fontWeight: 600, fontSize: 15 }}>
-              <MusicNoteIcon />
+              <MusicNoteIcon fontSize="small" />
               {post.music}
             </h4>
           </div>
@@ -119,10 +119,10 @@ const Post = (props) => {
               <VideoMeta
                 content={post.totalLikes}
                 onClick={handleClickLike}
-                icon={post.isLiked ? <FavoriteIcon color="error" /> : <FavoriteBorderIcon />}
+                icon={post.isLiked ? <FavoriteIcon color="error" fontSize="medium" /> : <FavoriteBorderIcon fontSize="medium" />}
               />
-              <VideoMeta content={post.totalComments} onClick={handleClickComment} icon={<SmsOutlinedIcon />} />
-              <VideoMeta content={post.totalComments} icon={<ReplyIcon style={{ transform: 'scaleX(-1)' }} />} />
+              <VideoMeta content={post.totalComments} onClick={handleClickComment} icon={<SmsOutlinedIcon fontSize="medium" />} />
+              <VideoMeta content={post.totalComments} icon={<ReplyIcon style={{ transform: 'scaleX(-1)' }} fontSize="medium" />} />
             </div>
           </div>
         </div>

@@ -8,7 +8,7 @@ import Modal from '../pieces/Modal';
 import SearchBar from '../SearchBar/SearchBar';
 import UploadPost from '../UploadPost/UploadPost';
 import LogoutIcon from '@mui/icons-material/Logout';
-import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import CloudUploadOutlinedIcon from '@mui/icons-material/CloudUploadOutlined';
 import './NavBar.css';
 
 const NavBar = () => {
@@ -59,7 +59,7 @@ const NavBar = () => {
                 </div>
               ) : (
                 <div className="button-upload" onClick={toggleModalUpload}>
-                  <CloudUploadIcon />
+                  <CloudUploadOutlinedIcon fontSize="large" />
                 </div>
               )}
             </li>

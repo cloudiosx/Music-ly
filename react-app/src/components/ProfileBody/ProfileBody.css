@@ -50,3 +50,8 @@
 .profile_body .tab_bar--liked {
   color: rgba(18, 18, 18, 0.5);
 }
+
+/* .tab_bar--liked {
+  pointer-events: none;
+  cursor: default;
+} */
