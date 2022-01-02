@@ -38,7 +38,7 @@ const Post = (props) => {
       openLoginModal(); // user not logged in
       return;
     }
-    dispatch(updateFollow({ postId: post.id }));
+    dispatch(updateFollow({ userId: post.userId }));
   };
 
   const handleClickComment = () => {
