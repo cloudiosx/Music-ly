@@ -20,10 +20,10 @@ def new_follow():
         currentUser = User.query.get(current_user.to_dict()["id"])
 
         if currentUser not in user.followings:
-            user.followings.append(currentUser)
+            user.followers.append(currentUser)
             db.session.commit()
             return "You have followed the user successfully"
         else:
-            user.followings.remove(currentUser)
+            user.followers.remove(currentUser)
             db.session.commit()
             return "You have unfollowed the user successfully"
