@@ -75,14 +75,14 @@
   line-height: 22px;
   color: rgb(18, 18, 18);
   flex: 0 0 auto;
-  font-weight: normal;
+  font-weight: 400;
   margin-bottom: 0px;
   word-break: break-word;
   margin-right: 150px;
 }
 
 .post_content_caption--topic {
-  font-weight: 600;
+  font-weight: 400;
   color: rgb(18, 18, 18);
   cursor: pointer;
   margin-left: 5px;
