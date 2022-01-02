@@ -114,7 +114,7 @@ export const updateLike = (data) => async (dispatch) => {
 };
 
 // toggle follow
-// {postId}
+// {userId}
 export const updateFollow = (data) => async (dispatch) => {
   try {
     const res = await fetch('/api/followers/new', {

@@ -70,4 +70,10 @@ class User(db.Model, UserMixin):
             "email": self.email,
             "photoURL": self.photoURL,
             "fullname": self.fullname,
+            "verified": self.verified,
+            "followingPost": sorted(
+                [video.to_dict() for video in self.videos],
+                key=lambda i: i["created_at"],
+                reverse=True,
+            )[0],
         }
