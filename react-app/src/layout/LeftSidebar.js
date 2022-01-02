@@ -20,9 +20,9 @@ const LeftSidebar = ({ children }) => {
       <div className="sidebar-lock">
         <ForYou />
         {!user && <LoginSide />}
-        <PopularTopics />
+        {/* <PopularTopics /> */}
         {location.pathname !== '/following' && <SuggestedAccounts />}
-        {user && <FollowingList />}
+        {/* {user && <FollowingList />} */}
         <Discover />
         <About />
       </div>
