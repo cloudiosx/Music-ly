@@ -2,9 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../pieces/Button';
 import './CardFollowInfo.css';
+import { useLoginContext } from '../../Context/LoginProvider';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateFollow } from '../../store/interactions/actions';
 
 const CardFollowInfo = (props) => {
   const { userData } = props;
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.session.user);
+  const { openLoginModal } = useLoginContext();
+
+  const toggleFollow = (e) => {
+    e.stopPropagation();
+    if (!user) {
+      openLoginModal(); // user not logged in
+      return;
+    }
+    dispatch(updateFollow({ userId: userData.id }));
+  };
   return (
     <div className="follow_info">
       <span className="image_wrap">
@@ -13,12 +28,17 @@ const CardFollowInfo = (props) => {
       <h5 className="follow_info--title">{userData.fullname}</h5>
       <p className="follow_info--subtitle">
         {userData.username}
-        <img src="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/SvgImages/verified.svg" alt="verified" />
+        {userData.verified && (
+          <img src="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/SvgImages/verified.svg" alt="verified" />
+        )}
       </p>
       <div className="button_wrap">
-        {/*  add class following */}
-        <Button type="fill" className="button_wrap--follow">
-          Follow
+        <Button
+          type={`${!!userData.isFollowed ? 'text' : 'fill'}`}
+          className={`button_wrap--follow ${!!userData.isFollowed ? 'following' : ''}`}
+          onClick={toggleFollow}
+        >
+          {!!userData.isFollowed ? 'Following' : 'Follow'}
         </Button>
       </div>
     </div>
