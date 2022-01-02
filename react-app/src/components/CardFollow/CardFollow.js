@@ -1,22 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import CardFollowInfo from '../CardFollowInfo/CardFollowInfo';
 import './CardFollow.css';
 
 const CardFollow = (props) => {
   const { userData } = props;
+  const history = useHistory();
+
+  const handleClick = () => {
+    history.push(`/users/${userData.id}`);
+  };
+
   return (
-    <div className="card_follow" style={{ backgroundImage: 'url("/videos/loginVideo1.mp4")' }}>
+    <div className="card_follow">
       <div style={{ position: 'absolute', inset: 0 }}>
-        {/* TODO: */}
-        <NavLink to={`/users/${userData.id}`}>
-          <div className="card_follow_video">
-            <div className="card_follow_video--fade">
-              <CardFollowInfo userData={userData} />
-            </div>
+        <div className="card_follow_video" onClick={handleClick}>
+          <video
+            className="card_bg_video"
+            src={userData?.followingPost?.videoURL}
+            muted
+            autoPlay
+            loop
+            controls={false}
+          />
+
+          <div className="card_follow_video--fade">
+            <CardFollowInfo userData={userData} />
           </div>
-        </NavLink>
+        </div>
       </div>
     </div>
   );
