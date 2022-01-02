@@ -7,6 +7,8 @@ import Button from '../pieces/Button';
 import Modal from '../pieces/Modal';
 import SearchBar from '../SearchBar/SearchBar';
 import UploadPost from '../UploadPost/UploadPost';
+import LogoutIcon from '@mui/icons-material/Logout';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import './NavBar.css';
 
 const NavBar = () => {
@@ -46,7 +48,7 @@ const NavBar = () => {
             {user && (
               <li>
                 <div className="button-upload--nologin" onClick={handleLogout}>
-                  <i class="fas fa-sign-out-alt"></i> Logout
+                  <LogoutIcon /> Logout
                 </div>
               </li>
             )}
@@ -57,10 +59,7 @@ const NavBar = () => {
                 </div>
               ) : (
                 <div className="button-upload" onClick={toggleModalUpload}>
-                  <img
-                    src="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/SvgImages/uploadCloud.svg"
-                    alt="upload video"
-                  />
+                  <CloudUploadIcon />
                 </div>
               )}
             </li>

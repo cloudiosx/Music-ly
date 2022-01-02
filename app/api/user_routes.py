@@ -21,9 +21,11 @@ def notFollowedUsers():
 
     if current_user.is_authenticated:
         # If users does not include current_user.followers
-        for follower in current_user.followers:
-            if follower in users:
-                users.remove(follower)
+        for following in current_user.followings:
+            if following in users:
+                users.remove(following)
+        if current_user in users:
+            users.remove(current_user)
         userList = [user.to_dict() for user in users]
         return jsonify(userList)
     else:

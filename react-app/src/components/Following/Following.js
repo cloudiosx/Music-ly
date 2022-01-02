@@ -1,14 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllUsers, getAllUsersThatIDontFollow } from '../../store/user/actions';
+import { getAllUsersThatIDontFollow } from '../../store/user/actions';
 import CardFollow from '../CardFollow/CardFollow';
-import Post from '../Post/Post';
 import './Following.css';
 
 function Following() {
   const dispatch = useDispatch();
 
-  const allUsers = useSelector((state) => state.userStore.allUsers);
+  const allUsers = useSelector((state) => state.userStore.allUsersThatIAmNotFollowing);
 
   useEffect(() => {
     dispatch(getAllUsersThatIDontFollow());

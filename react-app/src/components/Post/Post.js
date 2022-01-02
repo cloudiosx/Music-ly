@@ -7,6 +7,11 @@ import { updateFollow, updateLike } from '../../store/interactions/actions';
 import { deletePost } from '../../store/post/actions';
 import Button from '../pieces/Button';
 import VideoMeta from '../pieces/VideoMeta';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import SmsOutlinedIcon from '@mui/icons-material/SmsOutlined';
+import ReplyIcon from '@mui/icons-material/Reply';
+import MusicNoteIcon from '@mui/icons-material/MusicNote';
 import './Post.css';
 
 const Post = (props) => {
@@ -67,12 +72,12 @@ const Post = (props) => {
               <h3>{post.User.username}</h3>
             </NavLink>
             <NavLink to={`/users/${post.userId}`} className="post_content_user--subname">
-              <h3>{post.User.fullname}</h3>
+              <span>{post.User.fullname}</span>
             </NavLink>
           </div>
 
           <div className="post_content_caption">
-            <b>{post.caption}</b>
+            <span>{post.caption}</span>
             <span className="post_content_caption--topic">#{post.topic}</span>
           </div>
 
@@ -94,7 +99,10 @@ const Post = (props) => {
           </div>
 
           <div className="post_content_music">
-            <h4>{post.music}</h4>
+            <h4 style={{ fontWeight: 600, fontSize: 15 }}>
+              <MusicNoteIcon />
+              {post.music}
+            </h4>
           </div>
 
           <div className="post_content_video">
@@ -111,10 +119,10 @@ const Post = (props) => {
               <VideoMeta
                 content={post.totalLikes}
                 onClick={handleClickLike}
-                icon={`far fa-heart fa-3x ${post.isLiked ? 'active_link' : ''}`}
+                icon={post.isLiked ? <FavoriteIcon color="error" /> : <FavoriteBorderIcon />}
               />
-              <VideoMeta content={post.totalComments} onClick={handleClickComment} icon="far fa-comment-dots fa-3x" />
-              <VideoMeta content={post.totalComments} icon="fas fa-share fa-3x" />
+              <VideoMeta content={post.totalComments} onClick={handleClickComment} icon={<SmsOutlinedIcon />} />
+              <VideoMeta content={post.totalComments} icon={<ReplyIcon style={{ transform: 'scaleX(-1)' }} />} />
             </div>
           </div>
         </div>
