@@ -1,8 +1,9 @@
 import React, { useMemo, useState } from 'react';
+import PropTypes from 'prop-types';
 import ProfileVideoItem from '../ProfileVideoItem/ProfileVideoItem';
 import './ProfileBody.css';
 
-function ProfileBody() {
+function ProfileBody({ userProfile }) {
   const [currentHoverTab, setCurrentHoverTab] = useState('videos'); // videos , liked
 
   const transformStyle = useMemo(() => {
@@ -34,12 +35,14 @@ function ProfileBody() {
         <div className="tab_underline" style={{ ...transformStyle }}></div>
       </div>
       <div className="tab_body">
-        {[1, 2, 3, 4, 5, 6, 7].map((item, idx) => {
-          return <ProfileVideoItem key={idx} />;
+        {userProfile?.userPosts.map((item, idx) => {
+          return <ProfileVideoItem key={idx} video={item} />;
         })}
       </div>
     </div>
   );
 }
-
+ProfileBody.propTypes = {
+  userProfile: PropTypes.object,
+};
 export default ProfileBody;

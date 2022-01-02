@@ -8,7 +8,6 @@ user_routes = Blueprint("users", __name__)
 
 # Get all Users
 @user_routes.route("/")
-@login_required
 def users():
     users = User.query.all()
     userList = [user.to_dict() for user in users]
@@ -19,6 +18,7 @@ def users():
 @user_routes.route("/notFollowed")
 def notFollowedUsers():
     users = User.query.all()
+
     if current_user.is_authenticated:
         # If users does not include current_user.followers
         for follower in current_user.followers:
@@ -33,10 +33,38 @@ def notFollowedUsers():
 
 # Get a single User
 @user_routes.route("/<int:id>")
-@login_required
 def user(id):
     user = User.query.get(id)
-    return user.to_dict()
+    userDetails = user.to_dict()
+    posts = (
+        Video.query.filter(Video.userId == id).order_by(desc(Video.created_at)).all()
+    )
+    postsList = [post.to_dict() for post in posts]
+    totalFollowings = len(user.followings)
+    totalFollowers = len(user.followers)
+    totalLikes = 0
+    for post in posts:
+        if len(post.likesOfVideo.all()) == 0:
+            totalLikes += 0
+            break
+        totalLikes += len(post.likesOfVideo.all())
+    if current_user.is_authenticated:
+        currentUser = User.query.get(current_user.to_dict()["id"])
+        if currentUser in user.followings:
+            isFollowed = True
+        else:
+            isFollowed = False
+    else:
+        isFollowed = False
+    returnObject = {
+        **userDetails,
+        "totalFollowers": totalFollowers,
+        "totalFollowings": totalFollowings,
+        "totalLikes": totalLikes,
+        "isFollowed": isFollowed,
+        "userPosts": postsList,
+    }
+    return returnObject
 
 
 # Get all of a User's posts

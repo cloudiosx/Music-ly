@@ -1,25 +1,28 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import './ProfileVideoItem.css';
 
-function ProfileVideoItem() {
+function ProfileVideoItem({ video }) {
   const history = useHistory();
 
   const handleClickVideo = (e) => {
     e.stopPropagation(); // dont propagate the event on the <video>, which trigger play mode
-    //TODO: go to postDetail
-    history.push(`/posts/${1}`);
+    history.push(`/posts/${video.id}`);
   };
 
   return (
     <div className="profile_video_item_container">
       <div className="profile_video_item">
         <span onClick={handleClickVideo}>
-          <video className="profile_video_item--video_player" src="/videos/loginVideo1.mp4" muted autoPlay loop></video>
+          <video className="profile_video_item--video_player" src={video.videoURL} muted autoPlay loop></video>
         </span>
       </div>
     </div>
   );
 }
 
+ProfileVideoItem.propTypes = {
+  video: PropTypes.object,
+};
 export default ProfileVideoItem;

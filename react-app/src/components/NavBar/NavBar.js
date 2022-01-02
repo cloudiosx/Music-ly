@@ -74,9 +74,9 @@ const NavBar = () => {
                   </Button>
                 </span>
               ) : (
-                <span className="nav_user_image">
+                <NavLink to={`/users/${user.id}`} className="nav_user_image">
                   <img src={user.photoURL} alt={user.username} />
-                </span>
+                </NavLink>
               )}
             </li>
           </ul>

@@ -13,6 +13,66 @@ def seed_posts():
         caption="My holiday season must-haves from @American Eagle 🎄❤️ #aepartner #aejeans",
     )
 
+    addisonPost2 = Video(
+        userId=1,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/AddisonRae/addisonpost2.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Beauty",
+        music="original sound - Addison Rae",
+        caption="Our TWICE AS NICE and TRI-ME kits are now available at @sephora and on the @itembeauty website!! #itemcofounder",
+    )
+
+    addisonPost3 = Video(
+        userId=1,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/AddisonRae/addisonpost3.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Beauty",
+        music="seeing triple edit - kendall <3",
+        caption="#ColorCustomizer",
+    )
+
+    addisonPost4 = Video(
+        userId=1,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/AddisonRae/addisonpost4.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Beauty",
+        music="Sweat – Pandora ME remix - Charli XCX",
+        caption="Join the #123PandoraME challenge with me and the rest of the @pandorame collective: @charlixcx @dontecolley @Cecilia Cantarano🌙 @Beabadoobee",
+    )
+
+    addisonPost5 = Video(
+        userId=1,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/AddisonRae/addisonpost5.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Lifestyle",
+        music="Desire - Gryffin Remix - Years & Years",
+        caption="How is this real life?! Thank you to everyone who follows and supports me. I love y’all so much ❤️",
+    )
+
+    addisonPost6 = Video(
+        userId=1,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/AddisonRae/addisonpost6.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Lifestyle",
+        music="Summer Nights - nvsh",
+        caption="Catch me this summer, if you can 🌴🌸☀️ tell me what’s on your summer bucket list using emoji’s only! @americaneagle #aepartner #aejeans",
+    )
+
+    addisonPost7 = Video(
+        userId=1,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/AddisonRae/addisonpost7.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Dance",
+        music="original sound - payton graber",
+        caption="#duet with addisonre one take wonders @kourtneykardashian",
+    )
+
     charliPost1 = Video(
         userId=2,
         videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/CharliDAmelio/charlipost1.mp4",
@@ -23,14 +83,134 @@ def seed_posts():
         caption="introducing our final @socialtourist drop of 2021! shop vol 7 now #wethetourists #socialtouristcofounder",
     )
 
+    charliPost2 = Video(
+        userId=2,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/CharliDAmelio/charlipost2.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Food",
+        music="Santa Tell Me - Ariana Grande",
+        caption="last holiday yt video is out now go watch all 13!!!!",
+    )
+
+    charliPost3 = Video(
+        userId=2,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/CharliDAmelio/charlipost3.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Lifestyle",
+        music="Pretty Girl - Clairo",
+        caption="yesterday",
+    )
+
+    charliPost4 = Video(
+        userId=2,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/CharliDAmelio/charlipost4.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Family",
+        music="Be Happy - Dixie",
+        caption="@dixiedamelio",
+    )
+
+    charliPost5 = Video(
+        userId=2,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/CharliDAmelio/charlipost5.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Dance",
+        music="original sound - Jesse Geraldo",
+        caption="dc @Jarred Manista @nickfpauley @Jesse Geraldo",
+    )
+
+    charliPost6 = Video(
+        userId=2,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/CharliDAmelio/charlipost6.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Outdoors",
+        music="send my love - favsoundds",
+        caption="capri 📍",
+    )
+
+    charliPost7 = Video(
+        userId=2,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/CharliDAmelio/charlipost7.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Entertainment",
+        music="original sound - charli d’amelio",
+        caption="#thedamelioshow is out now on @hulu @dameliosonhulu !!!",
+    )
+
     zachPost1 = Video(
         userId=3,
         videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/ZachKing/zachpost1.mp4",
         s3Name="s3Name",
         videoType="comment",
-        topic="Pranks",
+        topic="Entertainment",
         music="original sound - Zach King",
         caption="The snowball at the end wrecked me! #winterwonderland #letitsnow",
+    )
+
+    zachPost2 = Video(
+        userId=3,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/ZachKing/zachpost2.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Entertainment",
+        music="original sound - Zach King",
+        caption="We built a really big #gingerbreadhouse to pull this #trick off.",
+    )
+
+    zachPost3 = Video(
+        userId=3,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/ZachKing/zachpost3.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Entertainment",
+        music="original sound - Zach King",
+        caption="Proof #aliens do exist?",
+    )
+
+    zachPost4 = Video(
+        userId=3,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/ZachKing/zachpost4.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Entertainment",
+        music="original sound - Zach King",
+        caption="How to #parallel #park",
+    )
+
+    zachPost5 = Video(
+        userId=3,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/ZachKing/zachpost5.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Entertainment",
+        music="original sound - Zach King",
+        caption="Sometimes life is not as it seems @itsdanielmac",
+    )
+
+    zachPost6 = Video(
+        userId=3,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/ZachKing/zachpost6.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Entertainment",
+        music="original sound - Zach King",
+        caption="Ever wonder why it’s called Fast Food?",
+    )
+
+    zachPost7 = Video(
+        userId=3,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/ZachKing/zachpost7.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Entertainment",
+        music="original sound - Zach King",
+        caption="Learning some #trickshots from @dudeperfect",
     )
 
     bellaPost1 = Video(
@@ -43,18 +223,68 @@ def seed_posts():
         caption="I was screaming all night😅💜",
     )
 
-    khabanePost1 = Video(
-        userId=5,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/KhabaneLame/khabanepost1.mp4",
+    bellaPost2 = Video(
+        userId=4,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/BellaPoarch/bellapost2.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Dance",
+        music="Title - Meghan Trainor",
+        caption="@bretmanrock ✨",
+    )
+
+    bellaPost3 = Video(
+        userId=4,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/BellaPoarch/bellapost3.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Dance",
+        music="original sound - justdancegame",
+        caption="#duet with justdance_officialgame Excited to partner with Just Dance to celebrate #GivingTuesday ! Show me your moves💃🏻🥰 #JustDance2022",
+    )
+
+    bellaPost4 = Video(
+        userId=4,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/BellaPoarch/bellapost4.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Dance",
+        music="California Gurls - Katy Perry",
+        caption="I didn’t have anybody to do this trend with🥲",
+    )
+
+    bellaPost5 = Video(
+        userId=4,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/BellaPoarch/bellapost5.mp4",
         s3Name="s3Name",
         videoType="comment",
         topic="Entertainment",
-        music="suono originale - Khabane lame",
-        caption="🤷🏿‍♂️#learnfromkhaby #learnontiktok #learnwithtiktok #stitch",
+        music="INFERNO - Sub Urban & Bella Poarch",
+        caption="Who’s that Pokémon!!!😆💛",
+    )
+
+    bellaPost6 = Video(
+        userId=4,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/BellaPoarch/bellapost6.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Entertainment",
+        music="Backyardigans x Little Einsteins - Fin Draper Music",
+        caption="I ❤️ NY",
+    )
+
+    bellaPost7 = Video(
+        userId=4,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/BellaPoarch/bellapost7.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Dance",
+        music="Alors on danse - Slowed - Stromae",
+        caption="just wanted to join in on the trend😅",
     )
 
     willPost1 = Video(
-        userId=6,
+        userId=5,
         videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/WillSmith/willpost1.mp4",
         s3Name="s3Name",
         videoType="comment",
@@ -63,18 +293,68 @@ def seed_posts():
         caption="Also, fries.",
     )
 
-    kimberlyPost1 = Video(
-        userId=7,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/KimberlyLoaiza/kimberlypost1.mp4",
+    willPost2 = Video(
+        userId=5,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/WillSmith/willpost2.mp4",
         s3Name="s3Name",
         videoType="comment",
-        topic="Dance",
-        music="sonido original - Carol Castro",
-        caption="Me encanta este trend 🤩 Dc @elrodcontreras @carolcastromx",
+        topic="Entertainment",
+        music="original sound - Tik Toker",
+        caption="Big mood for #kingrichard week!!",
+    )
+
+    willPost3 = Video(
+        userId=5,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/WillSmith/willpost3.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Entertainment",
+        music="original sound - Will Smith",
+        caption="Reply to @muryborkono I took the stairs obviously",
+    )
+
+    willPost4 = Video(
+        userId=5,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/WillSmith/willpost4.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Entertainment",
+        music="original sound - Will Smith",
+        caption="3 fast 3 furious",
+    )
+
+    willPost5 = Video(
+        userId=5,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/WillSmith/willpost5.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Entertainment",
+        music="A Moment Apart - ODESZA",
+        caption="This gives new meaning to “deep end” of the pool 😧 #DeepDiveDubai is INSANE!! #BestShapeOfMyLife",
+    )
+
+    willPost6 = Video(
+        userId=5,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/WillSmith/willpost6.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Entertainment",
+        music="original sound - Will Smith",
+        caption="Hit him with the snack attack ;-) @lilnasx",
+    )
+
+    willPost7 = Video(
+        userId=5,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/WillSmith/willpost7.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Entertainment",
+        music="The Fresh Prince Of Bel-Air - TV Themes",
+        caption="Jeff got flip turned right to the other side of the planet 😂. #FreshPrinceReunion 📹: @chrisashley",
     )
 
     dixiePost1 = Video(
-        userId=8,
+        userId=6,
         videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/DixieDAmelio/dixiepost1.mp4",
         s3Name="s3Name",
         videoType="comment",
@@ -83,18 +363,138 @@ def seed_posts():
         caption="@socialtourist vol 7 is here! our final drop of 2021 #wethetourists #socialtouristcofounder",
     )
 
-    spencerPost1 = Video(
-        userId=9,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/SpencerX/spencerpost1.mp4",
+    dixiePost2 = Video(
+        userId=6,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/DixieDAmelio/dixiepost2.mp4",
         s3Name="s3Name",
         videoType="comment",
         topic="Entertainment",
+        music="Christmas City 30 - Auracle",
+        caption="living in my cute custom red tracksuit and sipping my favorite red velvet latte from @originaldonutshop ❤️ #DSHPPartner",
+    )
+
+    dixiePost3 = Video(
+        userId=6,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/DixieDAmelio/dixiepost3.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Family",
+        music="love and drugs - Dixie fanpage 🤍💛",
+        caption="best friend",
+    )
+
+    dixiePost4 = Video(
+        userId=6,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/DixieDAmelio/dixiepost4.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Family",
+        music="original sound - dixie",
+        caption="headliner looks only🖤 @socialtourist vol 6 is out now! #wethetourists #socialtouristcofounder",
+    )
+
+    dixiePost5 = Video(
+        userId=6,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/DixieDAmelio/dixiepost5.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Family",
+        music="original sound - dixie",
+        caption="@The D’Amelio Show on Hulu out now!!!",
+    )
+
+    dixiePost6 = Video(
+        userId=6,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/DixieDAmelio/dixiepost6.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Beauty",
+        music="suono originale - Valentino",
+        caption="#ad 🖤 @valentino #metgala #valentinohautecouture",
+    )
+
+    dixiePost7 = Video(
+        userId=6,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/DixieDAmelio/dixiepost7.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Dance",
+        music="Psycho (feat. Rubi Rose) - Dixie",
+        caption="make a vid 👀🤍🤍",
+    )
+
+    spencerPost1 = Video(
+        userId=7,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/SpencerX/spencerpost1.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Singing",
         music="original sound - Spencer X",
         caption="#ad If you’ve got a JBL, you already know 🔊 lets see what you can duet w/ me #JBLPartyBox @JBLAudio",
     )
 
+    spencerPost2 = Video(
+        userId=7,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/SpencerX/spencerpost2.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Singing",
+        music="original sound - Spencer X",
+        caption="Double fire beatbox 🗣🔥🔥🤯",
+    )
+
+    spencerPost3 = Video(
+        userId=7,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/SpencerX/spencerpost3.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Singing",
+        music="original sound - Spencer X",
+        caption="Merry Xmas everyone!! 🗣🎄💚",
+    )
+
+    spencerPost4 = Video(
+        userId=7,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/SpencerX/spencerpost4.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Singing",
+        music="original sound - Spencer X",
+        caption="#ad Disney Beatbox Edition 🗣️ follow @Disney+ to join in on the #DisneyPlusDay celebration!",
+    )
+
+    spencerPost5 = Video(
+        userId=7,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/SpencerX/spencerpost5.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Singing",
+        music="original sound - Spencer X",
+        caption="Sound effect beatbox challenge Vs MYSELF!?! Water edition 🗣💧🤯",
+    )
+
+    spencerPost6 = Video(
+        userId=7,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/SpencerX/spencerpost6.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Singing",
+        music="Water - Spencer X",
+        caption="Water music video OUT NOW!! 🗣💧💧💧",
+    )
+
+    spencerPost7 = Video(
+        userId=7,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/SpencerX/spencerpost7.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Singing",
+        music="original sound - Spencer X",
+        caption="Beat a long cold (literally) with #Zicam Lozenges! #AD #ZicamZincThatCold #ColdShortening",
+    )
+
     imaginePost1 = Video(
-        userId=10,
+        userId=8,
         videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/ImagineDragons/imaginepost1.mp4",
         s3Name="s3Name",
         videoType="comment",
@@ -103,8 +503,68 @@ def seed_posts():
         caption="ENEMY",
     )
 
+    imaginePost2 = Video(
+        userId=8,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/ImagineDragons/imaginepost2.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Singing",
+        music="Enemy - from the series Arcane League of Legends - Imagine Dragons & JID & Arcane & League Of Legends",
+        caption="in case you missed our performance at The Game Awards... check out full video on YouTube",
+    )
+
+    imaginePost3 = Video(
+        userId=8,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/ImagineDragons/imaginepost3.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Entertainment",
+        music="Enemy - from the series Arcane League of Legends - Imagine Dragons & JID & Arcane & League Of Legends",
+        caption="ENEMY - out now",
+    )
+
+    imaginePost4 = Video(
+        userId=8,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/ImagineDragons/imaginepost4.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Singing",
+        music="Follow You - Imagine Dragons",
+        caption="Dan with our friends @berywambeatbox",
+    )
+
+    imaginePost5 = Video(
+        userId=8,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/ImagineDragons/imaginepost5.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Singing",
+        music="original sound - Imagine Dragons",
+        caption="The way you smile.",
+    )
+
+    imaginePost6 = Video(
+        userId=8,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/ImagineDragons/imaginepost6.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Entertainment",
+        music="Follow You - Imagine Dragons",
+        caption="When Sammich steals my sock! @benamckee_",
+    )
+
+    imaginePost7 = Video(
+        userId=8,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/ImagineDragons/imaginepost7.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Music",
+        music="Follow You - Imagine Dragons",
+        caption="spring vibes #followyou",
+    )
+
     jasonPost1 = Video(
-        userId=11,
+        userId=9,
         videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/JasonDerulo/jasonpost1.mp4",
         s3Name="s3Name",
         videoType="comment",
@@ -113,8 +573,68 @@ def seed_posts():
         caption="Couldn’t find a Halloween costume that fit @twistedpennywise @Ghostface Papi @Freddy Krueger @Jeremy Olenski #happyhalloween",
     )
 
+    jasonPost2 = Video(
+        userId=9,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/JasonDerulo/jasonpost2.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Entertainment",
+        music="Jr Stit x bruno mars x adele - Margaux_lbt",
+        caption="We all had our personal wins & losses in 2021 most of which seemed like a movie rather than life… well here’s to more memories we’ll create in 2022",
+    )
+
+    jasonPost3 = Video(
+        userId=9,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/JasonDerulo/jasonpost3.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Dance",
+        music="original sound - Jason Derulo",
+        caption="#answer to neatofindsplus 2nd most viewed this year #2021recap",
+    )
+
+    jasonPost4 = Video(
+        userId=9,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/JasonDerulo/jasonpost4.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Entertainment",
+        music="Acapulco - Jason Derulo",
+        caption="#answer to nasrinmiah786 4th most viewed this year #2021recap @jena",
+    )
+
+    jasonPost5 = Video(
+        userId=9,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/JasonDerulo/jasonpost5.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Entertainment",
+        music="Teach Me How To Dougie - Classics Reborn",
+        caption="#answer to neatofindsplus 7th most viewed this year #2021recap",
+    )
+
+    jasonPost6 = Video(
+        userId=9,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/JasonDerulo/jasonpost6.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Entertainment",
+        music="Please Don't Go - Mike Posner",
+        caption="8th most viewed this year #2021recap",
+    )
+
+    jasonPost7 = Video(
+        userId=9,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/JasonDerulo/jasonpost7.mp4",
+        s3Name="s3Name",
+        videoType="comment",
+        topic="Entertainment",
+        music="brutal - Olivia Rodrigo",
+        caption="Has anyone seen @skylar_derulo 🧐@itswillcarmack",
+    )
+
     michaelPost1 = Video(
-        userId=12,
+        userId=10,
         videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/MichaelLe/michaelpost1.mp4",
         s3Name="s3Name",
         videoType="comment",
@@ -123,436 +643,253 @@ def seed_posts():
         caption="#ad Been hearing in 4D since i got these ✨😂 @JBLAudio #TourOne",
     )
 
-    usimPost1 = Video(
-        userId=13,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/Usim/usimpost1.mp4",
-        s3Name="s3Name",
-        videoType="comment",
-        topic="Dance",
-        music="Alors on danse - Slowed - Stromae",
-        caption="Tag who you see🙈 // Insta: Usimmango💕",
-    )
-
-    djprecisePost1 = Video(
-        userId=14,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/DJPrecise/djprecisepost1.mp4",
-        s3Name="s3Name",
-        videoType="comment",
-        topic="Music",
-        music="original sound - DJ Precise",
-        caption="What do you think?? 👀 #beggin #maneskin #djtiktok #dj",
-    )
-
-    ianPost1 = Video(
-        userId=15,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/IanAsher/ianpost1.mp4",
-        s3Name="s3Name",
-        videoType="comment",
-        topic="Music",
-        music="original sound - Ian Asher",
-        caption="Money x How You Like That #blackpink #lisa @blackpinkofficial",
-    )
-
-    tannerPost1 = Video(
-        userId=16,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/TannerPeeler/tannerpost1.mp4",
-        s3Name="s3Name",
-        videoType="comment",
-        topic="Entertainment",
-        music="Leave (Get Out) - JoJo",
-        caption="It was an emotional time of our lives, ALRIGHT?! 👀😂 #tannersmiles #feelingthemusic",
-    )
-
-    shawnPost1 = Video(
-        userId=17,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/ShawnRevels/shawnpost1.mp4",
-        s3Name="s3Name",
-        videoType="comment",
-        topic="Family",
-        music="Get You The Moon - Kina",
-        caption="Right in the feels. #fyp #fypシ #love #sad #inspiration",
-    )
-
-    tuzelityPost1 = Video(
-        userId=18,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/TuzelityDance/tuzelitypost1.mp4",
-        s3Name="s3Name",
-        videoType="comment",
-        topic="Dance",
-        music="Astronomia - Chiky Dee Jay",
-        caption="😎💥 Neon Mode 😱🔥 #tuzelity",
-    )
-
-    zachandpatPost1 = Video(
-        userId=19,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/ZachAndPatValentine/zachandpatpost1.mp4",
-        s3Name="s3Name",
-        videoType="comment",
-        topic="Dance",
-        music="Unlock it (Lock It) [Jeff Prior Mix] - Charli XCX",
-        caption="@indiana @mads.yo @Riley Lewis @brooklynqueen3 @JAIME ADLER @ALY JADE @tatimcquay @goodgalmadox @gabby.marie06 @francescasboutique",
-    )
-
-    interscopePost1 = Video(
-        userId=20,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/InterscopeRecords/interscopepost1.mp4",
-        s3Name="s3Name",
-        videoType="comment",
-        topic="Music",
-        music="good 4 u - Olivia Rodrigo",
-        caption="@livbedumb #good4u #oliviarodrigo #geffen #geffenrecords",
-    )
-
-    eliePost1 = Video(
-        userId=21,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/ElieFeghaly/eliepost1.mp4",
-        s3Name="s3Name",
-        videoType="comment",
-        topic="Music",
-        music="9 PM 'Till I Come - ATB",
-        caption="#eliefeghaly7 #dubai #realestate #fyp #viral #followme #like #foryoupage #explore #uk #usa #saudi #russia #world #europe #turkey #tiktok #tiktokarab",
-    )
-
-    lancePost1 = Video(
-        userId=22,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/LanceStewart/lancepost1.mp4",
-        s3Name="s3Name",
-        videoType="comment",
-        topic="Family",
-        music="I'm Just a Kid - Simple Plan",
-        caption="Remaking our baby photos 🤣 @xosabrinanicolexo",
-    )
-
-    yzPost1 = Video(
-        userId=23,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/YZ/yzpost1.mp4",
-        s3Name="s3Name",
-        videoType="comment",
-        topic="Art",
-        music="Lalala - Y2K & bbno$",
-        caption="Don’t laugh about my skate skills #yzfamily #tutorial #fürdich #fyp",
-    )
-
-    tommyPost1 = Video(
-        userId=24,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/TommyBracco/tommypost1.mp4",
-        s3Name="s3Name",
-        videoType="comment",
-        topic="Dance",
-        music="Blinding Lights - MACDADDYZ",
-        caption="Bracco boys in their element #BlindingLightsChallenge #fyp #foryou #foryourpage @philipbracco @philbracco",
-    )
-
-    rosePost1 = Video(
-        userId=25,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/Rose/rosepost1.mp4",
-        s3Name="s3Name",
-        videoType="comment",
-        topic="Dance",
-        music="WAP（feat. Megan Thee Stallion） - Cardi B",
-        caption="#10M !! Here you go🙄",
-    )
-
-    curtisPost1 = Video(
-        userId=26,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/CurtisRoach/curtispost1.mp4",
-        s3Name="s3Name",
-        videoType="comment",
-        topic="Entertainment",
-        music="BORED IN THE HOUSE - Curtis Roach",
-        caption="You ever be bored at the house bored?🔥🔥 #checkthisout #bored #fyp #foryou #xycba #rap #viral",
-    )
-
-    zoiPost1 = Video(
-        userId=27,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/Zoifishh/zoipost1.mp4",
-        s3Name="s3Name",
-        videoType="comment",
-        topic="Dance",
-        music="Supalonely (feat. Gus Dapperton) - BENEE",
-        caption="not my usual content but this song was too catchy to not make a dance to LMAO🥺🥺 try it and tag me !! #foryou #foryour #foryoupage #foryourpage",
-    )
-
-    davidPost1 = Video(
-        userId=28,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/DavidDobrik/davidpost1.mp4",
-        s3Name="s3Name",
-        videoType="comment",
-        topic="Dance",
-        music="Pew Pew Pew - Auntie Hammy",
-        caption="Hahahahhah wow he killed this @imkevinhart",
-    )
-
-    kyliePost1 = Video(
-        userId=29,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/KylieJenner/kyliepost1.mp4",
-        s3Name="s3Name",
-        videoType="comment",
-        topic="Dance",
-        music="OUT WEST (feat. Young Thug) - JACKBOYS & Travis Scott",
-        caption="out west ???",
-    )
-
-    lorenPost1 = Video(
-        userId=30,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/LorenGray/lorenpost1.mp4",
-        s3Name="s3Name",
-        videoType="comment",
-        topic="Duet",
-        music="I Like Him - Princess Nokia",
-        caption="#duet with @babyariel assigning myself the role of toxic best friend cuz I love her video . luv u ariel🥺",
-    )
-
-    trePost1 = Video(
-        userId=31,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/TreClements/trepost1.mp4",
-        s3Name="s3Name",
-        videoType="comment",
-        topic="Dance",
-        music="Vibe (If I Back It Up) - Cookiee Kawaii",
-        caption="vibe check",
-    )
-
-    ulaPost1 = Video(
-        userId=32,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/Ula/ulapost1.mp4",
-        s3Name="s3Name",
-        videoType="comment",
-        topic="Singing",
-        music="original sound - Tik Toker",
-        caption="not too perfect, not too bad #promqueen #beachbunny",
-    )
-
-    aydonPost1 = Video(
-        userId=33,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/AydonHolley/aydonpost1.mp4",
-        s3Name="s3Name",
-        videoType="comment",
-        topic="Entertainment",
-        music="Sober Up (feat. Rivers Cuomo) - AJR",
-        caption="Why is this so funny in reverse 🤣 #foryou #tiktok @haileyevert",
-    )
-
-    dwaynePost1 = Video(
-        userId=34,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/DwayneJohnson/dwaynepost1.mp4",
-        s3Name="s3Name",
-        videoType="comment",
-        topic="Storytelling",
-        music="ROXANNE - Arizona Zervas",
-        caption="I'll bring the rock, you bring the sand. #ThatsSoTikTok #MisheardLyrics @candyken",
-    )
-
-    katiePost1 = Video(
-        userId=35,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/KatieFeeney/katiepost1.mp4",
-        s3Name="s3Name",
-        videoType="comment",
-        topic="Dance",
-        music="Lottery - K CAMP",
-        caption="which renegade do you prefer? @jazzi.groom dance creds: @_.xoxlaii",
-    )
-
-    curtisWatersPost1 = Video(
-        userId=36,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/CurtisWaters/curtiswaterspost1.mp4",
-        s3Name="s3Name",
-        videoType="comment",
-        topic="Dance",
-        music="Stunnin' (feat. Harm Franklin) - Curtis Waters",
-        caption="lemme know what u think of my song! #music #nc #fyp #stunnin #curtiswaters",
-    )
-
-    avivaPost1 = Video(
-        userId=37,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/AvivaSofia/avivapost1.mp4",
-        s3Name="s3Name",
-        videoType="comment",
-        topic="Dance",
-        music="Roses (Imanbek Remix) - SAINt JHN",
-        caption="tiktok songs used to be so much catchier",
-    )
-
-    hannahPost1 = Video(
-        userId=38,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/HannahBrookeSanders/hannahpost1.mp4",
-        s3Name="s3Name",
-        videoType="comment",
-        topic="Dance",
-        music="Laxed (Siren Beat) - Jawsh 685",
-        caption="We had matching swimsuits we HAD to do it @skylartisdale",
-    )
-
-    hannahRyleePost1 = Video(
-        userId=39,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/HannahRylee/hannahryleepost1.mp4",
-        s3Name="s3Name",
-        videoType="comment",
-        topic="Dance",
-        music="23 - Mike WiLL Made-It",
-        caption="i'm so awkward LOL sorey",
-    )
-
-    geniusPost1 = Video(
-        userId=40,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/Genius/geniuspost1.mp4",
-        s3Name="s3Name",
-        videoType="comment",
-        topic="Singing",
-        music="Wrong - Luh Kel",
-        caption="@realtrillkel doesn't even need AutoTune 🔥🔥🔥 #verified #wrong",
-    )
-
-    urbanPost1 = Video(
-        userId=41,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/UrbanTheory/urbanpost1.mp4",
-        s3Name="s3Name",
-        videoType="comment",
-        topic="Dance",
-        music="Cradles - Sub Urban",
-        caption="Always remember the 5th of november 🎭 💥 #urban #urbantheory #geometryart #tuttingdance #vforvendetta #dark #5thnovember",
-    )
-
-    aureliaPost1 = Video(
-        userId=42,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/AureliaDobre/aureliapost1.mp4",
+    michaelPost2 = Video(
+        userId=10,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/MichaelLe/michaelpost2.mp4",
         s3Name="s3Name",
         videoType="comment",
         topic="Lifestyle",
-        music="Trampoline - SHAED",
-        caption="I love jumping on the #trampoline ! 🤩 #jump #fyp #foryou",
+        music="Alex and his gf are racist - ✌︎︎",
+        caption="crazy year its been😳😂",
     )
 
-    nbaPost1 = Video(
-        userId=43,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/Nba/nbapost1.mp4",
+    michaelPost3 = Video(
+        userId=10,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/MichaelLe/michaelpost3.mp4",
         s3Name="s3Name",
         videoType="comment",
         topic="Dance",
-        music="Old Town Road - Lil Nas X",
-        caption="🗣 “I got the horses in the back!”",
+        music="Rollin' Rolls - TikTok Remix - Charmin",
+        caption="Charmin’s new bop makin’ my thang move. Duet me with your best 👀😂#ToiletTunesdance  #CharminPartner",
     )
 
-    kylePost1 = Video(
-        userId=44,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/Kyle/kylepost1.mp4",
-        s3Name="s3Name",
-        videoType="comment",
-        topic="Singing",
-        music="Hey Julie! (feat. Lil Yachty) - KYLE",
-        caption="Simpler times! @lilyachty #heyjulie",
-    )
-
-    barstooluPost1 = Video(
-        userId=45,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/Barstoolu/barstoolupost1.mp4",
-        s3Name="s3Name",
-        videoType="comment",
-        topic="Entertainment",
-        music="Earth - Lil Dicky",
-        caption="Imagine seeing Lil Dicky in your Zoom University class (via ig/joe_more96)",
-    )
-
-    viralErikPost1 = Video(
-        userId=46,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/ViralErik/viralerikpost1.mp4",
-        s3Name="s3Name",
-        videoType="comment",
-        topic="Comedy",
-        music="Crystal Dolphin - Engelwood",
-        caption="When someone coughs in 2020 #foryou #fyp",
-    )
-
-    yaenaPost1 = Video(
-        userId=47,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/YaenaFujimoto/yaenafujimotopost1.mp4",
+    michaelPost4 = Video(
+        userId=10,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/MichaelLe/michaelpost4.mp4",
         s3Name="s3Name",
         videoType="comment",
         topic="Dance",
-        music="Caroline - Joshua Ona",
-        caption="addicted to this song lmao #caroline #amine @amine",
+        music="Own Brand Freestyle - FelixThe1st & Dreya Mac",
+        caption="@itsmetiffany 🔥 dc: @dreyamac",
     )
 
-    edPost1 = Video(
-        userId=48,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/EdSheeran/edsheeranpost1.mp4",
+    michaelPost5 = Video(
+        userId=10,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/MichaelLe/michaelpost5.mp4",
         s3Name="s3Name",
         videoType="comment",
-        topic="Singing",
-        music="original sound - Jerrica Alyssa",
-        caption="#duet with jerricaalyssa Loving these duet vids #EqualsAlbum",
+        topic="Dance",
+        music="Astronaut in The Ocean x Ci Ci Cimoy Cimoy - yrslv",
+        caption="sexy jutsu is sasukes only weakness😏 @itskingchris",
     )
 
-    theProfessorPost1 = Video(
-        userId=49,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/TheProfessor/theprofessorpost1.mp4",
+    michaelPost6 = Video(
+        userId=10,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/MichaelLe/michaelpost6.mp4",
         s3Name="s3Name",
         videoType="comment",
-        topic="Lifestyle",
-        music="God's Plan - Drake",
-        caption="Fan: “Yo Professor I remember when y’all used to break ankles on the And 1 Mixtape. That was Lit. Wish you still did that nowadays.”Me Yesterday:",
+        topic="Dance",
+        music="INDUSTRY BABY - Lil Nas X & Jack Harlow",
+        caption="THANK YOU GUYS FOR 50M!! In celebration, heres a new anime series Ill be doing for every M we get (: enjoy",
     )
 
-    newrulesbandPost1 = Video(
-        userId=50,
-        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/NewRulesBand/newrulesbandpost1.mp4",
+    michaelPost7 = Video(
+        userId=10,
+        videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/MichaelLe/michaelpost7.mp4",
         s3Name="s3Name",
         videoType="comment",
-        topic="Singing",
-        music="Beggin' - Måneskin",
-        caption="Boyband meets your FYP 🤝 #maneskin #beggin #fyp",
+        topic="Dance",
+        music="Love Nwantiti(Dance Ver) - FYP🖤🇲🇺",
+        caption="lovin the vibes✨ dc @Tracy Joseph",
     )
+
+    # usimPost1 = Video(
+    #     userId=11,
+    #     videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/Usim/usimpost1.mp4",
+    #     s3Name="s3Name",
+    #     videoType="comment",
+    #     topic="Dance",
+    #     music="Alors on danse - Slowed - Stromae",
+    #     caption="Tag who you see🙈 // Insta: Usimmango💕",
+    # )
+
+    # djprecisePost1 = Video(
+    #     userId=12,
+    #     videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/DJPrecise/djprecisepost1.mp4",
+    #     s3Name="s3Name",
+    #     videoType="comment",
+    #     topic="Music",
+    #     music="original sound - DJ Precise",
+    #     caption="What do you think?? 👀 #beggin #maneskin #djtiktok #dj",
+    # )
+
+    # rosePost1 = Video(
+    #     userId=13,
+    #     videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/Rose/rosepost1.mp4",
+    #     s3Name="s3Name",
+    #     videoType="comment",
+    #     topic="Dance",
+    #     music="WAP（feat. Megan Thee Stallion） - Cardi B",
+    #     caption="#10M !! Here you go🙄",
+    # )
+
+    # kyliePost1 = Video(
+    #     userId=14,
+    #     videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/KylieJenner/kyliepost1.mp4",
+    #     s3Name="s3Name",
+    #     videoType="comment",
+    #     topic="Dance",
+    #     music="OUT WEST (feat. Young Thug) - JACKBOYS & Travis Scott",
+    #     caption="out west ???",
+    # )
+
+    # dwaynePost1 = Video(
+    #     userId=15,
+    #     videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/DwayneJohnson/dwaynepost1.mp4",
+    #     s3Name="s3Name",
+    #     videoType="comment",
+    #     topic="Storytelling",
+    #     music="ROXANNE - Arizona Zervas",
+    #     caption="I'll bring the rock, you bring the sand. #ThatsSoTikTok #MisheardLyrics @candyken",
+    # )
+
+    # geniusPost1 = Video(
+    #     userId=16,
+    #     videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/Genius/geniuspost1.mp4",
+    #     s3Name="s3Name",
+    #     videoType="comment",
+    #     topic="Singing",
+    #     music="Wrong - Luh Kel",
+    #     caption="@realtrillkel doesn't even need AutoTune 🔥🔥🔥 #verified #wrong",
+    # )
+
+    # urbanPost1 = Video(
+    #     userId=17,
+    #     videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/UrbanTheory/urbanpost1.mp4",
+    #     s3Name="s3Name",
+    #     videoType="comment",
+    #     topic="Dance",
+    #     music="Cradles - Sub Urban",
+    #     caption="Always remember the 5th of november 🎭 💥 #urban #urbantheory #geometryart #tuttingdance #vforvendetta #dark #5thnovember",
+    # )
+
+    # barstooluPost1 = Video(
+    #     userId=18,
+    #     videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/Barstoolu/barstoolupost1.mp4",
+    #     s3Name="s3Name",
+    #     videoType="comment",
+    #     topic="Entertainment",
+    #     music="Earth - Lil Dicky",
+    #     caption="Imagine seeing Lil Dicky in your Zoom University class (via ig/joe_more96)",
+    # )
+
+    # edPost1 = Video(
+    #     userId=19,
+    #     videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/EdSheeran/edsheeranpost1.mp4",
+    #     s3Name="s3Name",
+    #     videoType="comment",
+    #     topic="Singing",
+    #     music="original sound - Jerrica Alyssa",
+    #     caption="#duet with jerricaalyssa Loving these duet vids #EqualsAlbum",
+    # )
+
+    # newrulesbandPost1 = Video(
+    #     userId=20,
+    #     videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/NewRulesBand/newrulesbandpost1.mp4",
+    #     s3Name="s3Name",
+    #     videoType="comment",
+    #     topic="Singing",
+    #     music="Beggin' - Måneskin",
+    #     caption="Boyband meets your FYP 🤝 #maneskin #beggin #fyp",
+    # )
 
     db.session.add(addisonPost1)
     db.session.add(charliPost1)
     db.session.add(zachPost1)
     db.session.add(bellaPost1)
-    db.session.add(khabanePost1)
     db.session.add(willPost1)
-    db.session.add(kimberlyPost1)
     db.session.add(dixiePost1)
     db.session.add(spencerPost1)
     db.session.add(imaginePost1)
     db.session.add(jasonPost1)
     db.session.add(michaelPost1)
-    db.session.add(usimPost1)
-    db.session.add(djprecisePost1)
-    db.session.add(ianPost1)
-    db.session.add(tannerPost1)
-    db.session.add(shawnPost1)
-    db.session.add(tuzelityPost1)
-    db.session.add(zachandpatPost1)
-    db.session.add(interscopePost1)
-    db.session.add(eliePost1)
-    db.session.add(lancePost1)
-    db.session.add(yzPost1)
-    db.session.add(tommyPost1)
-    db.session.add(rosePost1)
-    db.session.add(curtisPost1)
-    db.session.add(zoiPost1)
-    db.session.add(davidPost1)
-    db.session.add(kyliePost1)
-    db.session.add(lorenPost1)
-    db.session.add(trePost1)
-    db.session.add(ulaPost1)
-    db.session.add(aydonPost1)
-    db.session.add(dwaynePost1)
-    db.session.add(katiePost1)
-    db.session.add(curtisWatersPost1)
-    db.session.add(avivaPost1)
-    db.session.add(hannahPost1)
-    db.session.add(hannahRyleePost1)
-    db.session.add(geniusPost1)
-    db.session.add(urbanPost1)
-    db.session.add(aureliaPost1)
-    db.session.add(nbaPost1)
-    db.session.add(kylePost1)
-    db.session.add(barstooluPost1)
-    db.session.add(viralErikPost1)
-    db.session.add(yaenaPost1)
-    db.session.add(edPost1)
-    db.session.add(theProfessorPost1)
-    db.session.add(newrulesbandPost1)
+
+    db.session.add(addisonPost2)
+    db.session.add(charliPost2)
+    db.session.add(zachPost2)
+    db.session.add(bellaPost2)
+    db.session.add(willPost2)
+    db.session.add(dixiePost2)
+    db.session.add(spencerPost2)
+    db.session.add(imaginePost2)
+    db.session.add(jasonPost2)
+    db.session.add(michaelPost2)
+
+    db.session.add(addisonPost3)
+    db.session.add(charliPost3)
+    db.session.add(zachPost3)
+    db.session.add(bellaPost3)
+    db.session.add(willPost3)
+    db.session.add(dixiePost3)
+    db.session.add(spencerPost3)
+    db.session.add(imaginePost3)
+    db.session.add(jasonPost3)
+    db.session.add(michaelPost3)
+
+    db.session.add(addisonPost4)
+    db.session.add(charliPost4)
+    db.session.add(zachPost4)
+    db.session.add(bellaPost4)
+    db.session.add(willPost4)
+    db.session.add(dixiePost4)
+    db.session.add(spencerPost4)
+    db.session.add(imaginePost4)
+    db.session.add(jasonPost4)
+    db.session.add(michaelPost4)
+
+    db.session.add(addisonPost5)
+    db.session.add(charliPost5)
+    db.session.add(zachPost5)
+    db.session.add(bellaPost5)
+    db.session.add(willPost5)
+    db.session.add(dixiePost5)
+    db.session.add(spencerPost5)
+    db.session.add(imaginePost5)
+    db.session.add(jasonPost5)
+    db.session.add(michaelPost5)
+
+    db.session.add(addisonPost6)
+    db.session.add(charliPost6)
+    db.session.add(zachPost6)
+    db.session.add(bellaPost6)
+    db.session.add(willPost6)
+    db.session.add(dixiePost6)
+    db.session.add(spencerPost6)
+    db.session.add(imaginePost6)
+    db.session.add(jasonPost6)
+    db.session.add(michaelPost6)
+
+    db.session.add(addisonPost7)
+    db.session.add(charliPost7)
+    db.session.add(zachPost7)
+    db.session.add(bellaPost7)
+    db.session.add(willPost7)
+    db.session.add(dixiePost7)
+    db.session.add(spencerPost7)
+    db.session.add(imaginePost7)
+    db.session.add(jasonPost7)
+    db.session.add(michaelPost7)
+
+    # db.session.add(usimPost1)
+    # db.session.add(djprecisePost1)
+    # db.session.add(rosePost1)
+    # db.session.add(kyliePost1)
+    # db.session.add(dwaynePost1)
+    # db.session.add(geniusPost1)
+    # db.session.add(urbanPost1)
+    # db.session.add(barstooluPost1)
+    # db.session.add(edPost1)
+    # db.session.add(newrulesbandPost1)
 
     addisonPost1.likesOfVideo.append(charli)
     addisonPost1.likesOfVideo.append(zach)

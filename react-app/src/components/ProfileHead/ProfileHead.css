@@ -11,7 +11,7 @@
 .profile_userinfo {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .profile_userinfo .profile_userinfo_avatar {
@@ -69,6 +69,10 @@
   position: relative;
   width: 208px;
   margin: 16px 0px 0px;
+}
+.profile_userinfo_right .profile_userinfo_right--button.following {
+  color: #000;
+  border-color: #000;
 }
 
 /* stats row */

@@ -41,32 +41,12 @@ bella = User(
     verified=True,
 )
 
-khabane = User(
-    fullname="Khabane Lame",
-    username="khaby.lame",
-    email="khaby@khaby.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/KhabaneLame/khabanelame.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
 will = User(
     fullname="Will Smith",
     username="willsmith",
     email="will@will.com",
     password="passwordpassword",
     photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/WillSmith/willsmith.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
-kimberly = User(
-    fullname="Kimberly Loaiza",
-    username="kimberly.loaiza",
-    email="kimberly@kimberly.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/KimberlyLoaiza/kimberlyloaiza.jpg",
     s3Name="s3Name",
     verified=True,
 )
@@ -141,142 +121,12 @@ djprecise = User(
     verified=True,
 )
 
-ian = User(
-    fullname="Ian Asher",
-    username="ianasher",
-    email="ian@ian.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/IanAsher/ianasher.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
-tanner = User(
-    fullname="Tanner Peeler",
-    username="tannerpeeler",
-    email="tanner@tanner.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/TannerPeeler/tannerpeeler.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
-shawn = User(
-    fullname="Shawn Revels",
-    username="shawnrevels",
-    email="shawn@shawn.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/ShawnRevels/shawnrevels.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
-tuzelity = User(
-    fullname="Tuzelity",
-    username="tuzelitydance",
-    email="tuzelity@tuzelity.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/TuzelityDance/tuzelity.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
-zachandpat = User(
-    fullname="Zach and Pat Valentine",
-    username="valentinebrothers",
-    email="valentine@valentine.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/ZachAndPatValentine/zachandpatvalentine.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
-interscope = User(
-    fullname="Interscope Records",
-    username="interscope",
-    email="interscope@interscope.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/InterscopeRecords/interscoperecords.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
-elie = User(
-    fullname="Elie Feghaly",
-    username="eliefeghaly7",
-    email="elie@elie.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/ElieFeghaly/eliefeghaly.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
-lance = User(
-    fullname="Lance Stewart",
-    username="lance210",
-    email="lance@lance.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/LanceStewart/lancestewart.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
-yz = User(
-    fullname="YZ",
-    username="youneszarou",
-    email="yz@yz.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/YZ/yz.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
-tommy = User(
-    fullname="tommybracco",
-    username="tommy_bracco",
-    email="tommy@tommy.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/TommyBracco/tommybracco.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
 rose = User(
     fullname="ROSÉ",
     username="roses_are_rosie",
     email="rose@rose.com",
     password="passwordpassword",
     photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/Rose/rose.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
-curtis = User(
-    fullname="curtistootrill",
-    username="curtisroach",
-    email="curtis@curtis.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/CurtisRoach/curtisroach.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
-zoi = User(
-    fullname="zoifishh",
-    username="zoifishh",
-    email="zoi@zoi.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/Zoifishh/zoifishh.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
-david = User(
-    fullname="DAVID DOBRIK",
-    username="daviddobrik",
-    email="david@david.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/DavidDobrik/daviddobrik.jpg",
     s3Name="s3Name",
     verified=True,
 )
@@ -291,122 +141,12 @@ kylie = User(
     verified=True,
 )
 
-loren = User(
-    fullname="Loren Gray",
-    username="lorengray",
-    email="loren@loren.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/LorenGray/lorengray.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
-tre = User(
-    fullname="Tre Clements",
-    username="treclements",
-    email="tre@tre.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/TreClements/treclements.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
-ula = User(
-    fullname="Ūla <3",
-    username="ulaulaula",
-    email="ula@ula.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/Ula/ula.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
-aydon = User(
-    fullname="Aydon",
-    username="aydonholley",
-    email="aydon@aydon.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/AydonHolley/aydonholley.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
 dwayne = User(
     fullname="The Rock",
     username="therock",
     email="dwayne@dwayne.com",
     password="passwordpassword",
     photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/DwayneJohnson/dwaynejohnson.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
-katie = User(
-    fullname="Katie Feeney",
-    username="katiefeeneyy",
-    email="katie@katie.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/KatieFeeney/katiefeeney.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
-katie = User(
-    fullname="Katie Feeney",
-    username="katiefeeneyy",
-    email="katie@katie.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/KatieFeeney/katiefeeney.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
-curtiswaters = User(
-    fullname="Curtis Waters 🇳🇵",
-    username="curtiswaters",
-    email="curtiswaters@curtiswaters.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/CurtisWaters/curtiswaters.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
-aviva = User(
-    fullname="Aviva",
-    username="avivasofia",
-    email="aviva@aviva.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/AvivaSofia/avivasofia.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
-aviva = User(
-    fullname="Aviva",
-    username="avivasofia",
-    email="aviva@aviva.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/AvivaSofia/avivasofia.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
-hannah = User(
-    fullname="Hannahbrookesanders",
-    username="hannahbrookesanders",
-    email="hannah@hannah.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/HannahBrookeSanders/hannahbrookesanders.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
-hannahrylee = User(
-    fullname="Hannah Rylee",
-    username="hannahrylee",
-    email="hannahrylee@hannahrylee.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/HannahRylee/hannahrylee.jpg",
     s3Name="s3Name",
     verified=True,
 )
@@ -431,36 +171,6 @@ urban = User(
     verified=True,
 )
 
-aurelia = User(
-    fullname="Aurelia Dobre",
-    username="aureliadobre",
-    email="aurelia@aurelia.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/AureliaDobre/aureliadobre.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
-nba = User(
-    fullname="NBA",
-    username="nba",
-    email="nba@nba.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/Nba/nba.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
-kyle = User(
-    fullname="KYLE",
-    username="superduperkyle",
-    email="kyle@kyle.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/Kyle/kyle.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
 barstoolu = User(
     fullname="Barstool U",
     username="barstoolu",
@@ -471,42 +181,12 @@ barstoolu = User(
     verified=True,
 )
 
-viralerik = User(
-    fullname="ViralErik",
-    username="viralbrothers",
-    email="viralerik@viralerik.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/ViralErik/viralerik.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
-yaena = User(
-    fullname="Yaena Yskaela Fujimoto",
-    username="yskaela",
-    email="yaena@yaena.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/YaenaFujimoto/yaenafujimoto.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
 edsheeran = User(
     fullname="Ed Sheeran",
     username="edsheeran",
     email="edsheeran@edsheeran.com",
     password="passwordpassword",
     photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/EdSheeran/edsheeran.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
-theprofessor = User(
-    fullname="TheProfessor",
-    username="theprofessor",
-    email="theprofessor@theprofessor.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/TheProfessor/theprofessor.jpg",
     s3Name="s3Name",
     verified=True,
 )
@@ -528,52 +208,22 @@ def seed_users():
     db.session.add(charli)
     db.session.add(zach)
     db.session.add(bella)
-    db.session.add(khabane)
     db.session.add(will)
-    db.session.add(kimberly)
     db.session.add(dixie)
     db.session.add(spencer)
     db.session.add(imaginedragons)
     db.session.add(jason)
     db.session.add(michael)
-    db.session.add(usim)
-    db.session.add(djprecise)
-    db.session.add(ian)
-    db.session.add(tanner)
-    db.session.add(shawn)
-    db.session.add(tuzelity)
-    db.session.add(zachandpat)
-    db.session.add(interscope)
-    db.session.add(elie)
-    db.session.add(lance)
-    db.session.add(yz)
-    db.session.add(tommy)
-    db.session.add(rose)
-    db.session.add(curtis)
-    db.session.add(zoi)
-    db.session.add(david)
-    db.session.add(kylie)
-    db.session.add(loren)
-    db.session.add(tre)
-    db.session.add(ula)
-    db.session.add(aydon)
-    db.session.add(dwayne)
-    db.session.add(katie)
-    db.session.add(curtiswaters)
-    db.session.add(aviva)
-    db.session.add(hannah)
-    db.session.add(hannahrylee)
-    db.session.add(genius)
-    db.session.add(urban)
-    db.session.add(aurelia)
-    db.session.add(nba)
-    db.session.add(kyle)
-    db.session.add(barstoolu)
-    db.session.add(viralerik)
-    db.session.add(yaena)
-    db.session.add(edsheeran)
-    db.session.add(theprofessor)
-    db.session.add(newrulesband)
+    # db.session.add(usim)
+    # db.session.add(djprecise)
+    # db.session.add(rose)
+    # db.session.add(kylie)
+    # db.session.add(dwayne)
+    # db.session.add(genius)
+    # db.session.add(urban)
+    # db.session.add(barstoolu)
+    # db.session.add(edsheeran)
+    # db.session.add(newrulesband)
 
     charli.followings.append(zach)
     charli.followings.append(addison)
