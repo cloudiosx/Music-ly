@@ -3,22 +3,26 @@ import { useDispatch, useSelector } from 'react-redux';
 import './Profile.css';
 import ProfileHead from '../ProfileHead/ProfileHead';
 import ProfileBody from '../ProfileBody/ProfileBody';
+import { getUserProfile } from '../../store/user/actions';
+import { useParams } from 'react-router-dom';
 
 function Profile() {
-  // const dispatch = useDispatch();
+  const { userId } = useParams();
+  const dispatch = useDispatch();
+  const userProfile = useSelector((state) => state.userStore.userProfile);
 
-  // const allPosts = useSelector((state) => state.postStore.allPosts);
-  // console.log('allPosts ===> ', allPosts);
+  useEffect(() => {
+    dispatch(getUserProfile(userId));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userId]);
 
-  // useEffect(() => {
-  //   dispatch(getAllPosts());
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
+  // TODO maybe add loading
+  if (!userProfile) return null;
 
   return (
     <main className="main_profile-container">
-      <ProfileHead />
-      <ProfileBody />
+      <ProfileHead userProfile={userProfile} />
+      <ProfileBody userProfile={userProfile} />
     </main>
   );
 }
