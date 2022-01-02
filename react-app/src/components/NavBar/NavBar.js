@@ -39,9 +39,7 @@ const NavBar = () => {
           </NavLink>
         </li>
         <li>
-          <div>
-            <SearchBar />
-          </div>
+          <SearchBar />
         </li>
         <li>
           <ul className="right-nav-container">

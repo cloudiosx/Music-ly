@@ -39,3 +39,58 @@
   border: none;
   background: transparent;
 }
+
+.search_suggestion {
+  position: absolute;
+  width: 100%;
+  margin-top: 8px;
+  background: rgb(255, 255, 255);
+  box-shadow: rgb(0 0 0 / 12%) 0px 2px 12px;
+  border-radius: 8px;
+  padding-top: 8px;
+  box-sizing: border-box;
+  max-height: min((100vh - 96px) - 60px, 734px);
+  overflow: hidden auto;
+}
+
+.search_suggestion .search_suggestion_posts--item {
+  padding: 9px 16px;
+  cursor: pointer;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.search_suggestion_posts--item .search_icon {
+  height: 20px;
+  flex: 0 0 20px;
+  border-radius: 50%;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  font-size: 15px;
+  margin-right: 8px;
+}
+.search_suggestion_posts--item .search_content {
+  flex: 0 1 auto;
+  min-width: 0px;
+}
+.search_suggestion_posts--item .search_content h4 {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.search_account_label {
+  height: 30px;
+  padding: 5px 12px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  color: rgba(22, 24, 35, 0.5);
+}
