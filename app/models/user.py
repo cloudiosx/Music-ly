@@ -44,12 +44,12 @@ class User(db.Model, UserMixin):
 
     # Self-Reference Joins Table Relationship
 
-    followers = db.relationship(
+    followings = db.relationship(
         "User",
         secondary=followers,
         primaryjoin=(followers.c.personDoingTheFollowing == id),
         secondaryjoin=(followers.c.personReceivingTheFollowing == id),
-        backref=db.backref("followings"),
+        backref=db.backref("followers"),
     )
 
     @property
