@@ -15,7 +15,7 @@
   border-radius: 12px;
   display: flex;
   align-items: center;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .tag_item_content--name {
