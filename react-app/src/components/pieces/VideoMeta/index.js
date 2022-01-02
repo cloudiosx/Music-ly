@@ -14,7 +14,8 @@ const VideoMeta = (props) => {
   return (
     <div className={`video_meta${isHorizon ? ' horizon' : ''}`}>
       <div className="video_meta--icon--wrap" onClick={handleClickIcon}>
-        <i class={icon}></i>
+        {/* <i class={icon}></i> */}
+        {icon}
       </div>
       <b>{content}</b>
     </div>
