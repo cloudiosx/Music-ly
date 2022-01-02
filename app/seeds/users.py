@@ -225,9 +225,9 @@ def seed_users():
     # db.session.add(edsheeran)
     # db.session.add(newrulesband)
 
-    charli.followings.append(zach)
-    charli.followings.append(addison)
-    addison.followings.append(charli)
+    charli.followers.append(zach)
+    charli.followers.append(addison)
+    addison.followers.append(charli)
 
     db.session.commit()
 
