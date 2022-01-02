@@ -77,7 +77,8 @@ const CommentItem = (props) => {
         </>
       );
     }
-    return <span className="far fa-heart"></span>;
+    // return <span className="far fa-heart"></span>;
+    return <span></span>;
   };
 
   return (
