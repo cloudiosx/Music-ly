@@ -7,7 +7,7 @@ import {
   GET_USER_SUCCESS,
   GET_ALL_USER_THAT_I_DONT_FOLLOW_LOADING,
   GET_ALL_USER_THAT_I_DONT_FOLLOW_SUCCESS,
-  GET_ALL_USER_THAT_I_DONT_FOLLOW_ERROR
+  GET_ALL_USER_THAT_I_DONT_FOLLOW_ERROR,
 } from './constants';
 
 const actGetUserSuccess = (payload) => ({
@@ -32,7 +32,7 @@ const actGetUserError = (payload) => ({
 export const getUserProfile = (id) => async (dispatch) => {
   dispatch(actGetUserLoading());
   try {
-    const response = await fetch(`/api/user/${id}`, {
+    const response = await fetch(`/api/users/${id}`, {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -44,6 +44,8 @@ export const getUserProfile = (id) => async (dispatch) => {
         return;
       }
       dispatch(actGetUserSuccess(data));
+    } else {
+      dispatch(actGetUserError({ message: 'Something wrong ' }));
     }
   } catch (error) {
     dispatch(actGetUserError(error));
