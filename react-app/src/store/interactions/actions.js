@@ -71,7 +71,8 @@ export const saveComment = (data) => async (dispatch, getState) => {
       });
     }
     if (res.ok) {
-      dispatch(actCommentSuccess({ message: 'error adding comment', data, currentUser }));
+      const commentData = await res.json()
+      dispatch(actCommentSuccess({ message: 'error adding comment', data: commentData, currentUser }));
     } else {
       dispatch(actCommentFail({ message: 'error adding comment', data, currentUser }));
     }
