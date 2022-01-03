@@ -22,7 +22,7 @@ const LeftSidebar = ({ children }) => {
         {!user && <LoginSide />}
         {/* <PopularTopics /> */}
         {location.pathname !== '/following' && <SuggestedAccounts />}
-        {/* {user && <FollowingList />} */}
+        {user && <FollowingList user={user} />}
         <Discover />
         <About />
       </div>
