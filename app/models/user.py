@@ -3,7 +3,7 @@ from .followers import followers
 from .videoLikes import videoLikes
 from .commentLikes import commentLikes
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import UserMixin
+from flask_login import UserMixin, current_user
 import datetime
 from sqlalchemy import DateTime
 
@@ -71,6 +71,8 @@ class User(db.Model, UserMixin):
             "photoURL": self.photoURL,
             "fullname": self.fullname,
             "verified": self.verified,
+            "isFollowed": current_user in self.followers,
+            "totalFollowings": len(self.followings),
             "followingPost": sorted(
                 [video.to_dict() for video in self.videos],
                 key=lambda i: i["created_at"],

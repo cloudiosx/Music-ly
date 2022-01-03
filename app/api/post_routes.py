@@ -4,6 +4,7 @@ from app.forms import UploadForm
 from flask_login import current_user
 from sqlalchemy import desc
 from app.utilities import upload_file_to_s3, allowed_file, get_unique_filename
+from random import shuffle
 
 post_routes = Blueprint("posts", __name__)
 
@@ -17,37 +18,94 @@ def posts():
         .all()
     )
 
-    newList = []
-    for post in posts:
-        postDetails = post[0].to_dict()
-        postDetails["User"] = {
-            "fullname": post[1],
-            "username": post[2],
-            "photoURL": post[3],
-        }
-        user = User.query.get(postDetails["userId"])
-        if current_user.is_authenticated:
-            currentUser = User.query.get(current_user.to_dict()["id"])
-            if currentUser in post[0].likesOfVideo.all():
-                isLiked = True
+    followingSearchParam = request.args.get("following")
+
+    if followingSearchParam:
+        newList = []
+        videoList = []
+        currentUserFollowings = current_user.followings
+        for user in currentUserFollowings:
+            print("currentUserFollowings =======>", currentUserFollowings)
+            print("user =======>", user)
+            for video in user.videos:
+                # All the videos of the user
+                print("user.videos =========>", user.videos)
+                print("video =========>", video)
+                videoList.append(video)
+        shuffle(videoList)
+        print("VIDEO LIST =======>", videoList)
+
+        for video in videoList:
+            for post in posts:
+                if post[0] == video:
+                    postDetails = post[0].to_dict()
+                    postDetails["User"] = {
+                        "fullname": post[1],
+                        "username": post[2],
+                        "photoURL": post[3],
+                    }
+                    user = User.query.get(postDetails["userId"])
+                    if current_user.is_authenticated:
+                        currentUser = User.query.get(current_user.to_dict()["id"])
+                        if currentUser in post[0].likesOfVideo.all():
+                            isLiked = True
+                        else:
+                            isLiked = False
+                        if currentUser in user.followers:
+                            isFollowed = True
+                        else:
+                            isFollowed = False
+                    else:
+                        isLiked = False
+                        isFollowed = False
+
+                    postDetails["isLiked"] = isLiked
+                    postDetails["isFollowed"] = isFollowed
+                    totalLikes = len(post[0].likesOfVideo.all())
+                    totalComments = len(
+                        Comment.query.filter_by(videoId=post[0].id).all()
+                    )
+                    postDetails["totalLikes"] = totalLikes
+                    postDetails["totalComments"] = totalComments
+                    newList.append(postDetails)
+        return jsonify(newList)
+    else:
+        newList = []
+        for post in posts:
+            # print("current user followers =======>", current_user.followers)
+            # for user in current_user.followers:
+            #     print("videos of the user ======>", user.videos)
+            print("post =====>", post)
+            postDetails = post[0].to_dict()
+            print("postDetails =====>", postDetails)
+            postDetails["User"] = {
+                "fullname": post[1],
+                "username": post[2],
+                "photoURL": post[3],
+            }
+            user = User.query.get(postDetails["userId"])
+            if current_user.is_authenticated:
+                currentUser = User.query.get(current_user.to_dict()["id"])
+                if currentUser in post[0].likesOfVideo.all():
+                    isLiked = True
+                else:
+                    isLiked = False
+                if currentUser in user.followers:
+                    isFollowed = True
+                else:
+                    isFollowed = False
             else:
                 isLiked = False
-            if currentUser in user.followers:
-                isFollowed = True
-            else:
                 isFollowed = False
-        else:
-            isLiked = False
-            isFollowed = False
 
-        postDetails["isLiked"] = isLiked
-        postDetails["isFollowed"] = isFollowed
-        totalLikes = len(post[0].likesOfVideo.all())
-        totalComments = len(Comment.query.filter_by(videoId=post[0].id).all())
-        postDetails["totalLikes"] = totalLikes
-        postDetails["totalComments"] = totalComments
-        newList.append(postDetails)
-    return jsonify(newList)
+            postDetails["isLiked"] = isLiked
+            postDetails["isFollowed"] = isFollowed
+            totalLikes = len(post[0].likesOfVideo.all())
+            totalComments = len(Comment.query.filter_by(videoId=post[0].id).all())
+            postDetails["totalLikes"] = totalLikes
+            postDetails["totalComments"] = totalComments
+            newList.append(postDetails)
+        return jsonify(newList)
 
 
 # GET /posts/filtered

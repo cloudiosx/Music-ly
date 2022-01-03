@@ -71,7 +71,7 @@ export const saveComment = (data) => async (dispatch, getState) => {
       });
     }
     if (res.ok) {
-      const commentData = await res.json()
+      const commentData = await res.json();
       dispatch(actCommentSuccess({ message: 'error adding comment', data: commentData, currentUser }));
     } else {
       dispatch(actCommentFail({ message: 'error adding comment', data, currentUser }));
@@ -118,9 +118,10 @@ export const updateLike = (data) => async (dispatch) => {
 // {userId}
 export const updateFollow = (data) => async (dispatch) => {
   try {
+    const { userId } = data;
     const res = await fetch('/api/followers/new', {
       method: 'POST',
-      body: JSON.stringify(data),
+      body: JSON.stringify({ userId }),
     });
 
     if (res.ok) {
