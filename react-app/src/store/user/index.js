@@ -98,6 +98,7 @@ export default function reducer(state = initialState, action) {
       const { userId } = action.payload;
       const userProfile = deepClone(state.userProfile);
       let allUsersThatIAmNotFollowing = deepClone(state.allUsersThatIAmNotFollowing);
+      let allUsers = deepClone(state.allUsers);
 
       if (userProfile?.id?.toString() === userId.toString()) {
         if (userProfile.isFollowed) {
@@ -117,11 +118,21 @@ export default function reducer(state = initialState, action) {
         }
         return item;
       });
+      allUsers = allUsers.map((item) => {
+        if (item?.id?.toString() === userId.toString()) {
+          return {
+            ...item,
+            isFollowed: !Boolean(item?.isFollowed),
+          };
+        }
+        return item;
+      });
 
       return {
         ...state,
         userProfile,
         allUsersThatIAmNotFollowing,
+        allUsers,
       };
     }
     case FOLLOW_FAIL: {
