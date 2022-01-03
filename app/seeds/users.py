@@ -101,106 +101,6 @@ michael = User(
     verified=True,
 )
 
-usim = User(
-    fullname="usim",
-    username="usimmango",
-    email="usim@usim.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/Usim/usim.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
-djprecise = User(
-    fullname="DJ Precise",
-    username="djprecise",
-    email="djprecise@djprecise.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/DJPrecise/djprecise.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
-rose = User(
-    fullname="ROSÉ",
-    username="roses_are_rosie",
-    email="rose@rose.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/Rose/rose.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
-kylie = User(
-    fullname="Kylie Jenner",
-    username="kyliejenner",
-    email="kylie@kylie.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/KylieJenner/kyliejenner.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
-dwayne = User(
-    fullname="The Rock",
-    username="therock",
-    email="dwayne@dwayne.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/DwayneJohnson/dwaynejohnson.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
-genius = User(
-    fullname="Genius",
-    username="genius",
-    email="genius@genius.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/Genius/genius.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
-urban = User(
-    fullname="Urban Theory",
-    username="urbantheory_",
-    email="urban@urban.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/UrbanTheory/urbantheory.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
-barstoolu = User(
-    fullname="Barstool U",
-    username="barstoolu",
-    email="barstoolu@barstoolu.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/Barstoolu/barstoolu.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
-edsheeran = User(
-    fullname="Ed Sheeran",
-    username="edsheeran",
-    email="edsheeran@edsheeran.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/EdSheeran/edsheeran.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
-newrulesband = User(
-    fullname="New Rules",
-    username="newrulesband",
-    email="newrules@newrules.com",
-    password="passwordpassword",
-    photoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/NewRulesBand/newrulesband.jpg",
-    s3Name="s3Name",
-    verified=True,
-)
-
 # Adds a demo user, you can add other users here if you want
 def seed_users():
 
@@ -214,20 +114,6 @@ def seed_users():
     db.session.add(imaginedragons)
     db.session.add(jason)
     db.session.add(michael)
-    # db.session.add(usim)
-    # db.session.add(djprecise)
-    # db.session.add(rose)
-    # db.session.add(kylie)
-    # db.session.add(dwayne)
-    # db.session.add(genius)
-    # db.session.add(urban)
-    # db.session.add(barstoolu)
-    # db.session.add(edsheeran)
-    # db.session.add(newrulesband)
-
-    charli.followers.append(zach)
-    charli.followers.append(addison)
-    addison.followers.append(charli)
 
     db.session.commit()
 

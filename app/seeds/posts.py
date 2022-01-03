@@ -703,106 +703,6 @@ def seed_posts():
         caption="lovin the vibes✨ dc @Tracy Joseph",
     )
 
-    # usimPost1 = Video(
-    #     userId=11,
-    #     videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/Usim/usimpost1.mp4",
-    #     s3Name="s3Name",
-    #     videoType="comment",
-    #     topic="Dance",
-    #     music="Alors on danse - Slowed - Stromae",
-    #     caption="Tag who you see🙈 // Insta: Usimmango💕",
-    # )
-
-    # djprecisePost1 = Video(
-    #     userId=12,
-    #     videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/DJPrecise/djprecisepost1.mp4",
-    #     s3Name="s3Name",
-    #     videoType="comment",
-    #     topic="Music",
-    #     music="original sound - DJ Precise",
-    #     caption="What do you think?? 👀 #beggin #maneskin #djtiktok #dj",
-    # )
-
-    # rosePost1 = Video(
-    #     userId=13,
-    #     videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/Rose/rosepost1.mp4",
-    #     s3Name="s3Name",
-    #     videoType="comment",
-    #     topic="Dance",
-    #     music="WAP（feat. Megan Thee Stallion） - Cardi B",
-    #     caption="#10M !! Here you go🙄",
-    # )
-
-    # kyliePost1 = Video(
-    #     userId=14,
-    #     videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/KylieJenner/kyliepost1.mp4",
-    #     s3Name="s3Name",
-    #     videoType="comment",
-    #     topic="Dance",
-    #     music="OUT WEST (feat. Young Thug) - JACKBOYS & Travis Scott",
-    #     caption="out west ???",
-    # )
-
-    # dwaynePost1 = Video(
-    #     userId=15,
-    #     videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/DwayneJohnson/dwaynepost1.mp4",
-    #     s3Name="s3Name",
-    #     videoType="comment",
-    #     topic="Storytelling",
-    #     music="ROXANNE - Arizona Zervas",
-    #     caption="I'll bring the rock, you bring the sand. #ThatsSoTikTok #MisheardLyrics @candyken",
-    # )
-
-    # geniusPost1 = Video(
-    #     userId=16,
-    #     videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/Genius/geniuspost1.mp4",
-    #     s3Name="s3Name",
-    #     videoType="comment",
-    #     topic="Singing",
-    #     music="Wrong - Luh Kel",
-    #     caption="@realtrillkel doesn't even need AutoTune 🔥🔥🔥 #verified #wrong",
-    # )
-
-    # urbanPost1 = Video(
-    #     userId=17,
-    #     videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/UrbanTheory/urbanpost1.mp4",
-    #     s3Name="s3Name",
-    #     videoType="comment",
-    #     topic="Dance",
-    #     music="Cradles - Sub Urban",
-    #     caption="Always remember the 5th of november 🎭 💥 #urban #urbantheory #geometryart #tuttingdance #vforvendetta #dark #5thnovember",
-    # )
-
-    # barstooluPost1 = Video(
-    #     userId=18,
-    #     videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/Barstoolu/barstoolupost1.mp4",
-    #     s3Name="s3Name",
-    #     videoType="comment",
-    #     topic="Entertainment",
-    #     music="Earth - Lil Dicky",
-    #     caption="Imagine seeing Lil Dicky in your Zoom University class (via ig/joe_more96)",
-    # )
-
-    # edPost1 = Video(
-    #     userId=19,
-    #     videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/EdSheeran/edsheeranpost1.mp4",
-    #     s3Name="s3Name",
-    #     videoType="comment",
-    #     topic="Singing",
-    #     music="original sound - Jerrica Alyssa",
-    #     caption="#duet with jerricaalyssa Loving these duet vids #EqualsAlbum",
-    # )
-
-    # newrulesbandPost1 = Video(
-    #     userId=20,
-    #     videoURL="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/NewRulesBand/newrulesbandpost1.mp4",
-    #     s3Name="s3Name",
-    #     videoType="comment",
-    #     topic="Singing",
-    #     music="Beggin' - Måneskin",
-    #     caption="Boyband meets your FYP 🤝 #maneskin #beggin #fyp",
-    # )
-
     db.session.add(addisonPost1)
     db.session.add(charliPost1)
     db.session.add(zachPost1)
@@ -879,22 +779,6 @@ def seed_posts():
     db.session.add(imaginePost7)
     db.session.add(jasonPost7)
     db.session.add(michaelPost7)
-
-    # db.session.add(usimPost1)
-    # db.session.add(djprecisePost1)
-    # db.session.add(rosePost1)
-    # db.session.add(kyliePost1)
-    # db.session.add(dwaynePost1)
-    # db.session.add(geniusPost1)
-    # db.session.add(urbanPost1)
-    # db.session.add(barstooluPost1)
-    # db.session.add(edPost1)
-    # db.session.add(newrulesbandPost1)
-
-    addisonPost1.likesOfVideo.append(charli)
-    addisonPost1.likesOfVideo.append(zach)
-    charliPost1.likesOfVideo.append(addison)
-    charliPost1.likesOfVideo.append(zach)
 
     db.session.commit()
 
