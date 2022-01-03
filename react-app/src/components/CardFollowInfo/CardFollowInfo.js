@@ -18,7 +18,7 @@ const CardFollowInfo = (props) => {
       openLoginModal(); // user not logged in
       return;
     }
-    dispatch(updateFollow({ userId: userData.id }));
+    dispatch(updateFollow({ userId: userData.id, previousStatus: userData.isFollowed }));
   };
   return (
     <div className="follow_info">
