@@ -2,3 +2,20 @@
   padding-bottom: 16px;
   width: 100%;
 }
+
+.see_more {
+  height: 20px;
+  margin-top: 8px;
+  margin-bottom: 0;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.see_more--text {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  color: #fe2c55;
+  margin: 0;
+  cursor: pointer;
+}
