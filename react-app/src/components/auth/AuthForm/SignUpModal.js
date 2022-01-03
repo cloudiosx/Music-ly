@@ -7,6 +7,8 @@ import ModalAuth from '../ModalAuth/ModalAuth';
 import './AuthForm.css';
 import { renderErrorMessage } from '../../../util/validation';
 
+const VALID_FILE_EXT = ['pdf', 'png', 'jpg', 'jpeg', 'gif', 'mp4', 'x-m4v', 'mov'];
+
 const SignUpModal = (props) => {
   const { isOpen, onClose, onClickFooterAction } = props;
   const dispatch = useDispatch();
@@ -20,6 +22,7 @@ const SignUpModal = (props) => {
   const [photoURL, setPhotoURL] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     if (user) {
@@ -42,6 +45,18 @@ const SignUpModal = (props) => {
     formData.append('photoURL', photoURL);
     formData.append('verified', false);
     dispatch(signUp(formData));
+  };
+
+  const handleChangeFile = (e) => {
+    if (!e.target?.files?.[0]) return;
+    const _file = e.target.files[0];
+    const ext = _file?.name?.split('.')?.pop();
+    if (!VALID_FILE_EXT.includes(ext)) {
+      setError('Invalid file type');
+      return;
+    }
+    setError('');
+    setPhotoURL(e.target.files[0]);
   };
 
   const updateEmail = (e) => {
@@ -156,13 +171,9 @@ const SignUpModal = (props) => {
         </div>
         <div className="form_field">
           <div className="label">Upload your avatar</div>
-          <input
-            type="file"
-            accepts=".png, .jpeg, .jpg, .gif"
-            required
-            onChange={(e) => setPhotoURL(e.target.files[0])}
-          />
+          <input type="file" accepts=".png, .jpeg, .jpg, .gif" required onChange={handleChangeFile} />
         </div>
+        {error && <p className="error_message">{error}</p>}
         {(!!photoURL || isSubmitted) && !!fileError && <p className="error_message">{fileError}</p>}
       </div>
       <div className="action_group">
