@@ -26,10 +26,14 @@ const actGetAllPostsError = (payload) => ({
 });
 
 // get all posts
-export const getAllPosts = () => async (dispatch, option) => {
+export const getAllPosts = (params) => async (dispatch, option) => {
   dispatch(actGetAllPostsLoading());
   try {
-    const res = await fetch('/api/posts/');
+    let url = '/api/posts/';
+    if (params?.following) {
+      url = url + '?following=true';
+    }
+    const res = await fetch(url);
 
     if (res.ok) {
       const posts = await res.json();
