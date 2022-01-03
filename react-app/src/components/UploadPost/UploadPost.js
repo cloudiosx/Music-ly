@@ -6,6 +6,8 @@ import './UploadPost.css';
 import { savePost } from '../../store/post/actions';
 import { renderErrorMessage } from '../../util/validation';
 
+const VALID_FILE_EXT = ['pdf', 'png', 'jpg', 'jpeg', 'gif', 'mp4', 'x-m4v', 'mov'];
+
 const UploadPost = ({ toggleModalUpload }) => {
   const fileRef = useRef(null);
   const [caption, setCaption] = useState('');
@@ -14,6 +16,8 @@ const UploadPost = ({ toggleModalUpload }) => {
   const [allows, setAllows] = useState([]);
   const [topic, setTopic] = useState(undefined);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState('');
+
   const dispatch = useDispatch();
 
   const openInputFile = () => {
@@ -46,6 +50,12 @@ const UploadPost = ({ toggleModalUpload }) => {
   const handleSelectFile = (e) => {
     if (!e.target?.files?.[0]) return;
     const _file = e.target.files[0];
+    const ext = _file?.name?.split('.')?.pop();
+    if (!VALID_FILE_EXT.includes(ext)) {
+      setError('Invalid file type');
+      return;
+    }
+    setError('');
 
     const preview = URL.createObjectURL(_file);
     const fileData = {
@@ -105,7 +115,7 @@ const UploadPost = ({ toggleModalUpload }) => {
               height="29px"
             />
             <div className="upload--text-main">Select video to upload</div>
-            <div className="upload--text-sub">Or drag and drop a file</div>
+            {/* <div className="upload--text-sub">Or drag and drop a file</div> */}
             <ul className="upload__info">
               <li>MP4 or WebM</li>
               <li>720x1280 resolution or higher</li>
@@ -115,6 +125,7 @@ const UploadPost = ({ toggleModalUpload }) => {
             <Button className="upload--button" type="fill" onClick={openInputFile}>
               Select file
             </Button>
+            {error && <p className="error_message">{error}</p>}
             {(!!file || isSubmitted) && !!fileError && <p className="error_message">{fileError}</p>}
           </div>
           <input
@@ -126,6 +137,7 @@ const UploadPost = ({ toggleModalUpload }) => {
             accept="video/mp4,video/x-m4v,video/*"
           />
         </div>
+
         {file && file?.previewVideo && (
           <div className="preview">
             <div className="preview_video">
@@ -148,7 +160,7 @@ const UploadPost = ({ toggleModalUpload }) => {
           </div>
 
           <div className="form-wrap">
-            <p className="form-title">Music Title</p>
+            <p className="form-title">Music</p>
             <input className="input_text" value={music} onChange={(e) => setMusic(e.target.value)} />
             {(!!music || isSubmitted) && !!musicError && <p className="error_message">{musicError}</p>}
           </div>
