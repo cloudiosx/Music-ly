@@ -49,11 +49,11 @@ const ProfileHead = ({ userProfile }) => {
 
       <div className="profile_stats">
         <div className="stats_item">
-          <strong>{userProfile.totalFollowers}</strong>
+          <strong>{userProfile.totalFollowings}</strong>
           <span className="stats_item--label">Following</span>
         </div>
         <div className="stats_item">
-          <strong>{userProfile.totalFollowings}</strong>
+          <strong>{userProfile.totalFollowers}</strong>
           <span className="stats_item--label">Followers</span>
         </div>
         <div className="stats_item">
