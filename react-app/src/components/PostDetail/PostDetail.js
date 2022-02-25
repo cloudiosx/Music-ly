@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
@@ -12,9 +12,10 @@ import Button from '../pieces/Button';
 import VideoMeta from '../pieces/VideoMeta';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import SmsOutlinedIcon from '@mui/icons-material/SmsOutlined';
+import SmsIcon from '@mui/icons-material/Sms';
 import ReplyIcon from '@mui/icons-material/Reply';
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
+import DoneAllIcon from '@mui/icons-material/DoneAll';
 import './PostDetail.css';
 
 function PostDetail() {
@@ -26,6 +27,8 @@ function PostDetail() {
 
   const post = useSelector((state) => state.postStore.postDetail);
   const user = useSelector((state) => state.session.user);
+
+  const [isCopied, setIsCopied] = useState(false);
 
   console.log('post', post);
   console.log(postId);
@@ -65,6 +68,14 @@ function PostDetail() {
     dispatch(deletePost(postId));
   };
 
+  const handleCopy = () => {
+    navigator.clipboard.writeText(window.location.href);
+    setIsCopied(true);
+    setTimeout(() => {
+      setIsCopied(false);
+    }, 5000);
+  };
+
   if (!post) {
     return (
       <div className="post_detail">
@@ -91,7 +102,13 @@ function PostDetail() {
   return (
     <main className="post_detail">
       <div className="post_left">
-        <video className="post_left_video" src={post?.videoURL} controls muted autoPlay={true}></video>
+        <video
+          className="post_left_video"
+          src={post?.videoURL}
+          controls
+          muted
+          autoPlay={true}
+        ></video>
         {/* <ReactPlayer controls url={post?.videoURL} width="100%" height="100%" /> */}
         <img
           src="https://tiktok-react-cloudiosx.s3.us-east-2.amazonaws.com/SvgImages/closeIcon.svg"
@@ -113,7 +130,11 @@ function PostDetail() {
               <p>{post?.User?.fullname}</p>
             </div>
             {user && user?.id === post.userId ? (
-              <Button onClick={deleteMyPost} type="text" className={`followButton following`}>
+              <Button
+                onClick={deleteMyPost}
+                type="text"
+                className={`followButton following`}
+              >
                 Delete
               </Button>
             ) : (
@@ -134,17 +155,21 @@ function PostDetail() {
             </b>
           </h1>
           <h2 className="music">
-            <MusicNoteIcon fontSize="small" />
+            <MusicNoteIcon />
             {post?.music}
           </h2>
           <div className="actions">
             <VideoMeta
               content={post.totalLikes}
               onClick={handleClickLike}
-              icon={post.isLiked ? <FavoriteIcon color="error" /> : <FavoriteBorderIcon />}
+              icon={post.isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
               isHorizon
             />
-            <VideoMeta content={post.totalComments} icon={<SmsOutlinedIcon />} isHorizon />
+            <VideoMeta
+              content={post.totalComments}
+              icon={<SmsIcon />}
+              isHorizon
+            />
             <VideoMeta
               content={post.totalComments}
               icon={<ReplyIcon style={{ transform: 'scaleX(-1)' }} />}
@@ -153,13 +178,22 @@ function PostDetail() {
           </div>
           <div className="copy_link">
             <div className="copy_link--link">{window.location.href}</div>
-            <div className="copy_link--copy">
-              <p>Copy Link</p>
+            <div className="copy_link--copy" onClick={handleCopy}>
+              <p className="copy_text">
+                {isCopied && <DoneAllIcon color="success" />}
+                <span className={isCopied ? 'copied' : ''}>
+                  {isCopied ? 'Copied' : 'Copy Link'}
+                </span>
+              </p>
             </div>
           </div>
         </div>
         <div className="post_right_comment">
-          {!user ? <CommentLogout /> : <Comments comments={post.comments} user={user} postId={postId} />}
+          {!user ? (
+            <CommentLogout />
+          ) : (
+            <Comments comments={post.comments} user={user} postId={postId} />
+          )}
         </div>
         {user && <CommentInput postId={postId} user={user} />}
       </div>
