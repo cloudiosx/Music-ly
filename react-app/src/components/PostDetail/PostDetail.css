@@ -184,12 +184,18 @@
   -webkit-box-align: center;
   align-items: center;
 }
-.post_right_info .copy_link--copy p {
+
+.copy_text {
   font-weight: 700;
   padding: 7px 16px;
   font-size: 14px;
   line-height: 32px;
   color: rgb(22, 24, 35);
+  display: flex;
+  align-items: center;
+}
+.copied {
+  color: #2e7d32 !important;
 }
 
 /* Comment section */

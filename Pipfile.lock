@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "2c97da263e46eb161cca287beca6ca2e8172aee566725632048445579a5aa5f2"
+            "sha256": "04ff86f5d0688f39a6a0f789e0883a154687dcb7911c8d5ce4aff61427f1a82a"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -37,7 +37,7 @@
                 "sha256:43006b4f52d7bb655319d3da0f615cdbee7762853acc1ebcb1d49f962e6b4806",
                 "sha256:e78d48c50c8c013fb9b362c6202fece2fe868edfd89b51968080180bdff41617"
             ],
-            "markers": "python_version >= '3.6'",
+            "index": "pypi",
             "version": "==1.23.24"
         },
         "click": {
@@ -180,7 +180,7 @@
                 "sha256:b85d0567b8666149a93172712e68920734333c0ce7e89b78b3e987f71e5ed4f9",
                 "sha256:cdf6525904cc597730141d61b36f2e4b8ecc257c420fa2f4549bac2c2d0cb72f"
             ],
-            "markers": "python_version >= '2.6' and python_version not in '3.0, 3.1, 3.2, 3.3'",
+            "index": "pypi",
             "version": "==0.10.0"
         },
         "mako": {
@@ -298,16 +298,16 @@
                 "sha256:50ed823e1dc5868ad40c8dc92072f757aa0e653a192845c94a3b676f4a62da4c",
                 "sha256:9c1dc369814391a6bda20ebbf4b70a0f34630592c9aa520856bf384916af2803"
             ],
-            "markers": "python_version >= '3.6'",
+            "index": "pypi",
             "version": "==0.5.0"
         },
         "setuptools": {
             "hashes": [
-                "sha256:22c7348c6d2976a52632c67f7ab0cdf40147db7789f9aed18734643fe9cf3373",
-                "sha256:4ce92f1e1f8f01233ee9952c04f6b81d1e02939d6e1b488428154974a4d0783e"
+                "sha256:2347b2b432c891a863acadca2da9ac101eae6169b1d3dfee2ec605ecd50dbfe5",
+                "sha256:e4f30b9f84e5ab3decf945113119649fec09c1fc3507c6ebffec75646c56e62b"
             ],
-            "markers": "python_version >= '3.6'",
-            "version": "==59.6.0"
+            "markers": "python_version >= '3.7'",
+            "version": "==60.9.3"
         },
         "six": {
             "hashes": [
@@ -358,7 +358,7 @@
                 "sha256:4987c65554f7a2dbf30c18fd48778ef124af6fab771a377103da0585e2336ece",
                 "sha256:c4fdf4019605b6e5423637e01bc9fe4daef873709a7973e195ceba0a62bbc844"
             ],
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4' and python_version < '4'",
+            "index": "pypi",
             "version": "==1.26.7"
         },
         "werkzeug": {
